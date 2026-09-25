@@ -76,7 +76,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .header.is-scrolled { border-bottom-color: var(--line); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-.logo { font-weight: 600; font-size: 1.3rem; letter-spacing: -0.04em; text-decoration: none; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.3rem; letter-spacing: -0.04em; text-decoration: none; }
+.logo img { width: 28px; height: 28px; flex: none; }
 
 .nav { display: flex; align-items: center; gap: 32px; }
 .nav a:not(.btn) { text-decoration: none; font-size: .95rem; color: var(--muted); transition: color .2s; }
@@ -382,9 +383,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .notice strong { color: var(--accent); font-weight: 600; margin-right: 4px; }
 
 /* ---------- Er stil ---------- */
-.style { padding-top: 0; }
-.style__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; padding-top: 96px; border-top: 1px solid var(--line); }
-@media (max-width: 860px) { .style__grid { grid-template-columns: 1fr; padding-top: 64px; } }
+.style__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; }
+@media (max-width: 860px) { .style__grid { grid-template-columns: 1fr; } }
 .style .head { margin-bottom: 32px; }
 .style__list { list-style: none; margin: 0; padding: 0; }
 .style__list li { padding: 22px 0 22px 28px; border-bottom: 1px solid var(--line); position: relative; }
@@ -393,3 +393,40 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .style__list li:first-child::before { top: .5em; }
 .style__list h3 { margin-bottom: 6px; }
 .style__list p { margin: 0; color: var(--muted); }
+
+/* ---------- Mörkblått avsnitt ---------- */
+.section--dark { background: var(--accent); color: #eee8df; }
+.section--dark .label { color: #a9bdd8; }
+.section--dark .head p:not(.label) { color: #c6d1df; }
+.section--dark .accent { color: #a9bdd8; }
+.section--dark .style__list li { border-bottom-color: rgba(238, 232, 223, .18); }
+.section--dark .style__list li::before { background: #a9bdd8; }
+.section--dark .style__list p { color: #c6d1df; }
+
+/* ---------- Produktkort över hero-bilden ---------- */
+.hero__card {
+  position: absolute; left: -56px; bottom: 56px; width: 172px;
+  display: block; padding: 10px 10px 12px; background: #fff; color: var(--ink); text-decoration: none;
+  box-shadow: 0 2px 4px rgba(24, 33, 45, .06), 0 28px 50px -24px rgba(24, 33, 45, .45);
+  transition: transform .35s ease;
+}
+.hero__card:hover { transform: translateY(-4px); }
+.hero__card img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.hero__card-row { display: flex; justify-content: space-between; margin-top: 10px; font-size: .85rem; }
+.hero__card-btn { display: block; margin-top: 8px; padding: 7px 0; text-align: center; font-size: .8rem; background: var(--accent); color: #fff; }
+.hero__media figcaption { text-align: right; }
+@media (max-width: 860px) {
+  .hero__card { left: 12px; bottom: 44px; width: 128px; padding: 7px 7px 9px; }
+  .hero__card-row { font-size: .75rem; margin-top: 6px; }
+  .hero__card-btn { font-size: .72rem; padding: 5px 0; }
+}
+
+/* ---------- Papperskorn ---------- */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Mjuk intoning ---------- */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.js .reveal.is-in { opacity: 1; transform: none; }
