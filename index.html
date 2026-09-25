@@ -8,29 +8,19 @@
   <meta property="og:title" content="Elevora UF – Sälj direkt från er egen sida">
   <meta property="og:description" content="Webbshop med Swish, kort och Klarna. UF-pris från 600 kr. Klart på 1–2 veckor.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#c8385a">
+  <meta property="og:image" content="img/hero.jpg">
+  <meta name="theme-color" content="#e3dfd9">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Kontaktrad högst upp -->
-  <div class="topbar">
-    <div class="wrap topbar__inner">
-      <span>Svarar vardagar efter skolan, 16–20</span>
-      <span class="topbar__contact">
-        <a href="tel:+46700000000">070-000 00 00</a>
-        <a href="mailto:hej@elevora.se">hej@elevora.se</a>
-      </span>
-    </div>
-  </div>
-
   <header class="header" id="top">
     <div class="wrap header__inner">
-      <a href="#top" class="logo" aria-label="Elevora UF, till toppen">elevora<span>.</span></a>
+      <a href="#top" class="logo" aria-label="Elevora UF, till toppen">Elevora</a>
       <nav class="nav" id="nav" aria-label="Huvudmeny">
         <a href="#demo">Demobutik</a>
         <a href="#priser">Priser</a>
@@ -39,7 +29,7 @@
         <a href="#offert" class="btn btn--small">Begär offert</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Öppna meny">
-        <span></span><span></span><span></span>
+        <span></span><span></span>
       </button>
     </div>
   </header>
@@ -48,58 +38,51 @@
 
     <!-- HERO -->
     <section class="hero">
-      <img class="hero__img" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=70" alt="" onerror="this.remove()">
-      <div class="hero__fade"></div>
+      <picture class="hero__media">
+        <img src="img/hero.jpg" alt="Guldringar, en silverring, creoler och en pärla på stenblock" width="2000" height="1250">
+      </picture>
       <div class="wrap hero__content">
-        <p class="eyebrow eyebrow--light">Hemsidor och webbshoppar för UF-företag</p>
-        <h1>Sälj direkt från er egen sida. Sluta ta beställningar i DM.</h1>
-        <p class="hero__lead">Vi bygger en butik där kunden trycker på produkten, väljer och betalar med Swish, kort eller Klarna. Klart på en till två veckor.</p>
-        <div class="hero__deal">
-          <span class="tag">UF-pris</span>
-          <span>Hemsida <strong>600 kr</strong></span>
-          <span class="dot" aria-hidden="true"></span>
-          <span>Webbshop <strong>1 200 kr</strong></span>
-        </div>
+        <p class="label">Hemsidor och webbshoppar för UF-företag</p>
+        <h1>Sälj direkt från er egen sida.</h1>
+        <p class="hero__lead">Sluta ta beställningar i DM. Vi bygger en butik där kunden väljer produkt och betalar med Swish, kort eller Klarna. Klar på en till två veckor.</p>
         <div class="hero__cta">
-          <a href="#demo" class="btn btn--light">Testa demobutiken</a>
-          <a href="#offert" class="btn btn--ghost">Begär offert</a>
+          <a href="#demo" class="btn">Testa demobutiken</a>
+          <a href="#offert" class="btn btn--line">Begär offert</a>
         </div>
-        <ul class="pay-row" aria-label="Betalsätt vi kopplar in">
-          <li class="pay pay--swish">Swish</li>
-          <li class="pay pay--card">Kort</li>
-          <li class="pay pay--klarna">Klarna</li>
-        </ul>
+        <dl class="hero__prices">
+          <div><dt>Hemsida, UF-pris</dt><dd>600 kr</dd></div>
+          <div><dt>Webbshop, UF-pris</dt><dd>1 200 kr</dd></div>
+        </dl>
       </div>
     </section>
 
     <!-- DEMOBUTIK -->
-    <section class="demo" id="demo">
+    <section class="section demo" id="demo">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Testa själv</p>
-          <h2>Tryck på en klocka och köp den.</h2>
-          <p>Det här är en påhittad butik som vi byggt. Gå från produkt till kassa precis som era kunder skulle göra. Inga riktiga pengar dras.</p>
+        <div class="head">
+          <p class="label">01 — Demobutik</p>
+          <h2>Testa hur det känns att handla.</h2>
+          <p>Norrsken är en påhittad smyckesbutik som vi byggt. Tryck på en produkt, välj storlek och gå till kassan. Inga riktiga pengar dras.</p>
         </div>
 
         <div class="browser">
           <div class="browser__bar">
             <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="browser__url">norrskenstudio.se<span id="demoPath"></span></span>
-            <span class="browser__badge">Demo</span>
+            <span class="browser__url">norrskensmycken.se<span id="demoPath"></span></span>
           </div>
           <div class="shop" id="shop" aria-live="polite">
             <noscript><p class="shop__noscript">Slå på JavaScript för att testa demobutiken.</p></noscript>
           </div>
         </div>
 
-        <p class="demo__note">Vill ni ha en egen? Samma flöde, med era produkter, era bilder och er betaltjänst. <a href="#offert">Begär offert →</a></p>
+        <p class="demo__note">Samma flöde, med era produkter och er betaltjänst. <a href="#offert">Begär offert</a></p>
       </div>
     </section>
 
     <!-- DM VS BUTIK -->
-    <section class="compare">
+    <section class="section compare">
       <div class="wrap compare__grid">
-        <div class="compare__col compare__col--before">
+        <div>
           <h3>Så säljer många idag</h3>
           <ol>
             <li>Kunden ser produkten på TikTok eller Instagram</li>
@@ -107,110 +90,84 @@
             <li>Skriver i DM och väntar på svar</li>
             <li>Swishar till ett nummer och hoppas att allt blev rätt</li>
           </ol>
-          <p class="compare__result">Många hoppar av på vägen.</p>
         </div>
-        <div class="compare__col compare__col--after">
+        <div>
           <h3>Med en egen butik</h3>
           <ol>
-            <li>Länken i bion går rakt till butiken</li>
-            <li>Kunden trycker på produkten och ser pris och bilder</li>
-            <li>”Köp nu”, välj Swish, kort eller Klarna</li>
-            <li>Betalt. Ni får ordern på mejlen</li>
+            <li>Länken i bion går direkt till butiken</li>
+            <li>Kunden ser bilder, pris och storlekar</li>
+            <li>Trycker ”Köp nu” och betalar med Swish, kort eller Klarna</li>
+            <li>Ni får ordern på mejlen, även när ni sitter på lektion</li>
           </ol>
-          <p class="compare__result">Ni säljer medan ni sitter på lektion.</p>
         </div>
       </div>
     </section>
 
     <!-- PRISER -->
-    <section class="prices" id="priser">
+    <section class="section prices" id="priser">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Priser</p>
+        <div class="head">
+          <p class="label">02 — Priser</p>
           <h2>Fasta priser. UF-företag betalar mindre.</h2>
           <p>Ni får en skriftlig offert innan vi börjar, och priset ändras inte på vägen.</p>
         </div>
 
-        <div class="price-grid">
-          <article class="price price--featured">
-            <span class="price__flag">Mest populär</span>
-            <h3>Webbshop</h3>
-            <p class="price__desc">Produktsidor, kassa och betalning med Swish, kort eller Klarna.</p>
-            <p class="price__uf"><span class="tag">UF-pris</span> <strong>1 200 kr</strong></p>
-            <p class="price__normal">Ordinarie från 2 000 kr</p>
-            <ul>
-              <li>Upp till 15 produkter från start</li>
-              <li>Fungerar i mobilen först</li>
-              <li>Vi testar ett köp tillsammans med er</li>
-            </ul>
-            <a href="#offert" class="btn" data-service="Webbshop">Välj webbshop</a>
-          </article>
-
-          <article class="price">
-            <h3>Hemsida, en sida</h3>
-            <p class="price__desc">Allt om er på en snygg sida: vad ni säljer, bilder och kontakt.</p>
-            <p class="price__uf"><span class="tag">UF-pris</span> <strong>600 kr</strong></p>
-            <p class="price__normal">Ordinarie 1 200 kr</p>
-            <ul>
-              <li>Länka från Instagram och TikTok</li>
-              <li>Kontaktformulär</li>
-              <li>Kan byggas ut till webbshop senare</li>
-            </ul>
-            <a href="#offert" class="btn btn--outline" data-service="Hemsida">Välj hemsida</a>
-          </article>
-
-          <div class="price-extras">
-            <article class="extra">
-              <div>
-                <h3>Google-profil</h3>
-                <p>Syns på Google Maps och i sökresultaten.</p>
-              </div>
-              <strong>400 kr</strong>
-            </article>
-            <article class="extra">
-              <div>
-                <h3>Löpande uppdateringar</h3>
-                <p>Nya produkter, priser och bilder när ni behöver.</p>
-              </div>
-              <strong>200 kr/mån</strong>
-            </article>
-            <article class="extra extra--info">
-              <div>
-                <h3>Domän</h3>
-                <p>Ni äger den själva, t.ex. ertforetag.se. Betaltjänsten tar sin egen avgift per köp.</p>
-              </div>
-              <strong>ca 200 kr/år</strong>
-            </article>
+        <div class="price-table" role="table" aria-label="Prislista">
+          <div class="price-row price-row--head" role="row">
+            <span role="columnheader">Tjänst</span>
+            <span role="columnheader" class="price-col">UF-företag</span>
+            <span role="columnheader" class="price-col">Ordinarie</span>
+          </div>
+          <div class="price-row" role="row">
+            <div role="cell"><h3>Webbshop</h3><p>Produktsidor, kassa och betalning med Swish, kort eller Klarna. Upp till 15 produkter från start.</p></div>
+            <span role="cell" class="price-col price-uf" data-label="UF-företag">1 200 kr</span>
+            <span role="cell" class="price-col price-normal" data-label="Ordinarie">från 2 000 kr</span>
+          </div>
+          <div class="price-row" role="row">
+            <div role="cell"><h3>Hemsida, en sida</h3><p>Vad ni säljer, bilder och kontakt på en sida. Kan byggas ut till webbshop senare.</p></div>
+            <span role="cell" class="price-col price-uf" data-label="UF-företag">600 kr</span>
+            <span role="cell" class="price-col price-normal" data-label="Ordinarie">1 200 kr</span>
+          </div>
+          <div class="price-row" role="row">
+            <div role="cell"><h3>Google-profil</h3><p>Syns på Google Maps och i sökresultaten.</p></div>
+            <span role="cell" class="price-col price-uf" data-label="Pris">400 kr</span>
+            <span role="cell" class="price-col price-normal" aria-hidden="true"></span>
+          </div>
+          <div class="price-row" role="row">
+            <div role="cell"><h3>Löpande uppdateringar</h3><p>Nya produkter, priser och bilder när ni behöver.</p></div>
+            <span role="cell" class="price-col price-uf" data-label="Pris">200 kr/mån</span>
+            <span role="cell" class="price-col price-normal" aria-hidden="true"></span>
           </div>
         </div>
+        <p class="prices__note">Ni äger er domän själva, till exempel ertforetag.se, och den kostar ungefär 200 kr per år. Betaltjänsten tar en egen avgift per köp.</p>
       </div>
     </section>
 
     <!-- SÅ FUNKAR DET -->
-    <section class="steps" id="sa-funkar-det">
+    <section class="section steps" id="sa-funkar-det">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Så funkar det</p>
-          <h2>Från samtal till första köp på två veckor.</h2>
+        <div class="head">
+          <p class="label">03 — Så funkar det</p>
+          <h2>Från första samtal till första köp.</h2>
         </div>
         <ol class="step-list">
           <li>
-            <span class="step-list__no">1</span>
+            <span class="step-list__no">01</span>
             <h3>Kort samtal</h3>
-            <p>Gratis, 15 minuter. Ni berättar vad ni säljer och hur ni vill att det ska se ut.</p>
+            <p>Gratis, cirka 15 minuter. Ni berättar vad ni säljer och hur ni vill att det ska se ut.</p>
           </li>
           <li>
-            <span class="step-list__no">2</span>
-            <h3>Offert med fast pris</h3>
-            <p>Ni får den skriftligt samma vecka. Inga överraskningar.</p>
+            <span class="step-list__no">02</span>
+            <h3>Offert</h3>
+            <p>Skriftlig och med fast pris, samma vecka.</p>
           </li>
           <li>
-            <span class="step-list__no">3</span>
+            <span class="step-list__no">03</span>
             <h3>Första förslaget</h3>
-            <p>Inom en vecka. Ni säger vad som ska ändras, vi fixar det.</p>
+            <p>Inom en vecka. Ni säger vad som ska ändras och vi fixar det.</p>
           </li>
           <li>
-            <span class="step-list__no">4</span>
+            <span class="step-list__no">04</span>
             <h3>Publicering</h3>
             <p>Vi kopplar domän och betaltjänst och gör ett testköp tillsammans med er.</p>
           </li>
@@ -219,51 +176,37 @@
     </section>
 
     <!-- OM OSS -->
-    <section class="about" id="om-oss">
+    <section class="section about" id="om-oss">
       <div class="wrap about__grid">
-        <div class="about__text">
-          <p class="eyebrow">Om oss</p>
+        <div class="head">
+          <p class="label">04 — Om oss</p>
           <h2>Vi är elever. Det är därför det är billigt.</h2>
+        </div>
+        <div class="about__text">
           <p>Elevora är ett UF-företag från Mora. Vi går gymnasiet och bygger hemsidor efter skoldagen, åt kunder i hela Sverige.</p>
-          <p>Vi använder AI (Claude) när vi skriver koden. Det gör att vi blir klara på en till två veckor i stället för en månad. Men vi läser igenom allt, testar varje sida i mobilen och står för resultatet själva.</p>
-          <p>Vi svarar på vardagar efter skolan, oftast samma kväll.</p>
+          <p>Vi använder AI när vi skriver koden, och därför blir vi klara på en till två veckor i stället för en månad. Men vi läser igenom allt, testar varje sida i mobilen och står för resultatet själva.</p>
+          <p>Koden ligger på GitHub och sidan publiceras gratis via Netlify. Det enda ni betalar löpande är domänen och betaltjänstens avgift.</p>
+          <!-- Foto på er: lägg bilden i img/team.jpg så visas den här -->
+          <figure class="about__photo">
+            <img src="img/team.jpg" alt="Teamet bakom Elevora UF" onerror="this.parentNode.remove()">
+          </figure>
         </div>
-        <!-- Byt ut mot ett foto på er: lägg bilden i img/team.jpg och ta bort klassen about__photo--empty -->
-        <figure class="about__photo about__photo--empty">
-          <img src="img/team.jpg" alt="Teamet bakom Elevora UF" onerror="this.remove()">
-        </figure>
-        <ul class="facts">
-          <li><strong>1–2 veckor</strong><span>från offert till färdig sida</span></li>
-          <li><strong>0 kr/mån</strong><span>i hosting, sidan ligger gratis på Netlify</span></li>
-          <li><strong>Er egen</strong><span>domän, kod och kunder</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- TEKNIK -->
-    <section class="tech">
-      <div class="wrap tech__inner">
-        <h2>Vad händer med sidan efteråt?</h2>
-        <div class="tech__cols">
-          <p><strong>Den är er.</strong> Koden ligger på GitHub och sidan publiceras gratis via Netlify.</p>
-          <p><strong>Inga månadsavgifter till oss</strong> om ni inte vill att vi sköter uppdateringar.</p>
-          <p><strong>Det enda som kostar löpande</strong> är domänen och betaltjänstens avgift per köp.</p>
-        </div>
+        <dl class="facts">
+          <div><dt>1–2 veckor</dt><dd>från offert till färdig sida</dd></div>
+          <div><dt>0 kr/mån</dt><dd>i hosting</dd></div>
+          <div><dt>Samma kväll</dt><dd>svarar vi oftast, vardagar efter skolan</dd></div>
+        </dl>
       </div>
     </section>
 
     <!-- OFFERT -->
-    <section class="contact" id="offert">
+    <section class="section contact" id="offert">
       <div class="wrap contact__grid">
         <div class="contact__text">
-          <p class="eyebrow eyebrow--light">Begär offert</p>
+          <p class="label">Begär offert</p>
           <h2>Berätta vad ni säljer.</h2>
-          <p>Vi hör av oss inom ett dygn och bokar ett kort gratissamtal. Ni bestämmer inget förrän ni sett offerten.</p>
-          <ul class="contact__direct">
-            <li><span>Ring eller sms:a</span><a href="tel:+46700000000">070-000 00 00</a></li>
-            <li><span>Mejla</span><a href="mailto:hej@elevora.se">hej@elevora.se</a></li>
-            <li><span>Instagram</span><a href="https://www.instagram.com/elevora.uf" rel="noopener">@elevora.uf</a></li>
-          </ul>
+          <p>Vi hör av oss inom ett dygn och bokar ett kort samtal. Ni bestämmer ingenting förrän ni har sett offerten.</p>
+          <p class="contact__mail">Eller mejla direkt:<br><a href="mailto:elevora.uf@gmail.com">elevora.uf@gmail.com</a></p>
         </div>
 
         <form class="form" name="offert" method="POST" action="/tack.html" data-netlify="true" netlify-honeypot="bot-field">
@@ -274,10 +217,7 @@
             <label>Namn<input type="text" name="namn" autocomplete="name" required></label>
             <label>Företag<input type="text" name="foretag" autocomplete="organization"></label>
           </div>
-          <div class="form__row">
-            <label>Mejl<input type="email" name="mejl" autocomplete="email" required></label>
-            <label>Telefon<input type="tel" name="telefon" autocomplete="tel"></label>
-          </div>
+          <label>Mejl<input type="email" name="mejl" autocomplete="email" required></label>
           <label>Vad behöver ni?
             <select name="tjanst" id="serviceSelect">
               <option>Webbshop</option>
@@ -299,23 +239,15 @@
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <div>
-        <a href="#top" class="logo logo--light">elevora<span>.</span></a>
-        <p>UF-företag i Mora, Dalarna. Vi jobbar på distans i hela Sverige.</p>
-      </div>
-      <div class="footer__links">
-        <a href="tel:+46700000000">070-000 00 00</a>
-        <a href="mailto:hej@elevora.se">hej@elevora.se</a>
-        <a href="https://www.instagram.com/elevora.uf" rel="noopener">Instagram</a>
-      </div>
+      <a href="#top" class="logo">Elevora</a>
+      <p>UF-företag i Mora, Dalarna. Vi jobbar på distans i hela Sverige.</p>
+      <a href="mailto:elevora.uf@gmail.com">elevora.uf@gmail.com</a>
       <p class="footer__small">© <span id="year">2026</span> Elevora UF · Drivs inom Ung Företagsamhet</p>
     </div>
   </footer>
 
-  <!-- Snabbknappar i mobilen -->
   <div class="mobile-cta">
-    <a href="tel:+46700000000" class="btn btn--outline">Ring</a>
-    <a href="#offert" class="btn">Begär offert</a>
+    <a href="#offert" class="btn btn--block">Begär offert</a>
   </div>
 
   <script src="js/main.js"></script>

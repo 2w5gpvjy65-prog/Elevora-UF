@@ -19,10 +19,15 @@ Hemsida för vårt UF-företag Elevora. Ren HTML, CSS och JavaScript, inget bygg
 3. Offertformuläret använder Netlify Forms. Förfrågningar syns under *Forms* i Netlify, och där kan ni slå på mejlnotiser.
 4. Koppla domänen under *Domain management*.
 
-## Att göra innan sidan går live
+## Bilder
 
-- [ ] Byt `070-000 00 00` / `+46700000000` mot riktigt nummer (finns i `index.html` och `tack.html`)
-- [ ] Byt `hej@elevora.se` och `@elevora.uf` mot riktig mejl och Instagram
-- [ ] Lägg ett foto på er som `img/team.jpg` – det dyker upp automatiskt under "Om oss"
-- [ ] Byt produktbilderna (just nu från Unsplash) mot egna eller kundens bilder
+- `img/hero.jpg` – stora bilden högst upp
+- `img/produkter/*.jpg` – produkterna i demobutiken (Norrsken är ett påhittat märke)
+
+Bilderna är 3D-renderade studiobilder som vi har gjort själva, så de är fria att använda. När ni har ett riktigt kundexempel kan ni byta ut dem. Behåll samma filnamn eller ändra sökvägarna i `js/main.js`.
+
+## Att göra
+
+- [ ] Lägg ett foto på er som `img/team.jpg`. Det dyker upp automatiskt under "Om oss"
+- [ ] Lägg till telefonnummer och Instagram när ni vill ha med dem
 - [ ] När första kundsidan är klar: lägg den bredvid eller i stället för demobutiken
