@@ -9,7 +9,7 @@
   --ink: #1d1c1a;        /* text och knappar */
   --muted: #6d675f;
   --line: #d8d0c3;
-  --accent: #1f3a5c;     /* mörk dämpad blå, används sparsamt */
+  --accent: #1b2a40;     /* mörk marinblå, används sparsamt */
   --navy: #18212d;       /* offert och sidfot */
 
   --font: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -18,7 +18,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   margin: 0;
   background: var(--bg);
@@ -75,9 +75,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transition: border-color .2s;
 }
 .header.is-scrolled { border-bottom-color: var(--line); }
-.header__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-.logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.3rem; letter-spacing: -0.04em; text-decoration: none; }
-.logo img { width: 28px; height: 28px; flex: none; }
+.header__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1.7rem; letter-spacing: -0.04em; text-decoration: none; }
+.logo img { width: 44px; height: 44px; flex: none; margin: -6px -2px -6px -6px; }
+.footer .logo img { width: 36px; height: 36px; }
 
 .nav { display: flex; align-items: center; gap: 32px; }
 .nav a:not(.btn) { text-decoration: none; font-size: .95rem; color: var(--muted); transition: color .2s; }
@@ -91,7 +92,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 860px) {
   .nav-toggle { display: block; }
   .nav {
-    position: absolute; top: 68px; left: 0; right: 0;
+    position: absolute; top: 76px; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--bg); border-bottom: 1px solid var(--line);
     padding: 0 16px 24px; display: none;
@@ -395,7 +396,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .style__list p { margin: 0; color: var(--muted); }
 
 /* ---------- Mörkblått avsnitt ---------- */
-.section--dark { background: var(--accent); color: #eee8df; }
+.section--dark { background: var(--navy); color: #eee8df; }
 .section--dark .label { color: #a9bdd8; }
 .section--dark .head p:not(.label) { color: #c6d1df; }
 .section--dark .accent { color: #a9bdd8; }
@@ -448,3 +449,9 @@ body::after {
 /* ---------- Mjuk intoning ---------- */
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
 .js .reveal.is-in { opacity: 1; transform: none; }
+
+/* ---------- Stor logga vid formuläret ---------- */
+.contact__grid { align-items: stretch; }
+.contact__text { display: flex; flex-direction: column; }
+.contact__mark { width: 200px; height: auto; margin-top: auto; padding-top: 48px; opacity: .92; }
+@media (max-width: 860px) { .contact__mark { display: none; } }
