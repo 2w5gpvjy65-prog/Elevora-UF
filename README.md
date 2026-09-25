@@ -36,6 +36,8 @@ När ni har ett riktigt kundexempel kan ni byta ut bilderna. Behåll samma filna
 
 ## Att göra
 
+- [ ] Köp en domän (t.ex. elevora.se) och koppla den i Netlify under Domain management
+
 - [ ] Lägg ett foto på er som `img/team.jpg`. Det dyker upp automatiskt under "Om oss"
 - [ ] Lägg till telefonnummer och Instagram när ni vill ha med dem
 - [ ] När första kundsidan är klar: lägg den bredvid eller i stället för demobutiken

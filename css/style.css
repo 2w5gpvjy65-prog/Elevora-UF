@@ -455,3 +455,8 @@ body::after {
 .contact__text { display: flex; flex-direction: column; }
 .contact__mark { width: 200px; height: auto; margin-top: auto; padding-top: 48px; opacity: .92; }
 @media (max-width: 860px) { .contact__mark { display: none; } }
+
+/* ---------- Demo-markeringar ---------- */
+.browser__badge { flex: none; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--accent); padding: 3px 8px; border-radius: 2px; }
+.demo-only { margin: 10px 0 0; font-size: .8rem; color: var(--muted); text-align: center; }
+.done__order { color: var(--muted); font-size: .85rem; margin-bottom: 6px !important; }
