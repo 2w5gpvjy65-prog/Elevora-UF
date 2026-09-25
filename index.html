@@ -9,18 +9,18 @@
   <meta property="og:description" content="Webbshop med Swish, kort och Klarna. UF-pris från 600 kr. Klart på 1–2 veckor.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="img/hero.jpg">
-  <meta name="theme-color" content="#e3dfd9">
+  <meta name="theme-color" content="#f6f3ee">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
   <header class="header" id="top">
     <div class="wrap header__inner">
-      <a href="#top" class="logo" aria-label="Elevora UF, till toppen">Elevora</a>
+      <a href="./" class="logo" aria-label="Elevora UF, till startsidan">Elevora</a>
       <nav class="nav" id="nav" aria-label="Huvudmeny">
         <a href="#demo">Demobutik</a>
         <a href="#priser">Priser</a>
@@ -38,21 +38,24 @@
 
     <!-- HERO -->
     <section class="hero">
-      <picture class="hero__media">
-        <img src="img/hero.jpg" alt="Guldringar, en silverring, creoler och en pärla på stenblock" width="2000" height="1250">
-      </picture>
-      <div class="wrap hero__content">
-        <p class="label">Hemsidor och webbshoppar för UF-företag</p>
-        <h1>Sälj direkt från er egen sida.</h1>
-        <p class="hero__lead">Sluta ta beställningar i DM. Vi bygger en butik där kunden väljer produkt och betalar med Swish, kort eller Klarna. Klar på en till två veckor.</p>
-        <div class="hero__cta">
-          <a href="#demo" class="btn">Testa demobutiken</a>
-          <a href="#offert" class="btn btn--line">Begär offert</a>
+      <div class="wrap hero__grid">
+        <div class="hero__content">
+          <p class="label">Hemsidor och webbshoppar för UF-företag</p>
+          <h1>Sälj direkt från er egen sida.</h1>
+          <p class="hero__lead">Sluta ta beställningar i DM. Vi bygger en butik där kunden väljer produkt och betalar med Swish, kort eller Klarna. Med hjälp av AI blir den klar på en till två veckor.</p>
+          <div class="hero__cta">
+            <a href="#demo" class="btn">Testa demobutiken</a>
+            <a href="#offert" class="btn btn--line">Begär offert</a>
+          </div>
+          <dl class="hero__prices">
+            <div><dt>Hemsida, UF-pris</dt><dd>600 kr</dd></div>
+            <div><dt>Webbshop, UF-pris</dt><dd>1 200 kr</dd></div>
+          </dl>
         </div>
-        <dl class="hero__prices">
-          <div><dt>Hemsida, UF-pris</dt><dd>600 kr</dd></div>
-          <div><dt>Webbshop, UF-pris</dt><dd>1 200 kr</dd></div>
-        </dl>
+        <figure class="hero__media">
+          <img src="img/hero.jpg" alt="Laptop på ett skrivbord som visar vår demobutik Norrsken" width="1200" height="1320">
+          <figcaption>Demobutiken Norrsken, byggd av oss</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -239,7 +242,7 @@
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <a href="#top" class="logo">Elevora</a>
+      <a href="./" class="logo">Elevora</a>
       <p>UF-företag i Mora, Dalarna. Vi jobbar på distans i hela Sverige.</p>
       <a href="mailto:elevora.uf@gmail.com">elevora.uf@gmail.com</a>
       <p class="footer__small">© <span id="year">2026</span> Elevora UF · Drivs inom Ung Företagsamhet</p>
@@ -250,6 +253,6 @@
     <a href="#offert" class="btn btn--block">Begär offert</a>
   </div>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

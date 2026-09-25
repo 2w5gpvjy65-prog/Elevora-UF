@@ -21,10 +21,18 @@ Hemsida för vårt UF-företag Elevora. Ren HTML, CSS och JavaScript, inget bygg
 
 ## Bilder
 
-- `img/hero.jpg` – stora bilden högst upp
-- `img/produkter/*.jpg` – produkterna i demobutiken (Norrsken är ett påhittat märke)
+Alla bilder är riktiga foton från [Pexels](https://www.pexels.com) och får användas fritt, även kommersiellt.
 
-Bilderna är 3D-renderade studiobilder som vi har gjort själva, så de är fria att använda. När ni har ett riktigt kundexempel kan ni byta ut dem. Behåll samma filnamn eller ändra sökvägarna i `js/main.js`.
+- `img/hero.jpg` – laptop på skrivbord ([foto 6177610](https://www.pexels.com/photo/6177610/)). På skärmen har vi lagt in en skärmdump av vår egen demobutik.
+- `img/produkter/` – produkterna i demobutiken Norrsken, ett påhittat märke:
+  - orsa.jpg – [15727970](https://www.pexels.com/photo/15727970/)
+  - tallberg.jpg – [20943477](https://www.pexels.com/photo/20943477/)
+  - polstjarna.jpg – [5370642](https://www.pexels.com/photo/5370642/)
+  - vika.jpg – [12194265](https://www.pexels.com/photo/12194265/)
+  - rattvik.jpg – [7134458](https://www.pexels.com/photo/7134458/)
+  - leksand.jpg – [12194316](https://www.pexels.com/photo/12194316/)
+
+När ni har ett riktigt kundexempel kan ni byta ut bilderna. Behåll samma filnamn eller ändra sökvägarna i `js/main.js`.
 
 ## Att göra
 
