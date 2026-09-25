@@ -18,7 +18,7 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Skicka www och netlify.app-adressen till huvuddomänen
+# Skicka www.elevorauf.se vidare till elevorauf.se
 [[redirects]]
   from = "https://www.elevorauf.se/*"
   to = "https://elevorauf.se/:splat"
