@@ -21,7 +21,14 @@ jobs:
             case "$name" in \#*) continue;; esac
             if [ -f "$name.jpg" ]; then echo "finns redan: $name"; continue; fi
             echo "hämtar $name ($id)"
-            curl -sSL --fail -o "$name.jpg" "https://unsplash.com/photos/$id/download?force=true&w=1400" || echo "MISSLYCKADES: $name"
+            page=$(curl -sSL -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36" "https://unsplash.com/photos/$id")
+            url=$(printf '%s' "$page" | grep -oE 'https://images\.unsplash\.com/photo-[A-Za-z0-9_-]+' | head -1)
+            title=$(printf '%s' "$page" | grep -oE '<title>[^<]*' | head -1)
+            echo "  titel: $title"
+            echo "  bild: $url"
+            [ -z "$url" ] && { echo "MISSLYCKADES: $name"; continue; }
+            echo "$name $url" >> kallor.txt
+            curl -sSL --fail -o "$name.jpg" "$url?auto=format&fit=crop&fm=jpg&q=80&w=1400" || echo "MISSLYCKADES: $name"
             file "$name.jpg" || true
           done < lista.txt
       - name: Spara
