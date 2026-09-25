@@ -1,7 +1,8 @@
-/* Elevora UF – meny, mobilknappar och demobutiken */
+/* Elevora UF – meny, mobilknapp och demobutiken */
 
 (function () {
   // ---------- Meny ----------
+  var header = document.querySelector('.header');
   var toggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');
   toggle.addEventListener('click', function () {
@@ -16,70 +17,63 @@
     }
   });
 
-  // Prisknappar förväljer tjänst i offertformuläret
-  var serviceSelect = document.getElementById('serviceSelect');
-  document.querySelectorAll('[data-service]').forEach(function (btn) {
-    btn.addEventListener('click', function () { serviceSelect.value = btn.dataset.service; });
-  });
-
-  // Mobilknapparna syns när man scrollat förbi hero, men inte vid formuläret
+  // Mobilknappen syns när man scrollat förbi hero, men inte vid formuläret
   var mobileCta = document.querySelector('.mobile-cta');
   var hero = document.querySelector('.hero');
   var contact = document.getElementById('offert');
-  function updateCta() {
+  function onScroll() {
+    header.classList.toggle('is-scrolled', window.pageYOffset > 8);
     var pastHero = hero.getBoundingClientRect().bottom < 0;
-    var atContact = contact.getBoundingClientRect().top < window.innerHeight * 0.8;
+    var atContact = contact.getBoundingClientRect().top < window.innerHeight;
     mobileCta.classList.toggle('is-visible', pastHero && !atContact);
   }
-  window.addEventListener('scroll', updateCta, { passive: true });
-  updateCta();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
 
 // ==========================================================
-// Demobutik: "Norrsken Studio" (påhittat märke)
+// Demobutik: Norrsken (påhittat smyckesmärke)
+// Byt produkter, bilder och priser i listan nedan.
 // ==========================================================
 (function () {
-  var IMG = 'https://images.unsplash.com/';
-  var Q = '?auto=format&fit=crop&q=70&w=';
-
   var products = [
     {
-      id: 'siljan', cat: 'Klockor', name: 'Siljan', price: 1299, label: 'Nyhet',
-      img: 'photo-1523275335684-37898b6baf30',
-      desc: 'Minimalistisk klocka med vit urtavla och safirglas. Tålig nog för vardagen, snygg nog för studenten.',
-      opt: { name: 'Armband', values: ['Svart läder', 'Brunt läder', 'Stållänk'] }
-    },
-    {
-      id: 'orsa', cat: 'Klockor', name: 'Orsa', price: 1499,
-      img: 'photo-1524592094714-0f0654e20314',
-      desc: 'Klassisk urtavla med tunn boett. Byt armband på tio sekunder utan verktyg.',
-      opt: { name: 'Armband', values: ['Brunt läder', 'Svart läder'] }
-    },
-    {
-      id: 'tallhed', cat: 'Klockor', name: 'Tallhed', price: 1199, label: 'Bästsäljare',
-      img: 'photo-1522312346375-d1a52e2b99b3',
-      desc: 'Ren design i borstat stål. Vattentät till 5 ATM, så den klarar regn och handtvätt.',
-      opt: { name: 'Färg', values: ['Silver', 'Guld', 'Roséguld'] }
-    },
-    {
-      id: 'morgon', cat: 'Smycken', name: 'Halsband Morgon', price: 449,
-      img: 'photo-1599643478518-a784e5dc4c8f',
-      desc: 'Tunn kedja i förgyllt stål som inte missfärgas. Justerbar längd 40–45 cm.',
-      opt: { name: 'Färg', values: ['Guld', 'Silver'] }
-    },
-    {
-      id: 'trio', cat: 'Smycken', name: 'Ringar Trio', price: 349, label: '-20%',
-      img: 'photo-1515562141207-7a88fb7ce338',
-      desc: 'Tre tunna ringar att stapla eller bära var för sig. Nickelfria.',
+      id: 'orsa', cat: 'Ringar', type: 'Ring', name: 'Orsa', price: 399, label: 'Nyhet',
+      img: 'img/produkter/orsa.jpg',
+      desc: 'Tunn, blank ring i förgyllt sterlingsilver. Enkel nog att bära varje dag, fin att stapla med fler.',
       opt: { name: 'Storlek', values: ['16', '17', '18', '19'] }
     },
     {
-      id: 'droppe', cat: 'Smycken', name: 'Örhängen Droppe', price: 299,
-      img: 'photo-1535632066927-ab7c9ab60908',
-      desc: 'Lätta droppformade örhängen. Kommer i en liten presentask.',
-      opt: { name: 'Färg', values: ['Guld', 'Silver'] }
+      id: 'siljan', cat: 'Ringar', type: 'Ringset', name: 'Siljan', price: 549,
+      img: 'img/produkter/siljan.jpg',
+      desc: 'Två ringar i borstat sterlingsilver, en bred och en smal. Bär dem tillsammans eller var för sig.',
+      opt: { name: 'Storlek', values: ['16', '17', '18', '19'] }
+    },
+    {
+      id: 'tallberg', cat: 'Örhängen', type: 'Creoler', name: 'Tällberg', price: 449, label: 'Bästsäljare',
+      img: 'img/produkter/tallberg.jpg',
+      desc: 'Klassiska ringörhängen i förgyllt stål. Lätta, nickelfria och tåliga mot vatten.',
+      opt: { name: 'Storlek', values: ['20 mm', '30 mm'] }
+    },
+    {
+      id: 'polstjarna', cat: 'Örhängen', type: 'Örhängen', name: 'Polstjärna', price: 349,
+      img: 'img/produkter/polstjarna.jpg',
+      desc: 'Små stiftörhängen formade som en fyruddig stjärna. Förgyllt silver med facetterad yta som fångar ljuset.',
+      opt: { name: 'Antal', values: ['Par', 'Singel'] }
+    },
+    {
+      id: 'vika', cat: 'Halsband', type: 'Halsband', name: 'Vika', price: 599,
+      img: 'img/produkter/vika.jpg',
+      desc: 'Ankarkedja i förgyllt silver med en sötvattenspärla. Justerbar längd.',
+      opt: { name: 'Längd', values: ['40–45 cm', '45–50 cm'] }
+    },
+    {
+      id: 'leksand', cat: 'Armband', type: 'Armring', name: 'Leksand', price: 499,
+      img: 'img/produkter/leksand.jpg',
+      desc: 'Öppen armring i förgyllt stål med mjukt rundade ändar. Går att justera lite för handleden.',
+      opt: { name: 'Storlek', values: ['S', 'M', 'L'] }
     }
   ];
 
@@ -87,47 +81,42 @@
   var pathEl = document.getElementById('demoPath');
   if (!root) return;
 
-  var state = { view: 'list', filter: 'Alla', product: null, option: null, qty: 1, method: 'swish' };
-  var SHIPPING = 49;
+  var state = { view: 'list', filter: 'Alla', product: null, option: null, qty: 1, method: 'swish', touched: false };
+  var SHIPPING = 39;
 
   function kr(n) { return n.toLocaleString('sv-SE') + ' kr'; }
-  function img(id, w, alt) {
-    return '<img src="' + IMG + id + Q + w + '" alt="' + (alt || '') + '" loading="lazy" onerror="this.remove()">';
-  }
+  function img(src, alt) { return '<img src="' + src + '" alt="' + (alt || '') + '" loading="lazy">'; }
   function find(id) { return products.filter(function (p) { return p.id === id; })[0]; }
+  function total() { return state.product.price * state.qty + SHIPPING; }
 
   function header() {
-    return '' +
-      '<div class="shop__head">' +
-        '<button class="shop__brand" data-go="list">NORRSKEN</button>' +
-        '<nav class="shop__menu" aria-hidden="true"><span>Klockor</span><span>Smycken</span><span>Om oss</span></nav>' +
-        '<span class="shop__cart">Varukorg (' + (state.view === 'checkout' ? state.qty : 0) + ')</span>' +
-      '</div>';
+    return '<div class="shop__head">' +
+      '<nav class="shop__menu" aria-hidden="true"><span>Ringar</span><span>Örhängen</span><span>Halsband</span></nav>' +
+      '<button class="shop__brand" data-go="list">Norrsken</button>' +
+      '<span class="shop__cart">Varukorg (' + (state.view === 'checkout' ? state.qty : 0) + ')</span>' +
+    '</div>';
   }
 
   function viewList() {
-    var cats = ['Alla', 'Klockor', 'Smycken'];
+    var cats = ['Alla', 'Ringar', 'Örhängen', 'Halsband', 'Armband'];
     var list = products.filter(function (p) { return state.filter === 'Alla' || p.cat === state.filter; });
     return '' +
-      '<div class="shop__banner">' +
-        img('photo-1508057198894-247b23fe5ade', 1400) +
-        '<div><h3>Tid som håller.</h3><p>Klockor och smycken, designade i Dalarna.</p></div>' +
+      '<div class="shop__intro">' +
+        '<div><h3>Smycken från Dalarna</h3><p>Förgyllt och sterlingsilver. Fri frakt över 500 kr.</p></div>' +
+        '<div class="shop__filters" role="group" aria-label="Filtrera produkter">' +
+          cats.map(function (c) { return '<button data-filter="' + c + '" aria-pressed="' + (state.filter === c) + '">' + c + '</button>'; }).join('') +
+        '</div>' +
       '</div>' +
       '<div class="shop__section">' +
-        '<div class="shop__filters" role="group" aria-label="Filtrera produkter">' +
-          cats.map(function (c) {
-            return '<button data-filter="' + c + '" aria-pressed="' + (state.filter === c) + '">' + c + '</button>';
-          }).join('') +
-        '</div>' +
+        (state.touched ? '' : '<p class="shop__hint">Tryck på en produkt för att testa köpet.</p>') +
         '<div class="grid">' +
-          list.map(function (p, i) {
-            return '<button class="card' + (i === 0 && state.filter !== 'Smycken' ? ' card--pulse' : '') + '" data-product="' + p.id + '">' +
-              '<span class="card__img">' + img(p.img, 600, p.name) +
+          list.map(function (p) {
+            return '<button class="card" data-product="' + p.id + '">' +
+              '<span class="card__img">' + img(p.img, p.type + ' ' + p.name) +
                 (p.label ? '<span class="card__label">' + p.label + '</span>' : '') +
-                '<span class="card__hint">Visa produkt</span>' +
               '</span>' +
-              '<span class="card__name">' + p.name + '</span>' +
-              '<span class="card__price">' + kr(p.price) + '</span>' +
+              '<span class="card__row"><span><span class="card__name">' + p.name + '</span><span class="card__type">' + p.type + '</span></span>' +
+              '<span class="card__price">' + kr(p.price) + '</span></span>' +
             '</button>';
           }).join('') +
         '</div>' +
@@ -137,11 +126,12 @@
   function viewProduct() {
     var p = state.product;
     return '' +
-      '<div class="shop__section">' +
-        '<button class="crumbs" data-go="list">← ' + p.cat + '</button>' +
+      '<div class="shop__section shop__section--pad">' +
+        '<button class="crumbs" data-go="list">← Alla smycken</button>' +
         '<div class="product">' +
-          '<div class="product__img">' + img(p.img, 1000, p.name) + '</div>' +
-          '<div>' +
+          '<div class="product__img">' + img(p.img, p.type + ' ' + p.name) + '</div>' +
+          '<div class="product__info">' +
+            '<p class="product__type">' + p.type + '</p>' +
             '<h3>' + p.name + '</h3>' +
             '<p class="product__price">' + kr(p.price) + '</p>' +
             '<p class="product__desc">' + p.desc + '</p>' +
@@ -150,9 +140,9 @@
                 return '<button data-option="' + v + '" aria-pressed="' + (state.option === v) + '">' + v + '</button>';
               }).join('') + '</div>' +
             '</div>' +
-            '<button class="buy" data-go="checkout">Köp nu – ' + kr(p.price) + '</button>' +
-            '<div class="product__pay"><span class="pay pay--swish">Swish</span><span class="pay pay--card">Kort</span><span class="pay pay--klarna">Klarna</span></div>' +
-            '<ul class="product__usp"><li>Skickas inom 1–2 vardagar</li><li>Fri retur i 30 dagar</li><li>2 års garanti</li></ul>' +
+            '<button class="buy" data-go="checkout">Köp nu</button>' +
+            '<div class="paylist"><span>Swish</span><span>Kort</span><span>Klarna</span></div>' +
+            '<ul class="product__usp"><li>Skickas inom 1–2 vardagar</li><li>Fri retur i 30 dagar</li><li>Levereras i presentask</li></ul>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -169,21 +159,18 @@
         '<div class="field-row"><label class="field">Giltigt till<input value="12/29" readonly></label>' +
         '<label class="field">CVC<input value="123" readonly></label></div></div>';
     }
-    return '<div class="method__body"><p>Betala om 30 dagar, eller dela upp i 3 räntefria delar om ' +
-      kr(Math.ceil(total() / 3)) + '.</p></div>';
+    return '<div class="method__body"><p>Betala om 30 dagar, eller dela upp i 3 räntefria delar om ' + kr(Math.ceil(total() / 3)) + '.</p></div>';
   }
-
-  function total() { return state.product.price * state.qty + SHIPPING; }
 
   function viewCheckout() {
     var p = state.product;
     var methods = [
-      { id: 'swish', label: 'Swish', badge: '<span class="pay pay--swish">Swish</span>' },
-      { id: 'card', label: 'Kort', badge: '<span class="pay pay--card">Visa / Mastercard</span>' },
-      { id: 'klarna', label: 'Klarna', badge: '<span class="pay pay--klarna">Klarna</span>' }
+      { id: 'swish', label: 'Swish', note: 'Direkt' },
+      { id: 'card', label: 'Kort', note: 'Visa, Mastercard' },
+      { id: 'klarna', label: 'Klarna', note: 'Faktura eller delbetalning' }
     ];
     return '' +
-      '<div class="shop__section">' +
+      '<div class="shop__section shop__section--pad">' +
         '<button class="crumbs" data-go="product">← Tillbaka till ' + p.name + '</button>' +
         '<div class="checkout">' +
           '<div>' +
@@ -197,19 +184,19 @@
               methods.map(function (m) {
                 var checked = state.method === m.id;
                 return '<label class="method"><input type="radio" name="demo-pay" value="' + m.id + '"' + (checked ? ' checked' : '') + '>' +
-                  m.label + m.badge + '</label>' + (checked ? methodBody() : '');
+                  m.label + '<small>' + m.note + '</small></label>' + (checked ? methodBody() : '');
               }).join('') +
             '</div>' +
             '<button class="buy" id="payBtn" data-go="pay">Betala ' + kr(total()) + '</button>' +
           '</div>' +
           '<aside class="checkout__summary">' +
-            '<div class="line">' + '<span class="line__ph">' + img(p.img, 160, '') + '</span>' +
-              '<div><strong>' + p.name + '</strong><small>' + p.opt.name + ': ' + state.option + '</small>' +
+            '<div class="line"><span class="line__ph">' + img(p.img, '') + '</span>' +
+              '<div><strong>' + p.name + '</strong><small>' + p.type + ', ' + p.opt.name.toLowerCase() + ' ' + state.option + '</small>' +
                 '<span class="qty"><button data-qty="-1" aria-label="Minska antal">−</button><span>' + state.qty + '</span><button data-qty="1" aria-label="Öka antal">+</button></span>' +
               '</div>' +
             '</div>' +
             '<div class="sum"><span>Delsumma</span><span>' + kr(p.price * state.qty) + '</span></div>' +
-            '<div class="sum"><span>Frakt (PostNord)</span><span>' + kr(SHIPPING) + '</span></div>' +
+            '<div class="sum"><span>Frakt</span><span>' + kr(SHIPPING) + '</span></div>' +
             '<div class="sum sum--total"><span>Totalt</span><span>' + kr(total()) + '</span></div>' +
             '<p class="demo-flag">Det här är en demo. Inga pengar dras och ingen order skickas.</p>' +
           '</aside>' +
@@ -222,30 +209,29 @@
     var names = { swish: 'Swish', card: 'kort', klarna: 'Klarna' };
     var order = 'NS-' + (1000 + Math.floor(Math.random() * 9000));
     return '' +
-      '<div class="shop__section"><div class="done">' +
+      '<div class="shop__section shop__section--pad"><div class="done">' +
         '<div class="done__icon" aria-hidden="true">✓</div>' +
-        '<h3>Tack för ditt köp!</h3>' +
+        '<h3>Tack för ditt köp</h3>' +
         '<p>Order ' + order + ' är betald med ' + names[state.method] + '. En bekräftelse skickas till kund@exempel.se.</p>' +
         '<div class="done__box">' +
-          '<p><strong>' + state.qty + ' × ' + p.name + '</strong> (' + state.option + ')</p>' +
-          '<p>Totalt ' + kr(total()) + ' inkl. frakt</p>' +
+          '<p><span>' + state.qty + ' × ' + p.name + ' (' + state.option + ')</span><span>' + kr(total()) + '</span></p>' +
         '</div>' +
-        '<div class="done__pitch"><strong>Så enkelt blir det för era kunder.</strong>Ingen DM, ingen väntan. Ni får ordern direkt på mejlen och pengarna till ert konto.</div>' +
+        '<div class="done__pitch"><strong>Så enkelt blir det för era kunder.</strong>Ingen DM och ingen väntan. Ni får ordern på mejlen och pengarna till ert konto.</div>' +
         '<div class="done__actions">' +
           '<a href="#offert" class="btn">Jag vill ha en sån här</a>' +
-          '<button class="btn btn--outline" data-go="restart">Testa igen</button>' +
+          '<button class="btn btn--line" data-go="restart">Testa igen</button>' +
         '</div>' +
       '</div></div>';
   }
 
-  var paths = { list: '', product: '/', checkout: '/kassa', done: '/tack' };
+  var paths = { list: '', checkout: '/kassa', done: '/tack' };
 
   function render(scroll) {
     var body = { list: viewList, product: viewProduct, checkout: viewCheckout, done: viewDone }[state.view]();
     root.innerHTML = header() + '<div class="shop-view">' + body + '</div>';
     pathEl.textContent = state.view === 'product' ? '/' + state.product.id : paths[state.view];
     if (scroll) {
-      var top = root.getBoundingClientRect().top + window.pageYOffset - 130;
+      var top = root.getBoundingClientRect().top + window.pageYOffset - 120;
       if (window.pageYOffset > top) window.scrollTo({ top: top, behavior: 'smooth' });
     }
   }
@@ -259,6 +245,7 @@
       state.product = find(t.dataset.product);
       state.option = state.product.opt.values[0];
       state.qty = 1;
+      state.touched = true;
       state.view = 'product';
       render(true);
       return;
