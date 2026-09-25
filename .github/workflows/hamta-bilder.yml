@@ -22,7 +22,7 @@ jobs:
             if [ -f "$name.jpg" ]; then echo "finns redan: $name"; continue; fi
             echo "hämtar $name ($id)"
             curl -sSL --fail -A "Mozilla/5.0" -o "$name.jpg" "https://images.pexels.com/photos/$id/pexels-photo-$id.jpeg?auto=compress&cs=tinysrgb&w=1400" || { echo "MISSLYCKADES: $name"; rm -f "$name.jpg"; }
-            [ -f "$name.jpg" ] && file "$name.jpg"
+            if [ -f "$name.jpg" ]; then file "$name.jpg"; fi
           done < lista.txt
       - name: Spara
         run: |
