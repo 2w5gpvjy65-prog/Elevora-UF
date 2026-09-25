@@ -178,6 +178,7 @@
               }).join('') + '</div>' +
             '</div>' +
             '<button class="buy" data-go="checkout">Köp nu</button>' +
+            '<p class="demo-only">Demo: det går inte att köpa något på riktigt här.</p>' +
             '<div class="paylist"><span>Swish</span><span>Kort</span><span>Klarna</span></div>' +
             '<ul class="product__usp"><li>Skickas inom 1–2 vardagar</li><li>Fri retur i 30 dagar</li><li>Levereras i presentask</li></ul>' +
           '</div>' +
@@ -224,7 +225,8 @@
                   m.label + '<small>' + m.note + '</small></label>' + (checked ? methodBody() : '');
               }).join('') +
             '</div>' +
-            '<button class="buy" id="payBtn" data-go="pay">Betala ' + kr(total()) + '</button>' +
+            '<button class="buy" id="payBtn" data-go="pay">Genomför demoköp · ' + kr(total()) + '</button>' +
+            '<p class="demo-only">Ingen betalning görs. Knappen visar bara hur det ser ut för kunden.</p>' +
           '</div>' +
           '<aside class="checkout__summary">' +
             '<div class="line"><span class="line__ph">' + img(p.img, '') + '</span>' +
@@ -235,7 +237,7 @@
             '<div class="sum"><span>Delsumma</span><span>' + kr(p.price * state.qty) + '</span></div>' +
             '<div class="sum"><span>Frakt</span><span>' + kr(SHIPPING) + '</span></div>' +
             '<div class="sum sum--total"><span>Totalt</span><span>' + kr(total()) + '</span></div>' +
-            '<p class="demo-flag">Det här är en demo. Inga pengar dras och ingen order skickas.</p>' +
+            '<p class="demo-flag">Demo. Inga pengar dras och ingen order skickas.</p>' +
           '</aside>' +
         '</div>' +
       '</div>';
@@ -244,13 +246,14 @@
   function viewDone() {
     var p = state.product;
     var names = { swish: 'Swish', card: 'kort', klarna: 'Klarna' };
-    var order = 'NS-' + (1000 + Math.floor(Math.random() * 9000));
+    var order = 'DEMO-' + (1000 + Math.floor(Math.random() * 9000));
     return '' +
       '<div class="shop__section shop__section--pad"><div class="done">' +
         '<div class="done__icon" aria-hidden="true">✓</div>' +
-        '<h3>Tack för ditt köp</h3>' +
-        '<p>Order ' + order + ' är betald med ' + names[state.method] + '. En bekräftelse skickas till kund@exempel.se.</p>' +
+        '<h3>Så här ser det ut för kunden</h3>' +
+        '<p>Det här var ett demoköp med ' + names[state.method] + '. Ingenting har köpts och inga pengar har dragits. I en riktig butik får kunden en orderbekräftelse på mejlen.</p>' +
         '<div class="done__box">' +
+          '<p class="done__order"><span>' + order + '</span><span>Ej betald</span></p>' +
           '<p><span>' + state.qty + ' × ' + p.name + ' (' + state.option + ')</span><span>' + kr(total()) + '</span></p>' +
         '</div>' +
         '<div class="done__pitch"><strong>Så enkelt blir det för era kunder.</strong>Ingen DM och ingen väntan. Ni får ordern på mejlen och pengarna till ert konto.</div>' +
@@ -297,7 +300,7 @@
     var go = t.dataset.go;
     if (go === 'pay') {
       t.disabled = true;
-      t.innerHTML = '<span class="spinner"></span>' + (state.method === 'swish' ? 'Väntar på Swish…' : 'Behandlar betalning…');
+      t.innerHTML = '<span class="spinner"></span>' + (state.method === 'swish' ? 'Visar Swish-steget…' : 'Visar betalningen…');
       setTimeout(function () { state.view = 'done'; render(true); }, 1400);
       return;
     }
