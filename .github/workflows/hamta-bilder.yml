@@ -1,0 +1,33 @@
+# Hämtar bilder från Unsplash (fri licens) och sparar dem i img/unsplash/.
+# Listan över bilder finns i img/unsplash/lista.txt: "filnamn unsplash-id" per rad.
+name: Hämta bilder
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - img/unsplash/lista.txt
+permissions:
+  contents: write
+jobs:
+  hamta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ladda ner
+        run: |
+          cd img/unsplash
+          while read -r name id; do
+            [ -z "$name" ] && continue
+            case "$name" in \#*) continue;; esac
+            if [ -f "$name.jpg" ]; then echo "finns redan: $name"; continue; fi
+            echo "hämtar $name ($id)"
+            curl -sSL --fail -o "$name.jpg" "https://unsplash.com/photos/$id/download?force=true&w=1400" || echo "MISSLYCKADES: $name"
+            file "$name.jpg" || true
+          done < lista.txt
+      - name: Spara
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add img/unsplash
+          git diff --cached --quiet || git commit -m "Hämta bilder från Unsplash"
+          git push
