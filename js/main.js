@@ -42,6 +42,31 @@
     });
   });
 
+  // Mjuk intoning när avsnitten kommer in i bild
+  var reveal = document.querySelectorAll('.head, .browser, .notice, .compare__grid > div, .price-table, .step-list li, .style__list li, .about__text, .facts, .contact__grid > *');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveal.forEach(function (el) {
+      var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.transitionDelay = Math.min(i, 3) * 90 + 'ms';
+      el.classList.add('reveal');
+    });
+    var pending = Array.prototype.slice.call(reveal);
+    var ticking = false;
+    function showVisible() {
+      ticking = false;
+      var limit = window.innerHeight * 0.92;
+      pending = pending.filter(function (el) {
+        if (el.getBoundingClientRect().top < limit) { el.classList.add('is-in'); return false; }
+        return true;
+      });
+      if (!pending.length) window.removeEventListener('scroll', onRevealScroll);
+    }
+    function onRevealScroll() { if (!ticking) { ticking = true; requestAnimationFrame(showVisible); } }
+    window.addEventListener('scroll', onRevealScroll, { passive: true });
+    window.addEventListener('resize', onRevealScroll);
+    showVisible();
+  }
+
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
 
