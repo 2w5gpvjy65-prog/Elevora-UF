@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
   <script>document.documentElement.classList.add('js');</script>
@@ -23,6 +23,7 @@
     <div class="wrap header__inner">
       <a href="./" class="logo" aria-label="Elevora UF, till startsidan"><img src="img/logo.svg" alt="" width="28" height="28">Elevora</a>
       <nav class="nav" id="nav" aria-label="Huvudmeny">
+        <a href="#tjanster">Tjänster</a>
         <a href="#demo">Demobutik</a>
         <a href="#priser">Priser</a>
         <a href="#sa-funkar-det">Så funkar det</a>
@@ -45,8 +46,8 @@
           <h1>Sälj direkt från er <em class="accent">egen</em> sida.</h1>
           <p class="hero__lead">Sluta ta beställningar i DM. Vi bygger en butik där kunden väljer produkt och betalar med Swish, kort eller Klarna. Med hjälp av AI blir den klar på en till två veckor.</p>
           <div class="hero__cta">
-            <a href="#demo" class="btn">Testa demobutiken</a>
-            <a href="#offert" class="btn btn--line">Begär offert</a>
+            <a href="#offert" class="btn">Begär offert</a>
+            <a href="#tjanster" class="btn btn--line">Se vad vi gör</a>
           </div>
           <dl class="hero__prices">
             <div><dt>Hemsida, UF-pris</dt><dd>600 kr</dd></div>
@@ -55,13 +56,50 @@
         </div>
         <figure class="hero__media">
           <img src="img/hero.jpg" alt="Laptop på ett skrivbord som visar vår demobutik Norrsken" width="1200" height="1320">
-          <a href="#demo" class="hero__card" aria-label="Se Tällberg i demobutiken">
-            <img src="img/produkter/tallberg.jpg" alt="" width="1000" height="1250">
-            <span class="hero__card-row"><span>Tällberg</span><span>549 kr</span></span>
-            <span class="hero__card-btn">Köp nu</span>
-          </a>
-          <figcaption>Demobutiken Norrsken, byggd av oss</figcaption>
+          <div class="hero__card" aria-hidden="true">
+            <p class="hero__card-title"><img src="img/logo.svg" alt="" width="18" height="18">Er webbshop</p>
+            <ul>
+              <li>Design efter er stil</li>
+              <li>Swish, kort och Klarna</li>
+              <li>Anpassad för mobilen</li>
+              <li>Egen domän</li>
+            </ul>
+            <p class="hero__card-foot">Klar på <strong>1–2 veckor</strong></p>
+          </div>
+          <figcaption>Exempel: en webbshop vi har byggt</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- VAD VI GÖR -->
+    <section class="section services" id="tjanster">
+      <div class="wrap">
+        <div class="head">
+          <p class="label">01 — Vad vi gör</p>
+          <h2>Vi bygger sidan. Ni <em class="accent">säljer</em>.</h2>
+          <p>Vi är ett UF-företag som gör hemsidor och webbshoppar åt andra UF-företag och små varumärken. Ni får en egen sida där kunderna kan se era produkter och betala direkt, i stället för att skriva i DM.</p>
+        </div>
+        <ul class="service-list">
+          <li>
+            <span class="service-list__no">01</span>
+            <h3>Webbshop</h3>
+            <p>Produktsidor, varukorg och kassa med Swish, kort och Klarna. Ni får ordrarna på mejlen och pengarna till ert konto.</p>
+            <p class="service-list__price">UF-pris 1 200 kr</p>
+          </li>
+          <li>
+            <span class="service-list__no">02</span>
+            <h3>Hemsida</h3>
+            <p>En snygg sida som visar vilka ni är, vad ni säljer och hur man når er. Perfekt att länka till från Instagram och TikTok.</p>
+            <p class="service-list__price">UF-pris 600 kr</p>
+          </li>
+          <li>
+            <span class="service-list__no">03</span>
+            <h3>Google och uppdateringar</h3>
+            <p>Vi fixar er Google-profil så att ni syns i sökningar och på kartan, och kan uppdatera sidan åt er varje månad.</p>
+            <p class="service-list__price">Från 200 kr</p>
+          </li>
+        </ul>
+        <p class="services__more">Vill ni se hur en webbshop från oss fungerar? Testa demobutiken nedan.</p>
       </div>
     </section>
 
@@ -69,7 +107,7 @@
     <section class="section demo" id="demo">
       <div class="wrap">
         <div class="head">
-          <p class="label">01 — Demobutik</p>
+          <p class="label">02 — Demobutik</p>
           <h2>Testa hur det känns att <em class="accent">handla</em>.</h2>
           <p>Norrsken är en påhittad smyckesbutik som vi byggt. Tryck på en produkt, välj storlek och gå till kassan. Inga riktiga pengar dras.</p>
         </div>
@@ -134,7 +172,7 @@
     <section class="section prices" id="priser">
       <div class="wrap">
         <div class="head">
-          <p class="label">02 — Priser</p>
+          <p class="label">03 — Priser</p>
           <h2>Fasta priser. UF-företag betalar <em class="accent">mindre</em>.</h2>
           <p>Ni får en skriftlig offert innan vi börjar, och priset ändras inte på vägen.</p>
         </div>
@@ -174,7 +212,7 @@
     <section class="section steps" id="sa-funkar-det">
       <div class="wrap">
         <div class="head">
-          <p class="label">03 — Så funkar det</p>
+          <p class="label">04 — Så funkar det</p>
           <h2>Från första samtal till första <em class="accent">köp</em>.</h2>
         </div>
         <ol class="step-list">
@@ -206,7 +244,7 @@
     <section class="section about" id="om-oss">
       <div class="wrap about__grid">
         <div class="head">
-          <p class="label">04 — Om oss</p>
+          <p class="label">05 — Om oss</p>
           <h2>Vi är elever. Det är därför det är <em class="accent">billigt</em>.</h2>
         </div>
         <div class="about__text">
@@ -277,6 +315,6 @@
     <a href="#offert" class="btn btn--block">Begär offert</a>
   </div>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>
