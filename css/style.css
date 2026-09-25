@@ -403,23 +403,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .section--dark .style__list li::before { background: #a9bdd8; }
 .section--dark .style__list p { color: #c6d1df; }
 
-/* ---------- Produktkort över hero-bilden ---------- */
+/* ---------- Kort över hero-bilden ---------- */
 .hero__card {
-  position: absolute; left: -56px; bottom: 56px; width: 172px;
-  display: block; padding: 10px 10px 12px; background: #fff; color: var(--ink); text-decoration: none;
+  position: absolute; left: -56px; bottom: 64px; width: 230px;
+  padding: 20px 20px 18px; background: #fff; color: var(--ink);
   box-shadow: 0 2px 4px rgba(24, 33, 45, .06), 0 28px 50px -24px rgba(24, 33, 45, .45);
-  transition: transform .35s ease;
 }
-.hero__card:hover { transform: translateY(-4px); }
-.hero__card img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
-.hero__card-row { display: flex; justify-content: space-between; margin-top: 10px; font-size: .85rem; }
-.hero__card-btn { display: block; margin-top: 8px; padding: 7px 0; text-align: center; font-size: .8rem; background: var(--accent); color: #fff; }
+.hero__card-title img { width: 18px !important; height: 18px !important; aspect-ratio: auto !important; flex: none; }
+.hero__card-title { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-weight: 500; font-size: .95rem; }
+.hero__card ul { list-style: none; margin: 0; padding: 0; font-size: .85rem; color: #4a4640; }
+.hero__card li { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid #eee9e2; }
+.hero__card li::before {
+  content: ""; flex: none; width: 16px; height: 16px; border-radius: 50%; background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+.hero__card-foot { margin: 10px 0 0; padding-top: 12px; border-top: 1px solid #eee9e2; font-size: .85rem; color: var(--muted); }
+.hero__card-foot strong { color: var(--accent); font-weight: 600; }
 .hero__media figcaption { text-align: right; }
 @media (max-width: 860px) {
-  .hero__card { left: 12px; bottom: 44px; width: 128px; padding: 7px 7px 9px; }
-  .hero__card-row { font-size: .75rem; margin-top: 6px; }
-  .hero__card-btn { font-size: .72rem; padding: 5px 0; }
+  .hero__card { left: 12px; bottom: 44px; width: 188px; padding: 14px 14px 12px; }
+  .hero__card-title { font-size: .85rem; margin-bottom: 8px; }
+  .hero__card ul, .hero__card-foot { font-size: .76rem; }
+  .hero__card li { padding: 5px 0; }
+  .hero__card li::before { width: 14px; height: 14px; background-size: 14px; }
 }
+
+/* ---------- Vad vi gör ---------- */
+.service-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+@media (max-width: 860px) { .service-list { grid-template-columns: 1fr; gap: 0; } }
+.service-list li { display: flex; flex-direction: column; padding: 28px; background: var(--surface); border-top: 2px solid var(--accent); }
+@media (max-width: 860px) { .service-list li { margin-bottom: 16px; padding: 24px 20px; } }
+.service-list__no { font-family: var(--display); font-weight: 500; font-size: 1.5rem; line-height: 1; color: var(--accent); margin-bottom: 24px; }
+.service-list h3 { font-size: 1.3rem; margin-bottom: 8px; }
+.service-list p { color: var(--muted); margin: 0 0 20px; }
+.service-list__price { margin: auto 0 0 !important; padding-top: 14px; border-top: 1px solid var(--line); color: var(--ink) !important; font-size: .95rem; }
+.services__more { margin: 32px 0 0; color: var(--muted); }
+.services + .demo { padding-top: 32px; }
 
 /* ---------- Papperskorn ---------- */
 body::after {

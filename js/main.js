@@ -43,7 +43,7 @@
   });
 
   // Mjuk intoning när avsnitten kommer in i bild
-  var reveal = document.querySelectorAll('.head, .browser, .notice, .compare__grid > div, .price-table, .step-list li, .style__list li, .about__text, .facts, .contact__grid > *');
+  var reveal = document.querySelectorAll('.head, .service-list li, .browser, .notice, .compare__grid > div, .price-table, .step-list li, .style__list li, .about__text, .facts, .contact__grid > *');
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     reveal.forEach(function (el) {
       var i = Array.prototype.indexOf.call(el.parentNode.children, el);
