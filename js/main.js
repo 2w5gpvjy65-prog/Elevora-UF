@@ -30,6 +30,18 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // Logotypen: tillbaka till toppen och demobutikens startsida
+  document.querySelectorAll('.logo').forEach(function (logo) {
+    logo.addEventListener('click', function (e) {
+      e.preventDefault();
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+      document.dispatchEvent(new Event('shop:reset'));
+    });
+  });
+
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
 
@@ -40,39 +52,39 @@
 (function () {
   var products = [
     {
-      id: 'orsa', cat: 'Ringar', type: 'Ring', name: 'Orsa', price: 399, label: 'Nyhet',
+      id: 'orsa', cat: 'Ringar', type: 'Ring', name: 'Orsa', price: 449, label: 'Nyhet',
       img: 'img/produkter/orsa.jpg',
-      desc: 'Tunn, blank ring i förgyllt sterlingsilver. Enkel nog att bära varje dag, fin att stapla med fler.',
+      desc: 'Ring formad som en orm som biter sig själv i svansen. Förgyllt silver med graverade fjäll och små svarta ögon.',
       opt: { name: 'Storlek', values: ['16', '17', '18', '19'] }
     },
     {
-      id: 'siljan', cat: 'Ringar', type: 'Ringset', name: 'Siljan', price: 549,
-      img: 'img/produkter/siljan.jpg',
-      desc: 'Två ringar i borstat sterlingsilver, en bred och en smal. Bär dem tillsammans eller var för sig.',
-      opt: { name: 'Storlek', values: ['16', '17', '18', '19'] }
-    },
-    {
-      id: 'tallberg', cat: 'Örhängen', type: 'Creoler', name: 'Tällberg', price: 449, label: 'Bästsäljare',
+      id: 'tallberg', cat: 'Örhängen', type: 'Creoler', name: 'Tällberg', price: 549, label: 'Bästsäljare',
       img: 'img/produkter/tallberg.jpg',
-      desc: 'Klassiska ringörhängen i förgyllt stål. Lätta, nickelfria och tåliga mot vatten.',
-      opt: { name: 'Storlek', values: ['20 mm', '30 mm'] }
+      desc: 'Creoler i förgyllt silver med en rad glittrande stenar runt hela ringen. Stängs med ett klick.',
+      opt: { name: 'Storlek', values: ['15 mm', '20 mm'] }
     },
     {
-      id: 'polstjarna', cat: 'Örhängen', type: 'Örhängen', name: 'Polstjärna', price: 349,
+      id: 'polstjarna', cat: 'Örhängen', type: 'Stiftörhängen', name: 'Polstjärna', price: 399,
       img: 'img/produkter/polstjarna.jpg',
-      desc: 'Små stiftörhängen formade som en fyruddig stjärna. Förgyllt silver med facetterad yta som fångar ljuset.',
+      desc: 'Stiftörhängen i sterlingsilver. En stor sten omgiven av en krans av små stenar som gnistrar som en stjärnhimmel.',
       opt: { name: 'Antal', values: ['Par', 'Singel'] }
     },
     {
-      id: 'vika', cat: 'Halsband', type: 'Halsband', name: 'Vika', price: 599,
+      id: 'vika', cat: 'Halsband', type: 'Halsband', name: 'Vika', price: 349,
       img: 'img/produkter/vika.jpg',
-      desc: 'Ankarkedja i förgyllt silver med en sötvattenspärla. Justerbar längd.',
-      opt: { name: 'Längd', values: ['40–45 cm', '45–50 cm'] }
+      desc: 'Tunn, blank kedja i förgyllt silver. Fin att bära ensam eller med ett hänge.',
+      opt: { name: 'Längd', values: ['40 cm', '45 cm', '50 cm'] }
+    },
+    {
+      id: 'rattvik', cat: 'Halsband', type: 'Halsband med hänge', name: 'Rättvik', price: 649,
+      img: 'img/produkter/rattvik.jpg',
+      desc: 'Förgyllt halsband med ett hänge i filigran och en droppformad sten. Gjort för fest, men fungerar lika bra till vardags.',
+      opt: { name: 'Längd', values: ['42 cm', '47 cm'] }
     },
     {
       id: 'leksand', cat: 'Armband', type: 'Armring', name: 'Leksand', price: 499,
       img: 'img/produkter/leksand.jpg',
-      desc: 'Öppen armring i förgyllt stål med mjukt rundade ändar. Går att justera lite för handleden.',
+      desc: 'Smal armring i förgyllt stål med små stenar längs ena sidan. Öppnas med ett gångjärn.',
       opt: { name: 'Storlek', values: ['S', 'M', 'L'] }
     }
   ];
@@ -266,6 +278,11 @@
     }
     if (go === 'restart') { state.view = 'list'; state.filter = 'Alla'; render(true); return; }
     if (go) { state.view = go; render(true); }
+  });
+
+  document.addEventListener('shop:reset', function () {
+    state.view = 'list'; state.filter = 'Alla'; state.touched = false;
+    render(false);
   });
 
   root.addEventListener('change', function (e) {
