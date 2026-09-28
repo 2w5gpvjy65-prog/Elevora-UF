@@ -468,7 +468,7 @@ body::after {
 }
 
 /* ---------- Från idé till färdig sida (scroll-effekt) ---------- */
-.build { padding: 40px 0 72px; }
+.build { padding: 40px 0 72px; overflow-x: clip; }
 .build__grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.9fr); gap: 56px; align-items: center; }
 .build__text h2 { margin-bottom: 32px; }
 .build__steps { list-style: none; margin: 0; padding: 0; }
