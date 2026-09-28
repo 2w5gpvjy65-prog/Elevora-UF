@@ -18,7 +18,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px)); }
 body {
   margin: 0;
   background: var(--bg);
@@ -68,7 +68,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* ---------- Meny ---------- */
 .header {
-  position: sticky; top: 0; z-index: 50;
+  /* Fast (fixed) i stället för sticky: Safari på iPhone färgar då även ytan ovanför menyn */
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(242, 237, 230, .96);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -76,6 +77,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   transition: border-color .2s;
 }
 .header.is-scrolled { border-bottom-color: var(--line); }
+/* Plats för den fasta menyn */
+.header + main { padding-top: calc(76px + env(safe-area-inset-top, 0px)); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 .logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1.7rem; letter-spacing: -0.04em; text-decoration: none; }
 .logo img { width: 44px; height: 44px; flex: none; margin: -6px -2px -6px -6px; }
@@ -498,16 +501,16 @@ body::after {
 /* Bilden stannar kvar medan den sätts ihop. svh = Safaris minsta skärmhöjd,
    så att adressfältet inte flyttar något. */
 .build--anim { padding: 0; }
-.build--anim .build__track { height: 190vh; height: 190svh; }
+.build--anim .build__track { height: 250vh; height: 250svh; }
 .build--anim .build__sticky {
   position: -webkit-sticky; position: sticky; top: 0;
   height: 100vh; height: 100svh;
-  display: flex; align-items: center; padding-top: 76px;
+  display: flex; align-items: center; padding-top: calc(76px + env(safe-area-inset-top, 0px));
 }
 .build--anim .build__sticky > .wrap { width: 100%; }
 @media (max-width: 860px) {
-  .build--anim .build__track { height: 170vh; height: 170svh; }
-  .build--anim .build__sticky { padding-top: 64px; }
+  .build--anim .build__track { height: 230vh; height: 230svh; }
+  .build--anim .build__sticky { padding-top: calc(70px + env(safe-area-inset-top, 0px)); }
   .build--anim .build__text .label { display: none; }
   .build--anim .build__text h2 { font-size: 1.6rem; margin-bottom: 10px; }
   .build--anim .build__steps li { padding: 7px 0; }
@@ -525,3 +528,8 @@ body::after {
 }
 
 .build-active .mobile-cta { transform: translateY(110%) !important; }
+
+/* Demoavsnittet: mörkare bakgrund för kontrast mot den ljusa butiken */
+.demo { background: #e3dbcf; }
+.demo .notice { background: #efe9e0; }
+.demo .browser { box-shadow: 0 50px 90px -50px rgba(24, 33, 45, .5); }
