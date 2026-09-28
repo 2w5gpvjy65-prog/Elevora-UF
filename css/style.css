@@ -167,7 +167,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .shop__hint { font-size: .85rem; color: var(--accent); margin: 0 0 14px; }
 
-.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 36px; max-width: 920px; margin: 0 auto; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 28px; max-width: 1040px; margin: 0 auto; }
 @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 28px 14px; } .card__img { padding: 8px; } .card__label { top: 14px; left: 14px; } }
 
 .card { display: block; width: 100%; background: none; border: 0; padding: 0; text-align: left; font: inherit; color: inherit; cursor: pointer; }
