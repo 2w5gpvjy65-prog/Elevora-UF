@@ -545,3 +545,12 @@ body::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 300px;
   background: #f2ede6;
 }
+
+/* Mobil: lägre meny */
+@media (max-width: 860px) {
+  .header__inner { height: 60px; }
+  .logo { font-size: 1.45rem; }
+  .logo img { width: 38px; height: 38px; }
+  .header + main { padding-top: 60px; }
+  html { scroll-padding-top: 68px; }
+}
