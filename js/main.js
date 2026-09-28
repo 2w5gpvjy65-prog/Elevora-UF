@@ -75,7 +75,9 @@
 // ==========================================================
 (function () {
   var section = document.querySelector('.build');
-  if (!section || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!section) return;
+  // Med "Minska rörelse" påslaget: inget glider, sidan går bara från skiss till färdig
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   section.classList.add('build--anim');
 
   var track = section.querySelector('.build__track');
@@ -102,10 +104,15 @@
     var inR = range(p, 0.22, 0.62);   // höger halva glider in
     var done = range(p, 0.62, 0.86);  // skissen blir färdig sida
 
-    left.style.opacity = inL;
-    left.style.transform = 'translateY(' + (1 - inL) * 60 + 'px)';
-    right.style.opacity = inR;
-    right.style.transform = 'translateX(' + (1 - inR) * 70 + '%) rotate(' + (1 - inR) * 4 + 'deg)';
+    if (calm) {
+      left.style.opacity = 1;
+      right.style.opacity = 0.35 + inR * 0.65;
+    } else {
+      left.style.opacity = inL;
+      left.style.transform = 'translateY(' + (1 - inL) * 60 + 'px)';
+      right.style.opacity = inR;
+      right.style.transform = 'translateX(' + (1 - inR) * 70 + '%) rotate(' + (1 - inR) * 4 + 'deg)';
+    }
 
     var filter = 'grayscale(' + (1 - done) + ') blur(' + (1 - done) * 3 + 'px) contrast(' + (0.85 + done * 0.15) + ')';
     left.style.filter = filter;
