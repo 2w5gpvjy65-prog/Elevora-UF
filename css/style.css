@@ -18,7 +18,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px)); }
+html { background-color: #f2ede6; scroll-behavior: smooth; scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px)); }
 body {
   margin: 0;
   background: var(--bg);
@@ -71,8 +71,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   /* Fast (fixed) i stället för sticky: Safari på iPhone färgar då även ytan ovanför menyn */
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   padding-top: env(safe-area-inset-top, 0px);
-  background: rgba(242, 237, 230, .96);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  /* Helt täckande färg: då använder Safari på iPhone samma färg ovanför menyn */
+  background-color: #f2ede6;
   border-bottom: 1px solid transparent;
   transition: border-color .2s;
 }
@@ -540,5 +540,5 @@ body::after {
    Menyns bakgrund förlängs uppåt så att den täcker det området. */
 .header::before {
   content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 300px;
-  background: rgba(242, 237, 230, .96);
+  background: #f2ede6;
 }
