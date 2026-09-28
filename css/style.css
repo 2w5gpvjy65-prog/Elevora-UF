@@ -466,3 +466,44 @@ body::after {
   .card__row { flex-direction: column; gap: 2px; }
   .card__price { order: 3; font-size: .9rem; }
 }
+
+/* ---------- Från idé till färdig sida (scroll-effekt) ---------- */
+.build { padding: 40px 0 72px; }
+.build__grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.9fr); gap: 56px; align-items: center; }
+.build__text h2 { margin-bottom: 32px; }
+.build__steps { list-style: none; margin: 0; padding: 0; }
+.build__steps li { display: flex; gap: 18px; padding: 16px 0; border-top: 1px solid var(--line); opacity: .38; transition: opacity .4s ease; }
+.build__steps li.is-active { opacity: 1; }
+.build__no { font-family: var(--display); font-weight: 500; font-size: 1.2rem; line-height: 1.3; color: var(--accent); min-width: 1.6em; }
+.build__steps h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.build__steps p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+.build__frame { position: relative; aspect-ratio: 1740 / 936; }
+.build__frame::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 8px;
+  box-shadow: 0 50px 80px -40px rgba(24, 33, 45, .45); opacity: var(--shadow, 1);
+}
+.build__half {
+  position: absolute; top: 0; bottom: 0; width: 50%;
+  background: url("../img/bygge.jpg") no-repeat; background-size: 200% 100%;
+  will-change: transform, filter, opacity;
+}
+.build__half--l { left: 0; background-position: left center; border-radius: 8px 0 0 8px; }
+.build__half--r { right: 0; background-position: right center; border-radius: 0 8px 8px 0; }
+.build__bar { height: 2px; margin-top: 28px; background: var(--line); }
+.build__bar span { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(var(--p, 1)); }
+
+/* Animerat läge (sätts av JS när rörelse är tillåten) */
+.build--anim { padding: 0; }
+.build--anim .build__track { height: 320vh; }
+.build--anim .build__sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; padding-top: 76px; }
+.build--anim .build__sticky > .wrap { width: 100%; }
+
+@media (max-width: 860px) {
+  .build__grid { grid-template-columns: 1fr; gap: 24px; }
+  .build__text h2 { margin-bottom: 16px; }
+  .build__steps li { padding: 10px 0; }
+  .build--anim .build__steps li p { display: none; }
+  .build--anim .build__steps li.is-active p { display: block; }
+  .build__bar { margin-top: 18px; }
+}

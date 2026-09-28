@@ -71,6 +71,58 @@
 })();
 
 // ==========================================================
+// Från idé till färdig sida: två halvor som sätts ihop när man scrollar
+// ==========================================================
+(function () {
+  var section = document.querySelector('.build');
+  if (!section || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  section.classList.add('build--anim');
+
+  var track = section.querySelector('.build__track');
+  var frame = section.querySelector('.build__frame');
+  var left = section.querySelector('.build__half--l');
+  var right = section.querySelector('.build__half--r');
+  var bar = section.querySelector('.build__bar');
+  var steps = section.querySelectorAll('.build__steps li');
+  var ticking = false;
+
+  function clamp(v) { return Math.min(1, Math.max(0, v)); }
+  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  // hur långt man har kommit inom ett intervall av hela förloppet
+  function range(p, a, b) { return ease(clamp((p - a) / (b - a))); }
+
+  function update() {
+    ticking = false;
+    var r = track.getBoundingClientRect();
+    var total = r.height - window.innerHeight;
+    var p = clamp(-r.top / total);
+
+    var inL = range(p, 0, 0.18);      // vänster halva kommer upp
+    var inR = range(p, 0.22, 0.62);   // höger halva glider in
+    var done = range(p, 0.62, 0.86);  // skissen blir färdig sida
+
+    left.style.opacity = inL;
+    left.style.transform = 'translateY(' + (1 - inL) * 60 + 'px)';
+    right.style.opacity = inR;
+    right.style.transform = 'translateX(' + (1 - inR) * 70 + '%) rotate(' + (1 - inR) * 4 + 'deg)';
+
+    var filter = 'grayscale(' + (1 - done) + ') blur(' + (1 - done) * 3 + 'px) contrast(' + (0.85 + done * 0.15) + ')';
+    left.style.filter = filter;
+    right.style.filter = filter;
+    frame.style.setProperty('--shadow', done);
+    bar.style.setProperty('--p', p);
+
+    var active = p < 0.3 ? 0 : p < 0.7 ? 1 : 2;
+    steps.forEach(function (li, i) { li.classList.toggle('is-active', i === active); });
+  }
+
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+
+// ==========================================================
 // Demobutik: Norrsken (påhittad butik med fotoprints)
 // Byt produkter, bilder och priser i listan nedan.
 // ==========================================================
