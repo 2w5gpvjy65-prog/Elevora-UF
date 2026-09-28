@@ -71,46 +71,35 @@
 })();
 
 // ==========================================================
-// Demobutik: Norrsken (påhittat smyckesmärke)
+// Demobutik: Norrsken (påhittad butik med fotoprints)
 // Byt produkter, bilder och priser i listan nedan.
 // ==========================================================
 (function () {
+  var sizes = { name: 'Storlek', values: ['30 × 40 cm', '50 × 70 cm', '70 × 100 cm'] };
   var products = [
     {
-      id: 'orsa', cat: 'Ringar', type: 'Ring', name: 'Orsa', price: 449, label: 'Nyhet',
-      img: 'img/produkter/orsa.jpg',
-      desc: 'Ring formad som en orm som biter sig själv i svansen. Förgyllt silver med graverade fjäll och små svarta ögon.',
-      opt: { name: 'Storlek', values: ['16', '17', '18', '19'] }
+      id: 'kvallsbris', cat: 'Hav', type: 'Fotoprint', name: 'Kvällsbris', price: 449, label: 'Nyhet',
+      img: 'img/produkter/kvallsbris.jpg',
+      desc: 'En segelbåt som glider fram på spegelblankt vatten i kvällsljus. Tryckt på tjockt, matt papper.',
+      opt: sizes
     },
     {
-      id: 'tallberg', cat: 'Örhängen', type: 'Creoler', name: 'Tällberg', price: 549, label: 'Bästsäljare',
-      img: 'img/produkter/tallberg.jpg',
-      desc: 'Creoler i förgyllt silver med en rad glittrande stenar runt hela ringen. Stängs med ett klick.',
-      opt: { name: 'Storlek', values: ['15 mm', '20 mm'] }
+      id: 'tidlos', cat: 'Detaljer', type: 'Fotoprint', name: 'Tidlös', price: 399,
+      img: 'img/produkter/tidlos.jpg',
+      desc: 'En klassisk klocka mot jeans och en grön jacka. En liten detalj som säger mycket.',
+      opt: sizes
     },
     {
-      id: 'polstjarna', cat: 'Örhängen', type: 'Stiftörhängen', name: 'Polstjärna', price: 399,
-      img: 'img/produkter/polstjarna.jpg',
-      desc: 'Stiftörhängen i sterlingsilver. En stor sten omgiven av en krans av små stenar som gnistrar som en stjärnhimmel.',
-      opt: { name: 'Antal', values: ['Par', 'Singel'] }
+      id: 'riggen', cat: 'Hav', type: 'Fotoprint', name: 'Riggen', price: 499, label: 'Bästsäljare',
+      img: 'img/produkter/riggen.jpg',
+      desc: 'Fulla segel, tjocka rep och öppet hav från däck på ett gammalt segelfartyg.',
+      opt: sizes
     },
     {
-      id: 'vika', cat: 'Halsband', type: 'Halsband', name: 'Vika', price: 349,
-      img: 'img/produkter/vika.jpg',
-      desc: 'Tunn, blank kedja i förgyllt silver. Fin att bära ensam eller med ett hänge.',
-      opt: { name: 'Längd', values: ['40 cm', '45 cm', '50 cm'] }
-    },
-    {
-      id: 'rattvik', cat: 'Halsband', type: 'Halsband med hänge', name: 'Rättvik', price: 649,
-      img: 'img/produkter/rattvik.jpg',
-      desc: 'Förgyllt halsband med ett hänge i filigran och en droppformad sten. Gjort för fest, men fungerar lika bra till vardags.',
-      opt: { name: 'Längd', values: ['42 cm', '47 cm'] }
-    },
-    {
-      id: 'leksand', cat: 'Armband', type: 'Armring', name: 'Leksand', price: 499,
-      img: 'img/produkter/leksand.jpg',
-      desc: 'Smal armring i förgyllt stål med små stenar längs ena sidan. Öppnas med ett gångjärn.',
-      opt: { name: 'Storlek', values: ['S', 'M', 'L'] }
+      id: 'regnkvall', cat: 'Stad', type: 'Fotoprint', name: 'Regnkväll', price: 449,
+      img: 'img/produkter/regnkvall.jpg',
+      desc: 'En regnig kväll bakom ett kaféfönster, med böcker, ett glas och en tänd lampa.',
+      opt: sizes
     }
   ];
 
@@ -124,28 +113,30 @@
   function kr(n) { return n.toLocaleString('sv-SE') + ' kr'; }
   function img(src, alt) { return '<img src="' + src + '" alt="' + (alt || '') + '" loading="lazy">'; }
   function find(id) { return products.filter(function (p) { return p.id === id; })[0]; }
-  function total() { return state.product.price * state.qty + SHIPPING; }
+  // Större format kostar 200 kr mer per steg
+  function unitPrice() { return state.product.price + state.product.opt.values.indexOf(state.option) * 200; }
+  function total() { return unitPrice() * state.qty + SHIPPING; }
 
   function header() {
     return '<div class="shop__head">' +
-      '<nav class="shop__menu" aria-hidden="true"><span>Ringar</span><span>Örhängen</span><span>Halsband</span></nav>' +
+      '<nav class="shop__menu" aria-hidden="true"><span>Hav</span><span>Stad</span><span>Detaljer</span></nav>' +
       '<button class="shop__brand" data-go="list">Norrsken</button>' +
       '<span class="shop__cart">Varukorg (' + (state.view === 'checkout' ? state.qty : 0) + ')</span>' +
     '</div>';
   }
 
   function viewList() {
-    var cats = ['Alla', 'Ringar', 'Örhängen', 'Halsband', 'Armband'];
+    var cats = ['Alla', 'Hav', 'Stad', 'Detaljer'];
     var list = products.filter(function (p) { return state.filter === 'Alla' || p.cat === state.filter; });
     return '' +
       '<div class="shop__intro">' +
-        '<div><h3>Smycken från Dalarna</h3><p>Förgyllt och sterlingsilver. Fri frakt över 500 kr.</p></div>' +
+        '<div><h3>Fotoprints med känsla</h3><p>Tryckta på matt papper. Fri frakt över 500 kr.</p></div>' +
         '<div class="shop__filters" role="group" aria-label="Filtrera produkter">' +
           cats.map(function (c) { return '<button data-filter="' + c + '" aria-pressed="' + (state.filter === c) + '">' + c + '</button>'; }).join('') +
         '</div>' +
       '</div>' +
       '<div class="shop__section">' +
-        (state.touched ? '' : '<p class="shop__hint">Tryck på en produkt för att testa köpet.</p>') +
+        (state.touched ? '' : '<p class="shop__hint">Tryck på en bild för att testa köpet.</p>') +
         '<div class="grid">' +
           list.map(function (p) {
             return '<button class="card" data-product="' + p.id + '">' +
@@ -153,7 +144,7 @@
                 (p.label ? '<span class="card__label">' + p.label + '</span>' : '') +
               '</span>' +
               '<span class="card__row"><span><span class="card__name">' + p.name + '</span><span class="card__type">' + p.type + '</span></span>' +
-              '<span class="card__price">' + kr(p.price) + '</span></span>' +
+              '<span class="card__price">från ' + kr(p.price) + '</span></span>' +
             '</button>';
           }).join('') +
         '</div>' +
@@ -164,13 +155,13 @@
     var p = state.product;
     return '' +
       '<div class="shop__section shop__section--pad">' +
-        '<button class="crumbs" data-go="list">← Alla smycken</button>' +
+        '<button class="crumbs" data-go="list">← Alla prints</button>' +
         '<div class="product">' +
           '<div class="product__img">' + img(p.img, p.type + ' ' + p.name) + '</div>' +
           '<div class="product__info">' +
             '<p class="product__type">' + p.type + '</p>' +
             '<h3>' + p.name + '</h3>' +
-            '<p class="product__price">' + kr(p.price) + '</p>' +
+            '<p class="product__price">' + kr(unitPrice()) + '</p>' +
             '<p class="product__desc">' + p.desc + '</p>' +
             '<div class="product__opt"><span>' + p.opt.name + ': ' + state.option + '</span>' +
               '<div class="chips">' + p.opt.values.map(function (v) {
@@ -180,7 +171,7 @@
             '<button class="buy" data-go="checkout">Köp nu</button>' +
             '<p class="demo-only">Demo: det går inte att köpa något på riktigt här.</p>' +
             '<div class="paylist"><span>Swish</span><span>Kort</span><span>Klarna</span></div>' +
-            '<ul class="product__usp"><li>Skickas inom 1–2 vardagar</li><li>Fri retur i 30 dagar</li><li>Levereras i presentask</li></ul>' +
+            '<ul class="product__usp"><li>Skickas inom 1–2 vardagar</li><li>Fri retur i 30 dagar</li><li>Skickas i ett skyddande rör</li></ul>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -234,7 +225,7 @@
                 '<span class="qty"><button data-qty="-1" aria-label="Minska antal">−</button><span>' + state.qty + '</span><button data-qty="1" aria-label="Öka antal">+</button></span>' +
               '</div>' +
             '</div>' +
-            '<div class="sum"><span>Delsumma</span><span>' + kr(p.price * state.qty) + '</span></div>' +
+            '<div class="sum"><span>Delsumma</span><span>' + kr(unitPrice() * state.qty) + '</span></div>' +
             '<div class="sum"><span>Frakt</span><span>' + kr(SHIPPING) + '</span></div>' +
             '<div class="sum sum--total"><span>Totalt</span><span>' + kr(total()) + '</span></div>' +
             '<p class="demo-flag">Demo. Inga pengar dras och ingen order skickas.</p>' +
