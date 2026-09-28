@@ -84,7 +84,6 @@
   var right = section.querySelector('.build__half--r');
   var bar = section.querySelector('.build__bar');
   var steps = section.querySelectorAll('.build__steps li');
-  var desktop = window.matchMedia('(min-width: 861px)');
   var ticking = false;
 
   function clamp(v) { return Math.min(1, Math.max(0, v)); }
@@ -94,16 +93,10 @@
 
   function update() {
     ticking = false;
-    var p, vh = window.innerHeight;
-    if (desktop.matches) {
-      // Dator: förloppet följer hur långt man scrollat genom det fastnålade avsnittet
-      var r = track.getBoundingClientRect();
-      p = clamp(-r.top / (r.height - vh));
-    } else {
-      // Mobil: inget fastnålat läge, bilden sätts ihop medan den passerar skärmen
-      var f = frame.getBoundingClientRect();
-      p = clamp((vh * 0.9 - f.top) / (vh * 0.6));
-    }
+    // Förloppet följer hur långt man scrollat genom det fastnålade avsnittet
+    var r = track.getBoundingClientRect();
+    var sticky = track.firstElementChild.getBoundingClientRect();
+    var p = clamp(-r.top / Math.max(1, r.height - sticky.height));
 
     var inL = range(p, 0, 0.18);      // vänster halva kommer upp
     var inR = range(p, 0.22, 0.62);   // höger halva glider in
@@ -119,6 +112,9 @@
     right.style.filter = filter;
     frame.style.setProperty('--shadow', done);
     bar.style.setProperty('--p', p);
+
+    // Dölj mobilens offertknapp medan bilden sätts ihop
+    document.body.classList.toggle('build-active', r.top < 0 && r.bottom > window.innerHeight * 0.5);
 
     var active = p < 0.3 ? 0 : p < 0.7 ? 1 : 2;
     steps.forEach(function (li, i) { li.classList.toggle('is-active', i === active); });

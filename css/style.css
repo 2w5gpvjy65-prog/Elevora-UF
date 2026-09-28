@@ -3,9 +3,9 @@
    Ett lugnt, varmt neutralt färgschema. Allt styrs härifrån.
    ========================================================== */
 :root {
-  --bg: #eee8df;         /* sidans bakgrund, varm off-white */
+  --bg: #f2ede6;         /* sidans bakgrund, varm off-white */
   --stone: #e7e2dc;      /* samma ton som bakgrunden i produktbilderna */
-  --surface: #f6f2ec;    /* ljusare yta för prislista och butik */
+  --surface: #f9f6f1;    /* ljusare yta för prislista och butik */
   --ink: #1d1c1a;        /* text och knappar */
   --muted: #6d675f;
   --line: #d8d0c3;
@@ -69,7 +69,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* ---------- Meny ---------- */
 .header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(238, 232, 223, .92);
+  padding-top: env(safe-area-inset-top, 0px);
+  background: rgba(242, 237, 230, .96);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
   transition: border-color .2s;
@@ -92,7 +93,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 860px) {
   .nav-toggle { display: block; }
   .nav {
-    position: absolute; top: 76px; left: 0; right: 0;
+    position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--bg); border-bottom: 1px solid var(--line);
     padding: 0 16px 24px; display: none;
@@ -128,7 +129,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .demo__note a { color: var(--accent); text-underline-offset: 3px; }
 
 .browser { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; box-shadow: 0 40px 80px -50px rgba(40, 32, 20, .35); }
-.browser__bar { display: flex; align-items: center; gap: 14px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: #ece6dc; }
+.browser__bar { display: flex; align-items: center; gap: 14px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: #efeae3; }
 .browser__dots { display: flex; gap: 6px; flex: none; }
 .browser__dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
 .browser__url {
@@ -138,8 +139,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 /* Butikens stil */
-.shop { font-size: 15px; min-height: 480px; background: #f1ece4; }
-.shop__head { background: #f8f5f0; }
+.shop { font-size: 15px; min-height: 480px; background: #f5f1eb; }
+.shop__head { background: #faf8f4; }
 .shop__noscript { padding: 40px; text-align: center; }
 .shop__head { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 28px; border-bottom: 1px solid #eee9e2; }
 .shop__menu { display: flex; gap: 20px; font-size: .85rem; color: var(--muted); }
@@ -299,7 +300,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .step-list p { color: var(--muted); margin: 0; }
 
 /* ---------- Om oss ---------- */
-.about { background: #e5ded3; }
+.about { background: #eae4da; }
 .about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; }
 @media (max-width: 860px) { .about__grid { grid-template-columns: 1fr; } }
 .about .head { margin-bottom: 32px; }
@@ -353,7 +354,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .mobile-cta {
     display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-    background: rgba(238, 232, 223, .95); border-top: 1px solid var(--line);
+    background: rgba(242, 237, 230, .96); border-top: 1px solid var(--line);
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     transform: translateY(110%); transition: transform .25s ease;
   }
@@ -494,12 +495,26 @@ body::after {
 .build__bar span { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(var(--p, 1)); }
 
 /* Animerat läge (sätts av JS när rörelse är tillåten) */
-/* Dator: bilden stannar kvar medan den sätts ihop */
-@media (min-width: 861px) {
-  .build--anim { padding: 0; }
-  .build--anim .build__track { height: 190vh; }
-  .build--anim .build__sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; padding-top: 76px; }
-  .build--anim .build__sticky > .wrap { width: 100%; }
+/* Bilden stannar kvar medan den sätts ihop. svh = Safaris minsta skärmhöjd,
+   så att adressfältet inte flyttar något. */
+.build--anim { padding: 0; }
+.build--anim .build__track { height: 190vh; height: 190svh; }
+.build--anim .build__sticky {
+  position: -webkit-sticky; position: sticky; top: 0;
+  height: 100vh; height: 100svh;
+  display: flex; align-items: center; padding-top: 76px;
+}
+.build--anim .build__sticky > .wrap { width: 100%; }
+@media (max-width: 860px) {
+  .build--anim .build__track { height: 170vh; height: 170svh; }
+  .build--anim .build__sticky { padding-top: 64px; }
+  .build--anim .build__text .label { display: none; }
+  .build--anim .build__text h2 { font-size: 1.6rem; margin-bottom: 10px; }
+  .build--anim .build__steps li { padding: 7px 0; }
+  .build--anim .build__steps h3 { font-size: 1rem; margin: 0; }
+  .build--anim .build__steps li p { display: none; }
+  .build--anim .build__steps li.is-active p { display: block; font-size: .85rem; margin-top: 2px; }
+  .build--anim .build__grid { gap: 16px; }
 }
 
 @media (max-width: 860px) {
@@ -508,3 +523,5 @@ body::after {
   .build__steps li { padding: 10px 0; }
   .build__bar { margin-top: 18px; }
 }
+
+.build-active .mobile-cta { transform: translateY(110%) !important; }
