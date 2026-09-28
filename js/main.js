@@ -84,6 +84,7 @@
   var right = section.querySelector('.build__half--r');
   var bar = section.querySelector('.build__bar');
   var steps = section.querySelectorAll('.build__steps li');
+  var desktop = window.matchMedia('(min-width: 861px)');
   var ticking = false;
 
   function clamp(v) { return Math.min(1, Math.max(0, v)); }
@@ -93,9 +94,16 @@
 
   function update() {
     ticking = false;
-    var r = track.getBoundingClientRect();
-    var total = r.height - window.innerHeight;
-    var p = clamp(-r.top / total);
+    var p, vh = window.innerHeight;
+    if (desktop.matches) {
+      // Dator: förloppet följer hur långt man scrollat genom det fastnålade avsnittet
+      var r = track.getBoundingClientRect();
+      p = clamp(-r.top / (r.height - vh));
+    } else {
+      // Mobil: inget fastnålat läge, bilden sätts ihop medan den passerar skärmen
+      var f = frame.getBoundingClientRect();
+      p = clamp((vh * 0.9 - f.top) / (vh * 0.6));
+    }
 
     var inL = range(p, 0, 0.18);      // vänster halva kommer upp
     var inR = range(p, 0.22, 0.62);   // höger halva glider in
