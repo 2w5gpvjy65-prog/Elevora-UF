@@ -1,0 +1,5 @@
+# Cloudflare Pages: samma inställningar som i netlify.toml
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cache-Control: public, max-age=0, must-revalidate

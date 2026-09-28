@@ -305,15 +305,20 @@
           <img class="contact__mark" src="img/logo-ljus.svg" alt="" width="220" height="220">
         </div>
 
-        <form class="form" name="offert" method="POST" action="/tack.html" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="offert">
-          <p class="form__hidden"><label>Fyll inte i detta: <input name="bot-field"></label></p>
+        <!-- Formuläret skickas via Web3Forms till elevora.uf@gmail.com.
+             Byt DIN-ACCESS-KEY mot nyckeln från web3forms.com. -->
+        <form class="form" name="offert" method="POST" action="https://api.web3forms.com/submit">
+          <input type="hidden" name="access_key" value="DIN-ACCESS-KEY">
+          <input type="hidden" name="subject" value="Ny offertförfrågan från elevorauf.se">
+          <input type="hidden" name="from_name" value="Elevora UF – hemsidan">
+          <input type="hidden" name="redirect" value="https://elevorauf.se/tack.html">
+          <input type="checkbox" name="botcheck" class="form__hidden" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="form__row">
             <label>Namn<input type="text" name="namn" autocomplete="name" required></label>
             <label>Företag<input type="text" name="foretag" autocomplete="organization"></label>
           </div>
-          <label>Mejl<input type="email" name="mejl" autocomplete="email" required></label>
+          <label>Mejl<input type="email" name="email" autocomplete="email" required></label>
           <label>Vad behöver ni?
             <select name="tjanst" id="serviceSelect">
               <option>Webbshop</option>
