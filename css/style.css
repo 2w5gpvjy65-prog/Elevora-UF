@@ -494,16 +494,17 @@ body::after {
 .build__bar span { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(var(--p, 1)); }
 
 /* Animerat läge (sätts av JS när rörelse är tillåten) */
-.build--anim { padding: 0; }
-.build--anim .build__track { height: 320vh; }
-.build--anim .build__sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; padding-top: 76px; }
-.build--anim .build__sticky > .wrap { width: 100%; }
+/* Dator: bilden stannar kvar medan den sätts ihop */
+@media (min-width: 861px) {
+  .build--anim { padding: 0; }
+  .build--anim .build__track { height: 190vh; }
+  .build--anim .build__sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; padding-top: 76px; }
+  .build--anim .build__sticky > .wrap { width: 100%; }
+}
 
 @media (max-width: 860px) {
   .build__grid { grid-template-columns: 1fr; gap: 24px; }
   .build__text h2 { margin-bottom: 16px; }
   .build__steps li { padding: 10px 0; }
-  .build--anim .build__steps li p { display: none; }
-  .build--anim .build__steps li.is-active p { display: block; }
   .build__bar { margin-top: 18px; }
 }
