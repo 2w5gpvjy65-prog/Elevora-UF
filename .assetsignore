@@ -1,5 +1,6 @@
 .git
-.assetsignore
+.wrangler
+.gitignore
 wrangler.jsonc
 netlify.toml
 README.md
