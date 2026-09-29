@@ -12,12 +12,14 @@ Hemsida för vårt UF-företag Elevora. Ren HTML, CSS och JavaScript, inget bygg
 | `tack.html` | Sidan man hamnar på efter att ha skickat offertformuläret |
 | `netlify.toml` | Inställningar för Netlify |
 
-## Publicera på Netlify
+## Publicera på Cloudflare Pages
 
-1. Netlify → *Add new site* → *Import from GitHub* → välj det här repot.
-2. Build command: lämna tomt. Publish directory: `.`
-3. Offertformuläret använder Netlify Forms. Förfrågningar syns under *Forms* i Netlify, och där kan ni slå på mejlnotiser.
-4. Koppla domänen under *Domain management*.
+1. dash.cloudflare.com → Workers & Pages → Create → Pages → Connect to Git → välj repot, gren `main`.
+2. Framework preset: None. Build command: tomt. Output directory: `/`.
+3. Custom domains → lägg till `elevorauf.se` och `www.elevorauf.se`, följ instruktionerna för Loopia.
+4. `_headers` innehåller cache-inställningar. `404.html` används automatiskt.
+
+Offertformuläret skickas via [Web3Forms](https://web3forms.com). Nyckeln (`access_key`) står i `index.html`.
 
 ## Bilder
 
