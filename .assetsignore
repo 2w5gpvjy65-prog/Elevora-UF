@@ -1,0 +1,6 @@
+.git
+.wrangler
+.gitignore
+wrangler.jsonc
+netlify.toml
+README.md
