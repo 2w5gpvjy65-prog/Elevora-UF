@@ -12,8 +12,8 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
 ## Priser
 | Tjänst | UF-pris | Ordinarie |
 |---|---|---|
-| Webbshop | 1 200 kr | från 2 000 kr |
-| Hemsida, en sida | 600 kr | 1 200 kr |
+| Webbshop | 600 kr | från 2 000 kr |
+| Hemsida, en sida | 300 kr | 1 200 kr |
 | Google-profil | 400 kr | – |
 | Löpande uppdateringar | 200 kr/mån | – |
 
@@ -58,7 +58,7 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
 ## Att göra / kvar
 - Foto på teamet (`img/team.jpg` visas automatiskt under Om oss).
 - Riktigt kundexempel i stället för, eller bredvid, demobutiken.
-- Instagram-länk när användarnamnet är bestämt. Bio-förslag: "Sluta sälja i DMs och på Plick. Skaffa er egen sida. ✨ UF-pris från 600 kr ↓"
+- Instagram-länk när användarnamnet är bestämt. Bio-förslag: "Sluta sälja i DMs och på Plick. Skaffa er egen sida. ✨ UF-pris från 300 kr ↓"
 - Kontrollera rättigheter för demobilderna om de inte är egna foton (en bild visar en Rolex-logga).
 
 ## Hur användaren vill ha svar
