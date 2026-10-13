@@ -453,10 +453,6 @@ body::after {
 }
 }
 
-/* ---------- Mjuk intoning ---------- */
-.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
-.js .reveal.is-in { opacity: 1; transform: none; }
-
 /* ---------- Stor logga vid formuläret ---------- */
 .contact__grid { align-items: stretch; }
 .contact__text { display: flex; flex-direction: column; }
