@@ -257,16 +257,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
 /* ---------- Jämförelse ---------- */
-.compare { padding-top: 0; }
-.compare__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; border-top: 1px solid var(--line); }
-@media (max-width: 760px) { .compare__grid { grid-template-columns: 1fr; } }
-.compare__grid > div { padding-top: 40px; }
-.compare h3 { font-size: 1.3rem; }
-.compare__grid > div:first-child h3 { color: var(--muted); }
-.compare ol { list-style: none; margin: 20px 0 0; padding: 0; counter-reset: c; }
-.compare li { counter-increment: c; display: flex; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-.compare li::before { content: counter(c); font-size: .82rem; color: var(--muted); min-width: 1em; padding-top: .15em; }
-.compare__grid > div:first-child li { color: var(--muted); }
 
 /* ---------- Priser ---------- */
 .prices { background: var(--surface); }
@@ -378,8 +368,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* ---------- Blå detaljer ---------- */
 .accent { font-family: var(--display); font-style: normal; font-weight: 500; color: var(--accent); letter-spacing: -0.02em; }
 .contact .accent { color: #a9bdd8; }
-.compare__grid > div:last-child h3 { color: var(--accent); }
-.compare__grid > div:last-child li::before { color: var(--accent); }
 .price-table { border-top-color: var(--accent); }
 .facts dt { color: var(--accent); }
 
@@ -550,3 +538,61 @@ body::after {
   .header + main { padding-top: 60px; }
   html { scroll-padding-top: 68px; }
 }
+
+/* ==========================================================
+   Mindre text, mer visuellt
+   ========================================================== */
+
+/* Betalsätt i hero */
+.paychips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; }
+.paychip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 12px; border-radius: 999px; background: #fff; font-size: .9rem; font-weight: 500; box-shadow: 0 1px 0 var(--line); }
+.paychip::before { content: ""; width: 10px; height: 10px; border-radius: 50%; }
+.paychip--swish::before { background: #4caf7a; }
+.paychip--card::before { background: var(--accent); border-radius: 2px; width: 14px; height: 10px; }
+.paychip--klarna::before { background: #ffb3c7; }
+
+/* Tjänster som färgade rutor */
+.services__title { margin-bottom: 40px; }
+.tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .tiles { grid-template-columns: 1fr; gap: 12px; } }
+.tile { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; min-height: 240px; padding: 28px; border-radius: 4px; }
+@media (max-width: 760px) { .tile { min-height: 0; flex-direction: row; align-items: center; gap: 18px; padding: 22px; } }
+.tile h3 { font-size: 1.5rem; margin: 0; }
+.tile__icon { width: 52px; height: 52px; }
+@media (max-width: 760px) { .tile__icon { width: 40px; height: 40px; flex: none; } .tile h3 { font-size: 1.25rem; flex: 1; } }
+.tile__price { margin: 0; font-size: 1rem; opacity: .75; }
+.tile::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 160px; height: 160px; border-radius: 50%; background: currentColor; opacity: .06; }
+.tile--navy { background: var(--accent); color: #eee8df; }
+.tile--sand { background: #e3d9cb; color: var(--ink); }
+.tile--mist { background: #d6dde6; color: #1b2a40; }
+
+/* DM vs egen butik som flöden */
+.compare .wrap { display: grid; gap: 20px; }
+.compare { padding-top: 24px; }
+.flow { display: grid; grid-template-columns: 140px 1fr; align-items: center; gap: 20px; }
+@media (max-width: 760px) { .flow { grid-template-columns: 1fr; gap: 10px; } }
+.flow__name { margin: 0; font-weight: 600; font-size: 1.15rem; }
+.flow__steps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.flow__steps li { padding: 10px 16px; border-radius: 999px; font-size: .95rem; }
+.flow__steps li + li::before { content: ""; display: inline-block; width: 18px; height: 1.5px; background: currentColor; opacity: .4; margin: 0 12px 0 -4px; vertical-align: middle; }
+.flow--old { color: var(--muted); }
+.flow--old .flow__steps li { background: transparent; border: 1px dashed #c9bfb0; }
+.flow--old .flow__steps li:last-child { text-decoration: line-through; }
+.flow--new .flow__name { color: var(--accent); }
+.flow--new .flow__steps li { background: var(--accent); color: #fff; }
+.flow--new .flow__steps li:last-child { background: #4caf7a; }
+
+/* Er stil: färger, typsnitt, bilder */
+.style h2 { margin-bottom: 40px; }
+.looks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .looks { grid-template-columns: 1fr; } }
+.look { padding: 28px; border: 1px solid rgba(238, 232, 223, .18); border-radius: 4px; display: flex; flex-direction: column; gap: 22px; }
+.look h3 { margin: 0; font-size: 1.1rem; color: #eee8df; }
+.look__swatches { display: flex; gap: 8px; height: 72px; align-items: center; }
+.look__swatches i { width: 44px; height: 44px; border-radius: 50%; }
+.look__swatches i:nth-child(2) { width: 56px; height: 56px; }
+.look__type { height: 72px; display: flex; align-items: center; font-family: var(--display); font-size: 4rem; line-height: 1; color: #a9bdd8; }
+.look__photos { display: flex; height: 72px; }
+.look__photos img { width: 60px; height: 72px; object-fit: cover; border: 3px solid #eee8df; transform: rotate(-6deg); }
+.look__photos img + img { margin-left: -18px; transform: rotate(4deg); }
+.look__photos img:last-child { transform: rotate(-2deg); }
