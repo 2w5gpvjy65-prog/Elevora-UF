@@ -1,6 +1,7 @@
 // Tidslinjen styrs av rösten: varje text dyker upp när den sägs.
-// Längderna kommer från voice.json (skapas av scripts/rost/), så byter ni
-// till en egen inspelning flyttar sig allt automatiskt.
+// Längderna och ordens starttider kommer från voice.json (skapas av scripts/elevenlabs/),
+// så byter ni röst eller manus flyttar sig allt automatiskt.
+// Rösten säger mer än det som står på skärmen (en kort pitch), men varje replik hör till en text.
 import voice from "./voice.json";
 
 export const FPS = 30;
@@ -8,6 +9,12 @@ export const FPS = 30;
 export type VoiceId = keyof typeof voice;
 export const VOICE: Record<VoiceId, { text: string; seconds: number }> = voice;
 export const len = (id: VoiceId) => Math.ceil(VOICE[id].seconds * FPS);
+// När ett ord börjar i en replik (bildrutor från replikens start)
+export const word = (id: VoiceId, w: string, fallback: number) => {
+  const words = (voice[id] as unknown as { words?: [string, number][] }).words ?? [];
+  const hit = words.find(([x]) => x.toLowerCase().startsWith(w.toLowerCase()));
+  return hit ? Math.round(hit[1] * FPS) : fallback;
+};
 // Minsta tid en text måste synas: 0,3 s per ord, minst 1,2 s (eller repliken om den är längre)
 export const hold = (id: VoiceId) =>
   Math.max(len(id), Math.ceil(Math.max(1.2, 0.3 * VOICE[id].text.split(" ").length) * FPS));
@@ -38,6 +45,10 @@ const bH6 = bV5 + hold("05-bygger") + 4;
 const bV6 = bH6 + 1;
 export const BUILD = {
   v3: bV3,
+  // Wireframen börjar ritas redan på "Skaffa er egen webbshop", så mobilen inte står tom
+  design: bV3 + word("03-skaffa", "skaffa", 40) - 2,
+  // Markeringsrutan hoppar under "Vi på Elevora designar den efter er stil"
+  picks: [bV4 + 6, bV4 + Math.round(len("04-designar") * 0.4), bV4 + Math.round(len("04-designar") * 0.75)],
   h4: bH4,
   v4: bV4,
   h5: bH5,
@@ -55,21 +66,21 @@ export const SHOW = {
   duration: 8 + len("07-artera") + 4 + STRIPES,
 };
 
-// 4. Köpet i mobilen
+// 4. Köpet i mobilen. Mobilen följer orden: scrollar på "hittar fatet",
+// trycker på "kundvagnen" och kassan öppnas på "betalar".
 const sV8 = 6;
 const sV9 = sV8 + len("08-betalar") + 2;
-// Ordstarter i "Swish, kort eller Klarna" (sekunder in i repliken), från röstens tidsstämplar
-const WORDS: number[] = (voice["09-betalsatt"] as { words?: number[] }).words ?? [0.02, 0.73, 1.3];
+const sTap = sV8 + word("08-betalar", "kundvagnen", 70) + 6;
 const sSelect = sV9 + len("09-betalsatt") + 2;
 export const SHOP = {
   v8: sV8,
-  scrollStart: 2,
-  scrollEnd: 34,
-  tapBuy: 40,
-  sheetIn: 44,
+  scrollStart: sV8 + word("08-betalar", "hittar", 24) - 4,
+  scrollEnd: Math.min(sV8 + word("08-betalar", "fatet", 34) + 22, sTap - 8),
+  tapBuy: sTap,
+  sheetIn: sV8 + word("08-betalar", "betalar", 100) - 6,
   h9: sV9 - 1,
   v9: sV9,
-  words: WORDS.map((w) => sV9 + Math.round(w * FPS)),
+  words: [word("09-betalsatt", "swish", 4), word("09-betalsatt", "kort", 22), word("09-betalsatt", "klarna", 40)].map((w) => sV9 + w),
   select: sSelect,
   tapPay: sSelect + 8,
   done: sSelect + 14,

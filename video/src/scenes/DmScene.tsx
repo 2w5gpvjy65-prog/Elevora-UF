@@ -29,17 +29,28 @@ const MESSAGES = [
   { at: 46, user: "elin.k", text: "Skickar ni till Umeå?" },
   { at: 54, user: "siri.m", text: "Finns den kvar?" },
   // Andra rubriken: allt fler, allt tätare
-  { at: 70, user: "hugo.n", text: "Finns den kvar?" },
-  { at: 76, user: "elsa.m", text: "Har ni Klarna?" },
-  { at: 81, user: "olivia.s", text: "Vad kostar frakten?" },
-  { at: 86, user: "leo.a", text: "Är den såld?" },
-  { at: 91, user: "ines.v", text: "Finns den kvar?" },
-  { at: 96, user: "vera.h", text: "Kan jag swisha?" },
-  { at: 101, user: "nora.l", text: "Hallå??" },
-  { at: 106, user: "juni.p", text: "Finns den kvar?" },
-  { at: 111, user: "ebba.r", text: "Svara snälla" },
-  { at: 116, user: "liam.j", text: "Vad kostar frakten?" },
-  { at: 121, user: "stella.f", text: "Finns den kvar?" },
+  ...[
+    { user: "hugo.n", text: "Finns den kvar?" },
+    { user: "elsa.m", text: "Har ni Klarna?" },
+    { user: "olivia.s", text: "Vad kostar frakten?" },
+    { user: "leo.a", text: "Är den såld?" },
+    { user: "ines.v", text: "Finns den kvar?" },
+    { user: "vera.h", text: "Kan jag swisha?" },
+    { user: "nora.l", text: "Hallå??" },
+    { user: "juni.p", text: "Finns den kvar?" },
+    { user: "ebba.r", text: "Svara snälla" },
+    { user: "liam.j", text: "Vad kostar frakten?" },
+    { user: "stella.f", text: "Finns den kvar?" },
+    { user: "alice.n", text: "Kan jag swisha?" },
+    { user: "max.b", text: "Finns den i guld?" },
+    { user: "tyra.k", text: "Hallå?" },
+    { user: "isak.l", text: "Vad kostar frakten?" },
+    { user: "freja.h", text: "Finns den kvar?" },
+  ].map((m, i, all) => ({
+    ...m,
+    // Andra rubriken: meddelandena kommer allt tätare under hela repliken
+    at: Math.round(DM.h2In + 4 + (DM.duration - DM.h2In - 14) * Math.pow(i / (all.length - 1), 0.8)),
+  })),
 ];
 
 const AVATARS = ["#d9cfc2", "#cfd5dc", "#d4cdc2", "#c8c1b6", "#dcd4c9", "#c5ccd6"];

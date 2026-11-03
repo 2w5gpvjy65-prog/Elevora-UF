@@ -27,9 +27,9 @@ const musicVolume = (f: number) => {
 type Fx = { file: string; at: number; vol: number; frames?: number; name: string };
 const FX: Fx[] = [
   { name: "Svep DM -> bygget", file: "svep", at: START.swipe - 2, vol: 0.4 },
-  { name: "Markering 1", file: "klick", at: START.build + BUILD.v4 + 4, vol: 0.16 },
-  { name: "Markering 2", file: "klick", at: START.build + BUILD.v4 + 16, vol: 0.16 },
-  { name: "Markering 3", file: "klick", at: START.build + BUILD.v4 + 28, vol: 0.16 },
+  { name: "Markering 1", file: "klick", at: START.build + BUILD.picks[0], vol: 0.16 },
+  { name: "Markering 2", file: "klick", at: START.build + BUILD.picks[1], vol: 0.16 },
+  { name: "Markering 3", file: "klick", at: START.build + BUILD.picks[2], vol: 0.16 },
   { name: "Kod skrivs", file: "tangenter", at: START.build + BUILD.v5 - 8, vol: 0.18 },
   { name: "Sidan framkallas", file: "skanna", at: START.build + BUILD.reveal + 8, vol: 0.26 },
   { name: "Publicerad", file: "pop", at: START.build + BUILD.reveal + 18, vol: 0.3 },

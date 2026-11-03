@@ -60,7 +60,7 @@ const Screen: React.FC<{ readonly u: number; readonly screenH: number }> = ({ u,
   const reveal = interpolate(frame, [BUILD.reveal, BUILD.reveal + 24], [0, 1], { ...clamp, easing: EASE.inOut });
 
   // Markeringsruta
-  const pickT = [BUILD.v4 + 4, BUILD.v4 + 16, BUILD.v4 + 28];
+  const pickT = BUILD.picks;
   const pickP = pickT.map((t) => spring({ frame: frame - t, fps, config: { damping: 18, stiffness: 180 } }));
   const lerp = (k: "x" | "y" | "w" | "h") =>
     PICKS[0][k] + (PICKS[1][k] - PICKS[0][k]) * pickP[1] + (PICKS[2][k] - PICKS[1][k]) * pickP[2];
@@ -96,7 +96,7 @@ const Screen: React.FC<{ readonly u: number; readonly screenH: number }> = ({ u,
           fontFamily: F.mono,
           fontSize: px(30),
           color: C.accent,
-          opacity: gridP * interpolate(frame, [BUILD.v4 - 2, BUILD.v4 + 6], [1, 0], clamp),
+          opacity: gridP * interpolate(frame, [BUILD.design - 2, BUILD.design + 6], [1, 0], clamp),
         }}
       >
         <div
@@ -122,7 +122,7 @@ const Screen: React.FC<{ readonly u: number; readonly screenH: number }> = ({ u,
       <svg width={px(600)} height={px(screenH)} style={{ position: "absolute", inset: 0 }}>
         {BOXES.map((b, i) => {
           const per = 2 * (cx(b.w) + (cy(b.y + b.h) - cy(b.y)));
-          const draw = interpolate(frame, [BUILD.v4 + i * 2.2, BUILD.v4 + i * 2.2 + 12], [0, 1], { ...clamp, easing: EASE.out });
+          const draw = interpolate(frame, [BUILD.design + i * 3, BUILD.design + i * 3 + 14], [0, 1], { ...clamp, easing: EASE.out });
           const fill = interpolate(frame, [BUILD.v5 + i * 2, BUILD.v5 + i * 2 + 10], [0, 1], { ...clamp, easing: EASE.out });
           const x = cx(b.x) + 1;
           const y = cy(b.y) + 1;
@@ -347,7 +347,7 @@ export const BuildScene: React.FC<{ readonly bg?: string }> = ({ bg = C.bg }) =>
 
   const headlines = (
     <>
-      <Headline text="Så skaffa er *egen* webbshop." size={h1} enterAt={null} exitAt={BUILD.h4 - 8} />
+      <Headline text="Skaffa er *egen* webbshop." size={h1} enterAt={null} exitAt={BUILD.h4 - 8} />
       <div style={{ position: "absolute", left: 0, right: 0, top: 0 }}>
         <Headline text="Vi *designar* den." size={h1} enterAt={BUILD.h4 + 1} exitAt={BUILD.h5 - 8} />
       </div>

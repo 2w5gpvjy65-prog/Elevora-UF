@@ -1,82 +1,578 @@
 {
-  "01-krok": {
-    "text": "Säljer ni fortfarande i DM?",
-    "seconds": 1.988,
-    "take": "A3"
-  },
-  "02-samma": {
-    "text": "Samma frågor. Varje dag.",
-    "seconds": 2.282,
-    "take": "A4"
-  },
-  "03-skaffa": {
-    "text": "Så skaffa er egen webbshop.",
-    "seconds": 1.75,
-    "take": "A2"
-  },
-  "04-designar": {
-    "text": "Vi designar den.",
-    "seconds": 1.311,
-    "take": "A4"
-  },
-  "05-bygger": {
-    "text": "Vi bygger den.",
-    "seconds": 1.004,
-    "take": "A4"
-  },
-  "06-klart": {
-    "text": "Klart på 1–2 veckor.",
-    "seconds": 1.637,
-    "take": "A"
-  },
-  "07-artera": {
-    "text": "Som Artera UF. Vi byggde deras sida.",
-    "seconds": 3.301,
-    "take": "A4"
-  },
-  "08-betalar": {
-    "text": "Kunden betalar direkt på sidan.",
-    "seconds": 2.199,
-    "take": "A4"
-  },
-  "09-betalsatt": {
-    "text": "Swish, kort eller Klarna.",
-    "seconds": 1.865,
-    "take": "A",
-    "words": [
-      0.06,
-      0.68,
-      1.37
-    ]
-  },
-  "10-uf": {
-    "text": "Fasta UF-priser.",
-    "seconds": 2.046,
-    "take": "A4"
-  },
-  "11-webbshop": {
-    "text": "Webbshop 600 kr",
-    "seconds": 1.851,
-    "take": "A"
-  },
-  "12-hemsida": {
-    "text": "Hemsida 300 kr",
-    "seconds": 1.941,
-    "take": "A"
-  },
-  "13-avgift": {
-    "text": "Inga månadsavgifter till oss.",
-    "seconds": 1.709,
-    "take": "A3"
-  },
-  "14-skiss": {
-    "text": "Vi skissar er startsida gratis.",
-    "seconds": 2.624,
-    "take": "A4"
-  },
-  "15-adress": {
-    "text": "elevorauf.se",
-    "seconds": 2.858,
-    "take": "A2"
-  }
+ "01-krok": {
+  "text": "Säljer ni fortfarande i DM?",
+  "say": "Säljer ni fortfarande i DM?",
+  "seconds": 1.71,
+  "take": "M3",
+  "words": [
+   [
+    "Säljer",
+    0.0
+   ],
+   [
+    "ni",
+    0.293
+   ],
+   [
+    "fortfarande",
+    0.42
+   ],
+   [
+    "i",
+    0.96
+   ],
+   [
+    "DM",
+    1.173
+   ]
+  ]
+ },
+ "02-samma": {
+  "text": "Samma frågor. Varje dag.",
+  "say": "Samma frågor, varje dag. Finns den kvar? Vad kostar frakten? Kan jag swisha?",
+  "seconds": 6.857,
+  "take": "M1",
+  "words": [
+   [
+    "Samma",
+    0.06
+   ],
+   [
+    "frågor",
+    1.093
+   ],
+   [
+    "varje",
+    1.94
+   ],
+   [
+    "dag",
+    2.42
+   ],
+   [
+    "Finns",
+    3.0
+   ],
+   [
+    "den",
+    3.72
+   ],
+   [
+    "kvar",
+    3.88
+   ],
+   [
+    "Vad",
+    4.68
+   ],
+   [
+    "kostar",
+    4.832
+   ],
+   [
+    "frakten",
+    5.067
+   ],
+   [
+    "Kan",
+    5.72
+   ],
+   [
+    "jag",
+    6.1
+   ],
+   [
+    "swisha",
+    6.213
+   ]
+  ]
+ },
+ "03-skaffa": {
+  "text": "Skaffa er egen webbshop.",
+  "say": "Det finns ett enklare sätt. Skaffa er egen webbshop!",
+  "seconds": 3.408,
+  "take": "M2",
+  "words": [
+   [
+    "Det",
+    0.06
+   ],
+   [
+    "finns",
+    0.17
+   ],
+   [
+    "ett",
+    0.61
+   ],
+   [
+    "enklare",
+    0.783
+   ],
+   [
+    "sätt",
+    1.17
+   ],
+   [
+    "Skaffa",
+    1.743
+   ],
+   [
+    "er",
+    2.437
+   ],
+   [
+    "egen",
+    2.53
+   ],
+   [
+    "webbshop",
+    2.79
+   ]
+  ]
+ },
+ "04-designar": {
+  "text": "Vi designar den.",
+  "say": "Vi på Elevora designar den efter er stil,",
+  "seconds": 2.831,
+  "take": "M2",
+  "words": [
+   [
+    "Vi",
+    0.06
+   ],
+   [
+    "på",
+    0.353
+   ],
+   [
+    "Elevora",
+    0.524
+   ],
+   [
+    "designar",
+    0.997
+   ],
+   [
+    "den",
+    1.46
+   ],
+   [
+    "efter",
+    1.633
+   ],
+   [
+    "er",
+    2.007
+   ],
+   [
+    "stil",
+    2.3
+   ]
+  ]
+ },
+ "05-bygger": {
+  "text": "Vi bygger den.",
+  "say": "bygger den från grunden,",
+  "seconds": 1.734,
+  "take": "M1",
+  "words": [
+   [
+    "bygger",
+    0.06
+   ],
+   [
+    "den",
+    0.4
+   ],
+   [
+    "från",
+    0.508
+   ],
+   [
+    "grunden",
+    0.727
+   ]
+  ]
+ },
+ "06-klart": {
+  "text": "Klart på 1–2 veckor.",
+  "say": "och den är klar på en till två veckor.",
+  "seconds": 1.982,
+  "take": "M3",
+  "words": [
+   [
+    "och",
+    0.06
+   ],
+   [
+    "den",
+    0.112
+   ],
+   [
+    "är",
+    0.259
+   ],
+   [
+    "klar",
+    0.36
+   ],
+   [
+    "på",
+    0.605
+   ],
+   [
+    "en",
+    0.765
+   ],
+   [
+    "till",
+    0.92
+   ],
+   [
+    "två",
+    1.139
+   ],
+   [
+    "veckor",
+    1.299
+   ]
+  ]
+ },
+ "07-artera": {
+  "text": "Som Artera UF. Vi byggde deras sida.",
+  "say": "Som för Artera U F. Vi byggde deras webbshop för handgjorda keramikfat.",
+  "seconds": 5.447,
+  "take": "M3",
+  "words": [
+   [
+    "Som",
+    0.06
+   ],
+   [
+    "för",
+    0.7
+   ],
+   [
+    "Artera",
+    0.873
+   ],
+   [
+    "U",
+    1.3
+   ],
+   [
+    "F",
+    1.58
+   ],
+   [
+    "Vi",
+    1.993
+   ],
+   [
+    "byggde",
+    2.473
+   ],
+   [
+    "deras",
+    2.86
+   ],
+   [
+    "webbshop",
+    3.12
+   ],
+   [
+    "för",
+    3.58
+   ],
+   [
+    "handgjorda",
+    3.78
+   ],
+   [
+    "keramikfat",
+    4.38
+   ]
+  ]
+ },
+ "08-betalar": {
+  "text": "Kunden betalar direkt på sidan.",
+  "say": "Kunden hittar fatet, lägger det i kundvagnen och betalar direkt på sidan.",
+  "seconds": 5.112,
+  "take": "M1",
+  "words": [
+   [
+    "Kunden",
+    0.06
+   ],
+   [
+    "hittar",
+    0.854
+   ],
+   [
+    "fatet",
+    1.134
+   ],
+   [
+    "lägger",
+    1.907
+   ],
+   [
+    "det",
+    2.194
+   ],
+   [
+    "i",
+    2.294
+   ],
+   [
+    "kundvagnen",
+    2.374
+   ],
+   [
+    "och",
+    3.074
+   ],
+   [
+    "betalar",
+    3.414
+   ],
+   [
+    "direkt",
+    3.923
+   ],
+   [
+    "på",
+    4.361
+   ],
+   [
+    "sidan",
+    4.474
+   ]
+  ]
+ },
+ "09-betalsatt": {
+  "text": "Swish, kort eller Klarna.",
+  "say": "Med Swish, kort eller Klarna.",
+  "seconds": 2.121,
+  "take": "M3",
+  "words": [
+   [
+    "Med",
+    0.06
+   ],
+   [
+    "Swish",
+    0.155
+   ],
+   [
+    "kort",
+    0.747
+   ],
+   [
+    "eller",
+    1.235
+   ],
+   [
+    "Klarna",
+    1.488
+   ]
+  ]
+ },
+ "10-uf": {
+  "text": "Fasta UF-priser.",
+  "say": "Och priset? Vi har fasta U F-priser.",
+  "seconds": 3.549,
+  "take": "M2",
+  "words": [
+   [
+    "Och",
+    0.06
+   ],
+   [
+    "priset",
+    0.527
+   ],
+   [
+    "Vi",
+    1.273
+   ],
+   [
+    "har",
+    1.6
+   ],
+   [
+    "fasta",
+    1.86
+   ],
+   [
+    "U",
+    2.42
+   ],
+   [
+    "F-priser",
+    2.7
+   ]
+  ]
+ },
+ "11-webbshop": {
+  "text": "Webbshop 600 kr",
+  "say": "En webbshop kostar sexhundra kronor,",
+  "seconds": 2.537,
+  "take": "M2",
+  "words": [
+   [
+    "En",
+    0.06
+   ],
+   [
+    "webbshop",
+    0.44
+   ],
+   [
+    "kostar",
+    0.988
+   ],
+   [
+    "sexhundra",
+    1.48
+   ],
+   [
+    "kronor",
+    1.948
+   ]
+  ]
+ },
+ "12-hemsida": {
+  "text": "Hemsida 300 kr",
+  "say": "en hemsida trehundra,",
+  "seconds": 1.583,
+  "take": "M3",
+  "words": [
+   [
+    "en",
+    0.06
+   ],
+   [
+    "hemsida",
+    0.193
+   ],
+   [
+    "trehundra",
+    0.773
+   ]
+  ]
+ },
+ "13-avgift": {
+  "text": "Inga månadsavgifter till oss.",
+  "say": "och inga månadsavgifter till oss.",
+  "seconds": 2.365,
+  "take": "M2",
+  "words": [
+   [
+    "och",
+    0.06
+   ],
+   [
+    "inga",
+    0.24
+   ],
+   [
+    "månadsavgifter",
+    0.76
+   ],
+   [
+    "till",
+    1.608
+   ],
+   [
+    "oss",
+    1.88
+   ]
+  ]
+ },
+ "14-skiss": {
+  "text": "Vi skissar er startsida gratis.",
+  "say": "Nyfikna? Vi skissar er startsida, helt gratis.",
+  "seconds": 3.826,
+  "take": "M3",
+  "words": [
+   [
+    "Nyfikna",
+    0.06
+   ],
+   [
+    "Vi",
+    0.807
+   ],
+   [
+    "skissar",
+    1.34
+   ],
+   [
+    "er",
+    1.82
+   ],
+   [
+    "startsida",
+    1.984
+   ],
+   [
+    "helt",
+    2.791
+   ],
+   [
+    "gratis",
+    3.127
+   ]
+  ]
+ },
+ "15-adress": {
+  "text": "elevorauf.se",
+  "say": "Hör av er på Elevora U F punkt S E.",
+  "seconds": 3.3,
+  "take": "M2",
+  "words": [
+   [
+    "Hör",
+    0.06
+   ],
+   [
+    "av",
+    0.42
+   ],
+   [
+    "er",
+    0.633
+   ],
+   [
+    "på",
+    0.847
+   ],
+   [
+    "Elevora",
+    1.14
+   ],
+   [
+    "U",
+    1.9
+   ],
+   [
+    "F",
+    2.18
+   ],
+   [
+    "punkt",
+    2.404
+   ],
+   [
+    "S",
+    2.9
+   ],
+   [
+    "E",
+    3.02
+   ]
+  ]
+ }
 }

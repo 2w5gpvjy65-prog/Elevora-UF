@@ -8,7 +8,7 @@ Reklamvideo för Elevora UF i tre format, byggd med [Remotion](https://www.remot
 | `Feed` | 1080 × 1350 (4:5) | Instagram-flödet |
 | `Wide` | 1920 × 1080 (16:9) | Hemsidan, YouTube, LinkedIn |
 
-30 fps, cirka 38 sekunder, med röst från ElevenLabs (Liam, eleven_v3) som läser all text, plus musik och ljudeffekter från ElevenLabs. Scener:
+30 fps, cirka 56 sekunder, med röst från ElevenLabs (Liam, eleven_v3) som håller en kort pitch, plus musik och ljudeffekter från ElevenLabs. Scener:
 1. Krok "Säljer ni fortfarande i DM?" med en inkorg i 3D som fylls på
 2. Svep med motion blur till bygget: kolumnrutnät → wireframe som ritas med markeringsruta och mått → kod som skrivs → **Arteras riktiga sida** framkallas med en skanningslinje, "Publicerad"
 3. Artera i 3D: dator och mobil, kamera som glider (iris-övergång)
