@@ -2,8 +2,8 @@
  "01-krok": {
   "text": "Säljer ni fortfarande i DM?",
   "say": "Säljer ni fortfarande i DM?",
-  "seconds": 1.71,
-  "take": "M3",
+  "seconds": 2.012,
+  "take": "N2",
   "words": [
    [
     "Säljer",
@@ -15,23 +15,23 @@
    ],
    [
     "fortfarande",
-    0.42
+    0.44
    ],
    [
     "i",
-    0.96
+    1.08
    ],
    [
     "DM",
-    1.173
+    1.387
    ]
   ]
  },
  "02-samma": {
   "text": "Samma frågor. Varje dag.",
   "say": "Samma frågor, varje dag. Finns den kvar? Vad kostar frakten? Kan jag swisha?",
-  "seconds": 6.857,
-  "take": "M1",
+  "seconds": 6.276,
+  "take": "N3",
   "words": [
    [
     "Samma",
@@ -39,59 +39,59 @@
    ],
    [
     "frågor",
-    1.093
+    0.913
    ],
    [
     "varje",
-    1.94
+    1.74
    ],
    [
     "dag",
-    2.42
+    2.18
    ],
    [
     "Finns",
-    3.0
+    2.56
    ],
    [
     "den",
-    3.72
+    3.22
    ],
    [
     "kvar",
-    3.88
+    3.38
    ],
    [
     "Vad",
-    4.68
+    3.86
    ],
    [
     "kostar",
-    4.832
+    4.268
    ],
    [
     "frakten",
-    5.067
+    4.567
    ],
    [
     "Kan",
-    5.72
+    5.32
    ],
    [
     "jag",
-    6.1
+    5.52
    ],
    [
     "swisha",
-    6.213
+    5.633
    ]
   ]
  },
  "03-skaffa": {
   "text": "Skaffa er egen webbshop.",
   "say": "Det finns ett enklare sätt. Skaffa er egen webbshop!",
-  "seconds": 3.408,
-  "take": "M2",
+  "seconds": 3.501,
+  "take": "N2",
   "words": [
    [
     "Det",
@@ -99,43 +99,43 @@
    ],
    [
     "finns",
-    0.17
+    0.413
    ],
    [
     "ett",
-    0.61
+    0.74
    ],
    [
     "enklare",
-    0.783
+    0.973
    ],
    [
     "sätt",
-    1.17
+    1.44
    ],
    [
     "Skaffa",
-    1.743
+    2.093
    ],
    [
     "er",
-    2.437
+    2.493
    ],
    [
     "egen",
-    2.53
+    2.64
    ],
    [
     "webbshop",
-    2.79
+    2.9
    ]
   ]
  },
  "04-designar": {
   "text": "Vi designar den.",
   "say": "Vi på Elevora designar den efter er stil,",
-  "seconds": 2.831,
-  "take": "M2",
+  "seconds": 2.856,
+  "take": "N2",
   "words": [
    [
     "Vi",
@@ -143,39 +143,39 @@
    ],
    [
     "på",
-    0.353
+    0.46
    ],
    [
     "Elevora",
-    0.524
+    0.577
    ],
    [
     "designar",
-    0.997
+    1.05
    ],
    [
     "den",
-    1.46
+    1.533
    ],
    [
     "efter",
-    1.633
+    1.753
    ],
    [
     "er",
-    2.007
+    2.06
    ],
    [
     "stil",
-    2.3
+    2.353
    ]
   ]
  },
  "05-bygger": {
   "text": "Vi bygger den.",
   "say": "bygger den från grunden,",
-  "seconds": 1.734,
-  "take": "M1",
+  "seconds": 1.231,
+  "take": "N2",
   "words": [
    [
     "bygger",
@@ -183,23 +183,23 @@
    ],
    [
     "den",
-    0.4
+    0.287
    ],
    [
     "från",
-    0.508
+    0.439
    ],
    [
     "grunden",
-    0.727
+    0.62
    ]
   ]
  },
  "06-klart": {
   "text": "Klart på 1–2 veckor.",
   "say": "och den är klar på en till två veckor.",
-  "seconds": 1.982,
-  "take": "M3",
+  "seconds": 2.182,
+  "take": "N3",
   "words": [
    [
     "och",
@@ -207,43 +207,43 @@
    ],
    [
     "den",
-    0.112
+    0.16
    ],
    [
     "är",
-    0.259
+    0.307
    ],
    [
     "klar",
-    0.36
+    0.424
    ],
    [
     "på",
-    0.605
+    0.733
    ],
    [
     "en",
-    0.765
-   ],
-   [
-    "till",
     0.92
    ],
    [
+    "till",
+    1.128
+   ],
+   [
     "två",
-    1.139
+    1.373
    ],
    [
     "veckor",
-    1.299
+    1.587
    ]
   ]
  },
  "07-artera": {
   "text": "Som Artera UF. Vi byggde deras sida.",
   "say": "Som för Artera U F. Vi byggde deras webbshop för handgjorda keramikfat.",
-  "seconds": 5.447,
-  "take": "M3",
+  "seconds": 5.597,
+  "take": "N2",
   "words": [
    [
     "Som",
@@ -251,23 +251,23 @@
    ],
    [
     "för",
-    0.7
+    0.5
    ],
    [
     "Artera",
-    0.873
+    0.793
    ],
    [
     "U",
-    1.3
+    1.38
    ],
    [
     "F",
-    1.58
+    1.66
    ],
    [
     "Vi",
-    1.993
+    2.233
    ],
    [
     "byggde",
@@ -275,7 +275,7 @@
    ],
    [
     "deras",
-    2.86
+    2.78
    ],
    [
     "webbshop",
@@ -291,15 +291,15 @@
    ],
    [
     "keramikfat",
-    4.38
+    4.46
    ]
   ]
  },
  "08-betalar": {
   "text": "Kunden betalar direkt på sidan.",
   "say": "Kunden hittar fatet, lägger det i kundvagnen och betalar direkt på sidan.",
-  "seconds": 5.112,
-  "take": "M1",
+  "seconds": 5.091,
+  "take": "N3",
   "words": [
    [
     "Kunden",
@@ -307,55 +307,55 @@
    ],
    [
     "hittar",
-    0.854
+    0.786
    ],
    [
     "fatet",
-    1.134
+    1.146
    ],
    [
     "lägger",
-    1.907
+    1.999
    ],
    [
     "det",
-    2.194
+    2.286
    ],
    [
     "i",
-    2.294
+    2.386
    ],
    [
     "kundvagnen",
-    2.374
+    2.466
    ],
    [
     "och",
-    3.074
+    3.186
    ],
    [
     "betalar",
-    3.414
+    3.586
    ],
    [
     "direkt",
-    3.923
+    3.992
    ],
    [
     "på",
-    4.361
+    4.319
    ],
    [
     "sidan",
-    4.474
+    4.486
    ]
   ]
  },
  "09-betalsatt": {
   "text": "Swish, kort eller Klarna.",
   "say": "Med Swish, kort eller Klarna.",
-  "seconds": 2.121,
-  "take": "M3",
+  "seconds": 2.449,
+  "take": "N2",
   "words": [
    [
     "Med",
@@ -363,27 +363,27 @@
    ],
    [
     "Swish",
-    0.155
+    0.533
    ],
    [
     "kort",
-    0.747
+    1.248
    ],
    [
     "eller",
-    1.235
+    1.507
    ],
    [
     "Klarna",
-    1.488
+    1.893
    ]
   ]
  },
  "10-uf": {
   "text": "Fasta UF-priser.",
   "say": "Och priset? Vi har fasta U F-priser.",
-  "seconds": 3.549,
-  "take": "M2",
+  "seconds": 3.274,
+  "take": "N2",
   "words": [
    [
     "Och",
@@ -391,35 +391,35 @@
    ],
    [
     "priset",
-    0.527
+    0.327
    ],
    [
     "Vi",
-    1.273
+    1.02
    ],
    [
     "har",
-    1.6
+    1.38
    ],
    [
     "fasta",
-    1.86
+    1.58
    ],
    [
     "U",
-    2.42
+    2.14
    ],
    [
     "F-priser",
-    2.7
+    2.42
    ]
   ]
  },
  "11-webbshop": {
   "text": "Webbshop 600 kr",
   "say": "En webbshop kostar sexhundra kronor,",
-  "seconds": 2.537,
-  "take": "M2",
+  "seconds": 2.404,
+  "take": "N2",
   "words": [
    [
     "En",
@@ -427,27 +427,27 @@
    ],
    [
     "webbshop",
-    0.44
+    0.367
    ],
    [
     "kostar",
-    0.988
+    0.791
    ],
    [
     "sexhundra",
-    1.48
+    1.307
    ],
    [
     "kronor",
-    1.948
+    1.815
    ]
   ]
  },
  "12-hemsida": {
   "text": "Hemsida 300 kr",
   "say": "en hemsida trehundra,",
-  "seconds": 1.583,
-  "take": "M3",
+  "seconds": 1.709,
+  "take": "N2",
   "words": [
    [
     "en",
@@ -459,15 +459,15 @@
    ],
    [
     "trehundra",
-    0.773
+    0.793
    ]
   ]
  },
  "13-avgift": {
   "text": "Inga månadsavgifter till oss.",
   "say": "och inga månadsavgifter till oss.",
-  "seconds": 2.365,
-  "take": "M2",
+  "seconds": 2.276,
+  "take": "N2",
   "words": [
    [
     "och",
@@ -487,15 +487,15 @@
    ],
    [
     "oss",
-    1.88
+    1.86
    ]
   ]
  },
  "14-skiss": {
   "text": "Vi skissar er startsida gratis.",
   "say": "Nyfikna? Vi skissar er startsida, helt gratis.",
-  "seconds": 3.826,
-  "take": "M3",
+  "seconds": 4.105,
+  "take": "N2",
   "words": [
    [
     "Nyfikna",
@@ -503,35 +503,35 @@
    ],
    [
     "Vi",
-    0.807
+    1.02
    ],
    [
     "skissar",
-    1.34
+    1.473
    ],
    [
     "er",
-    1.82
+    1.953
    ],
    [
     "startsida",
-    1.984
+    2.17
    ],
    [
     "helt",
-    2.791
+    3.057
    ],
    [
     "gratis",
-    3.127
+    3.393
    ]
   ]
  },
  "15-adress": {
   "text": "elevorauf.se",
   "say": "Hör av er på Elevora U F punkt S E.",
-  "seconds": 3.3,
-  "take": "M2",
+  "seconds": 3.14,
+  "take": "N3",
   "words": [
    [
     "Hör",
@@ -539,19 +539,19 @@
    ],
    [
     "av",
-    0.42
+    0.553
    ],
    [
     "er",
-    0.633
+    0.713
    ],
    [
     "på",
-    0.847
+    0.927
    ],
    [
     "Elevora",
-    1.14
+    1.22
    ],
    [
     "U",
@@ -563,15 +563,15 @@
    ],
    [
     "punkt",
-    2.404
+    2.388
    ],
    [
     "S",
-    2.9
+    2.76
    ],
    [
     "E",
-    3.02
+    2.9
    ]
   ]
  }

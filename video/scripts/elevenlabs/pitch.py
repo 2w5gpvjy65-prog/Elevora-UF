@@ -5,18 +5,18 @@ out, stability, ELV = sys.argv[1], float(sys.argv[2]), sys.argv[3]
 L = [
  ("01-krok", "Säljer ni fortfarande i DM?"),
  ("02-samma", "Samma frågor, varje dag. Finns den kvar? Vad kostar frakten? Kan jag swisha?"),
- ("03-skaffa", "[excited] Det finns ett enklare sätt. Skaffa er egen webbshop!"),
+ ("03-skaffa", "Det finns ett enklare sätt. Skaffa er egen webbshop!"),
  ("04-designar", f"Vi på {ELV} designar den efter er stil,"),
  ("05-bygger", "bygger den från grunden,"),
- ("06-klart", "[excited] och den är klar på en till två veckor."),
+ ("06-klart", "och den är klar på en till två veckor."),
  ("07-artera", "Som för Artera U F. Vi byggde deras webbshop för handgjorda keramikfat."),
  ("08-betalar", "Kunden hittar fatet, lägger det i kundvagnen och betalar direkt på sidan."),
- ("09-betalsatt", "[excited] Med Swish, kort eller Klarna."),
+ ("09-betalsatt", "Med Swish, kort eller Klarna."),
  ("10-uf", "Och priset? Vi har fasta U F-priser."),
  ("11-webbshop", "En webbshop kostar sexhundra kronor,"),
  ("12-hemsida", "en hemsida trehundra,"),
  ("13-avgift", "och inga månadsavgifter till oss."),
- ("14-skiss", "[excited] Nyfikna? Vi skissar er startsida, helt gratis."),
+ ("14-skiss", "Nyfikna? Vi skissar er startsida, helt gratis."),
  ("15-adress", f"Hör av er på {ELV} U F punkt S E."),
 ]
 text, spans = "", []
