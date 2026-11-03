@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { AbsoluteFill, cancelRender, continueRender, delayRender } from "remotion";
+import { AbsoluteFill, Sequence, cancelRender, continueRender, delayRender, staticFile } from "remotion";
+import { Audio } from "@remotion/media";
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { C, EASE, geist, newsreader, serif } from "./theme";
+import { CUES, FADE, VOICE, WIPE, len } from "./timeline";
 import { fadeThrough, wipeUp } from "./transitions";
 import { DM_DURATION, DmScene } from "./scenes/DmScene";
 import { SWIPE_DURATION, SwipeToShop } from "./scenes/SwipeToShop";
 import { SHOP_DURATION, ShopScene } from "./scenes/ShopScene";
 import { OFFER_DURATION, OfferScene } from "./scenes/OfferScene";
 import { CTA_DURATION, CtaScene } from "./scenes/CtaScene";
-
-const FADE = 14;
-const WIPE = 18;
-
-export const TOTAL_DURATION =
-  DM_DURATION + SWIPE_DURATION + SHOP_DURATION + OFFER_DURATION + CTA_DURATION - FADE - WIPE;
 
 // Ingen bildruta renderas innan alla typsnitt är laddade.
 const useFontsReady = () => {
@@ -24,6 +20,17 @@ const useFontsReady = () => {
       .catch((err) => cancelRender(err));
   }, [handle]);
 };
+
+// Rösten läser texten i samma stund som den syns. Filerna ligger i public/voice/.
+const VoiceTrack: React.FC = () => (
+  <>
+    {CUES.map((c) => (
+      <Sequence key={c.id} name={`Röst: ${VOICE[c.id].text}`} from={c.at} durationInFrames={len(c.id) + 4} layout="none">
+        <Audio src={staticFile(`voice/${c.id}.wav`)} />
+      </Sequence>
+    ))}
+  </>
+);
 
 export const ElevoraAd: React.FC = () => {
   useFontsReady();
@@ -36,7 +43,7 @@ export const ElevoraAd: React.FC = () => {
         <TransitionSeries.Sequence name="Svep till webbshop" durationInFrames={SWIPE_DURATION}>
           <SwipeToShop />
         </TransitionSeries.Sequence>
-        <TransitionSeries.Sequence name="Webbshop" durationInFrames={SHOP_DURATION}>
+        <TransitionSeries.Sequence name="Webbshop (Artera UF)" durationInFrames={SHOP_DURATION}>
           <ShopScene />
         </TransitionSeries.Sequence>
         <TransitionSeries.Transition
@@ -54,6 +61,7 @@ export const ElevoraAd: React.FC = () => {
           <CtaScene />
         </TransitionSeries.Sequence>
       </TransitionSeries>
+      <VoiceTrack />
     </AbsoluteFill>
   );
 };

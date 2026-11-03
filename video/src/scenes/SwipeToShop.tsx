@@ -2,10 +2,11 @@ import React from "react";
 import { AbsoluteFill, Freeze, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { HtmlInCanvasMotionBlur } from "@remotion/motion-blur";
 import { C, EASE, clamp } from "../theme";
+import { SWIPE } from "../timeline";
 import { DM_DURATION, DmScene } from "./DmScene";
 import { ShopScene } from "./ShopScene";
 
-export const SWIPE_DURATION = 26;
+export const SWIPE_DURATION = SWIPE;
 
 // Den stora övergången: inkorgen sveps bort uppåt och webbshoppen tar dess plats,
 // som när man scrollar vidare i flödet. Bara här används motion blur.

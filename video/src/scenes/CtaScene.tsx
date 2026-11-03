@@ -2,8 +2,9 @@ import React from "react";
 import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { Headline } from "../components/Headline";
 import { C, EASE, F, SPEC, clamp, useFmt } from "../theme";
+import { CTA } from "../timeline";
 
-export const CTA_DURATION = 130;
+export const CTA_DURATION = CTA.duration;
 
 export const CtaScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -13,8 +14,7 @@ export const CtaScene: React.FC = () => {
   const { h1, sup } = SPEC[fmt];
 
   const logoP = spring({ frame: frame - 4, fps, config: { damping: 200 } });
-  const pillP = interpolate(frame, [26, 44], [0, 1], { ...clamp, easing: EASE.out });
-  const footP = interpolate(frame, [34, 52], [0, 1], { ...clamp, easing: EASE.out });
+  const pillP = interpolate(frame, [CTA.pill, CTA.pill + 18], [0, 1], { ...clamp, easing: EASE.out });
 
   const logo = fmt === "wide" ? 124 : fmt === "reel" ? 136 : 120;
   const pillSize = fmt === "reel" ? 58 : 52;
@@ -54,7 +54,7 @@ export const CtaScene: React.FC = () => {
         <Headline
           text="Vi skissar er startsida *gratis*."
           size={h1}
-          enterAt={8}
+          enterAt={CTA.hIn}
           color={C.bg}
           accentColor={C.navyAccent}
           align="center"
@@ -79,18 +79,6 @@ export const CtaScene: React.FC = () => {
           elevorauf.se
         </div>
 
-        <div
-          style={{
-            marginTop: sup * 0.9,
-            opacity: interpolate(footP, [0, 0.5], [0, 1], clamp),
-            translate: `0 ${(1 - footP) * 24}px`,
-            fontFamily: F.sans,
-            fontSize: sup,
-            color: C.navyMuted,
-          }}
-        >
-          Hemsidor och webbshoppar
-        </div>
       </div>
     </AbsoluteFill>
   );

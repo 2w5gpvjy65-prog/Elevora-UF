@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Easing,
   Img,
   interpolate,
   spring,
@@ -11,15 +12,22 @@ import {
 import { Headline } from "../components/Headline";
 import { Phone } from "../components/Phone";
 import { C, EASE, F, SPEC, clamp, useFmt } from "../theme";
+import { SHOP } from "../timeline";
 
-export const SHOP_DURATION = 150;
+export const SHOP_DURATION = SHOP.duration;
 
-// Tidslinje i scenen (bildrutor)
-const TAP_BUY = 58;
-const SHEET_IN = 62;
-const SELECT = 84;
-const TAP_PAY = 100;
-const DONE = 106;
+// Arteras riktiga sida (Artera UF, byggd av Elevora), fotad i 393 px bredd.
+// Mått i CSS-pixlar från skärmdumpen, se scripts/artera-skarmdump.js.
+const ARTERA = {
+  bg: "#f0e8dd",
+  pageW: 393,
+  cardTop: 1327.5,
+  buyBtn: { x: 196.5, y: 1763.4, w: 361, h: 46 },
+};
+const STATUS = 54; // statusfältet överst i mobilen (enheter)
+const K = 600 / ARTERA.pageW; // enheter per CSS-pixel
+// Scrolla så att Vika-kortet ligger högt upp, knappen långt från TikToks textzon.
+const SCROLL_TO = ARTERA.cardTop - 20;
 
 const Tap: React.FC<{ readonly at: number; readonly x: number; readonly y: number; readonly u: number }> = ({
   at,
@@ -28,8 +36,8 @@ const Tap: React.FC<{ readonly at: number; readonly x: number; readonly y: numbe
   u,
 }) => {
   const frame = useCurrentFrame();
-  const p = interpolate(frame, [at - 4, at + 12], [0, 1], { ...clamp, easing: EASE.out });
   if (frame < at - 4 || frame > at + 14) return null;
+  const p = interpolate(frame, [at - 4, at + 12], [0, 1], { ...clamp, easing: EASE.out });
   const size = 96 * u;
   return (
     <div
@@ -40,9 +48,10 @@ const Tap: React.FC<{ readonly at: number; readonly x: number; readonly y: numbe
         width: size,
         height: size,
         borderRadius: "50%",
-        background: "rgba(249,246,241,0.35)",
-        border: `${3 * u}px solid rgba(249,246,241,0.9)`,
-        scale: interpolate(p, [0, 1], [0.55, 1.35]),
+        background: "rgba(29,28,26,0.12)",
+        border: `${3 * u}px solid rgba(255,255,255,0.95)`,
+        boxShadow: "0 2px 10px rgba(29,28,26,0.25)",
+        scale: interpolate(p, [0, 1], [0.55, 1.3]),
         opacity: interpolate(p, [0, 0.25, 1], [0, 1, 0]),
       }}
     />
@@ -65,117 +74,55 @@ const Check: React.FC<{ readonly size: number; readonly p: number }> = ({ size, 
   </svg>
 );
 
-const ShopScreen: React.FC<{ readonly u: number; readonly screenH: number }> = ({ u, screenH }) => {
+const ArteraScreen: React.FC<{ readonly u: number; readonly screenH: number }> = ({ u, screenH }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-
-  const press = (at: number) => interpolate(frame, [at - 2, at + 2, at + 9], [1, 0.95, 1], clamp);
-  const sheetP = interpolate(frame, [SHEET_IN, SHEET_IN + 20], [0, 1], { ...clamp, easing: EASE.out });
-  const selectP = spring({ frame: frame - SELECT, fps, config: { damping: 200 } });
-  const doneP = spring({ frame: frame - DONE, fps, config: { damping: 18, stiffness: 160 } });
-  const badgeP = spring({ frame: frame - DONE - 8, fps, config: { damping: 12, stiffness: 220 } });
-  const sheetTop = 250;
-
   const px = (n: number) => n * u;
 
+  const scroll = interpolate(frame, [SHOP.scrollStart, SHOP.scrollEnd], [0, SCROLL_TO], {
+    ...clamp,
+    easing: Easing.bezier(0.5, 0, 0.1, 1),
+  });
+  const btnY = STATUS + (ARTERA.buyBtn.y - scroll) * K;
+  const btnTop = btnY - (ARTERA.buyBtn.h / 2) * K;
+  const pressed = interpolate(frame, [SHOP.tapBuy - 2, SHOP.tapBuy + 1, SHOP.tapBuy + 8], [0, 1, 0], clamp);
+
+  const sheetP = interpolate(frame, [SHOP.sheetIn, SHOP.sheetIn + 20], [0, 1], { ...clamp, easing: EASE.out });
+  const selectP = spring({ frame: frame - SHOP.select, fps, config: { damping: 200 } });
+  const payPress = interpolate(frame, [SHOP.tapPay - 2, SHOP.tapPay + 2, SHOP.tapPay + 9], [1, 0.95, 1], clamp);
+  const doneP = spring({ frame: frame - SHOP.done, fps, config: { damping: 18, stiffness: 160 } });
+  const sheetTop = 230;
+
   return (
-    <div style={{ position: "absolute", inset: 0, fontFamily: F.sans, color: C.ink }}>
-      {/* Meny */}
-      <div style={{ position: "absolute", left: px(40), right: px(40), top: px(78), height: px(48), display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div style={{ width: px(34) }}>
-          <div style={{ height: px(3), background: C.ink, marginBottom: px(9) }} />
-          <div style={{ height: px(3), width: px(22), background: C.ink }} />
-        </div>
-        <div style={{ fontFamily: F.shop, fontSize: px(34), letterSpacing: "0.24em", paddingLeft: "0.24em" }}>NORRSKEN</div>
-        <div style={{ position: "relative", width: px(34), height: px(36) }}>
-          <svg viewBox="0 0 34 36" width={px(34)} height={px(36)}>
-            <path d="M5 11 H29 L27 34 H7 Z" fill="none" stroke={C.ink} strokeWidth="2.6" strokeLinejoin="round" />
-            <path d="M11 13 V8 a6 6 0 0 1 12 0 V13" fill="none" stroke={C.ink} strokeWidth="2.6" />
-          </svg>
-          <div
-            style={{
-              position: "absolute",
-              right: px(-12),
-              top: px(-10),
-              width: px(26),
-              height: px(26),
-              borderRadius: "50%",
-              background: C.accent,
-              color: C.bg,
-              fontSize: px(16),
-              fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              scale: frame < DONE + 8 ? 0 : badgeP,
-            }}
-          >
-            1
-          </div>
-        </div>
-      </div>
-
-      {/* Produktbild i vit ram */}
-      <div style={{ position: "absolute", left: 0, right: 0, top: px(150), height: px(400), background: C.stone, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ padding: px(14), background: "#fff", boxShadow: "0 18px 30px -16px rgba(29,28,26,0.45)" }}>
-          <div style={{ width: px(250), height: px(312), overflow: "hidden" }}>
-            <Img
-              src={staticFile("kvallsbris.jpg")}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                scale: interpolate(frame, [0, SHOP_DURATION], [1.0, 1.07], { ...clamp, easing: EASE.soft }),
-              }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Info */}
-      <div style={{ position: "absolute", left: px(40), right: px(40), top: px(568) }}>
-        <div style={{ fontSize: px(24), color: C.muted, letterSpacing: "0.02em" }}>Fotoprint</div>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginTop: px(4) }}>
-          <div style={{ fontFamily: F.shop, fontSize: px(54), lineHeight: 1.15, letterSpacing: "-0.01em" }}>Kvällsbris</div>
-          <div style={{ fontSize: px(36), fontWeight: 500 }}>449 kr</div>
-        </div>
-        <div style={{ display: "flex", gap: px(12), marginTop: px(14) }}>
-          {["Swish", "Kort", "Klarna"].map((m) => (
-            <div key={m} style={{ fontSize: px(24), padding: `${px(6)}px ${px(16)}px`, border: `${px(1.5)}px solid ${C.line}`, borderRadius: px(6), color: C.muted }}>
-              {m}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Köp-knapp */}
+    <div style={{ position: "absolute", inset: 0, background: ARTERA.bg, fontFamily: F.sans, color: C.ink }}>
+      {/* Sidan (skärmdump) som scrollar under den fasta menyn */}
+      <Img
+        src={staticFile("artera/artera-mobil.jpg")}
+        style={{ position: "absolute", left: 0, top: px(STATUS - scroll * K), width: px(600) }}
+      />
+      {/* Knappen "Lägg i kundvagnen" trycks in */}
       <div
         style={{
           position: "absolute",
-          left: px(40),
-          right: px(40),
-          top: px(752),
-          height: px(88),
+          left: px(300 - (ARTERA.buyBtn.w / 2) * K),
+          top: px(btnTop),
+          width: px(ARTERA.buyBtn.w * K),
+          height: px(ARTERA.buyBtn.h * K),
+          borderRadius: px(4),
           background: C.ink,
-          color: C.bg,
-          borderRadius: px(6),
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: px(34),
-          fontWeight: 500,
-          scale: press(TAP_BUY),
+          opacity: pressed * 0.16,
         }}
-      >
-        Köp nu
-      </div>
-      <div style={{ position: "absolute", left: px(40), right: px(40), top: px(870), fontSize: px(26), color: C.muted, lineHeight: 1.9 }}>
-        <div>Skickas inom 1–2 vardagar</div>
-        <div>Fri retur i 30 dagar</div>
-      </div>
-      <Tap at={TAP_BUY} x={300} y={796} u={u} />
+      />
+      <Tap at={SHOP.tapBuy} x={300} y={btnY} u={u} />
 
-      {/* Kassa som glider upp */}
+      {/* Statusfält och fast meny */}
+      <div style={{ position: "absolute", left: 0, top: 0, width: px(600), height: px(STATUS), background: ARTERA.bg }} />
+      <Img
+        src={staticFile("artera/artera-meny.jpg")}
+        style={{ position: "absolute", left: 0, top: px(STATUS), width: px(600) }}
+      />
+
+      {/* Kassan glider upp */}
       <div style={{ position: "absolute", inset: 0, background: "rgba(29,28,26,0.32)", opacity: sheetP }} />
       <div
         style={{
@@ -190,16 +137,20 @@ const ShopScreen: React.FC<{ readonly u: number; readonly screenH: number }> = (
         }}
       >
         <div style={{ position: "absolute", left: px(270), top: px(14), width: px(60), height: px(6), borderRadius: 99, background: C.line }} />
-        <div style={{ position: "absolute", left: px(40), right: px(40), top: px(44) }}>
+        <div style={{ position: "absolute", left: px(40), right: px(40), top: px(40) }}>
           <div style={{ fontSize: px(24), color: C.muted }}>Kassa</div>
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: px(6), fontSize: px(32), fontWeight: 500 }}>
-            <span>Kvällsbris, 30 × 40</span>
-            <span>449 kr</span>
+            <span>Vika, rosa marmor</span>
+            <span>349 kr</span>
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: px(6), fontSize: px(24), color: C.muted }}>
+            <span>Frakt</span>
+            <span>39 kr</span>
           </div>
         </div>
 
         {/* Betalsätt, byts mot kvitto när köpet är klart */}
-        <div style={{ position: "absolute", left: px(40), right: px(40), top: px(150), opacity: interpolate(doneP, [0, 0.4], [1, 0], clamp) }}>
+        <div style={{ position: "absolute", left: px(40), right: px(40), top: px(168), opacity: interpolate(doneP, [0, 0.4], [1, 0], clamp) }}>
           {["Swish", "Kort", "Klarna"].map((m, i) => {
             const on = i === 0 ? selectP : 0;
             return (
@@ -209,7 +160,7 @@ const ShopScreen: React.FC<{ readonly u: number; readonly screenH: number }> = (
                   height: px(84),
                   marginBottom: px(12),
                   borderRadius: px(12),
-                  border: `${px(2)}px solid ${interpolate(on, [0, 1], [0, 1]) > 0.5 ? C.ink : C.line}`,
+                  border: `${px(2)}px solid ${on > 0.5 ? C.ink : C.line}`,
                   background: on > 0.5 ? C.surface : "#fff",
                   display: "flex",
                   alignItems: "center",
@@ -238,20 +189,20 @@ const ShopScreen: React.FC<{ readonly u: number; readonly screenH: number }> = (
               justifyContent: "center",
               fontSize: px(34),
               fontWeight: 500,
-              scale: press(TAP_PAY),
+              scale: payPress,
             }}
           >
-            Betala 449 kr
+            Betala 388 kr
           </div>
         </div>
-        <Tap at={TAP_PAY} x={300} y={150 + 3 * 96 + 20 + 44} u={u} />
+        <Tap at={SHOP.tapPay} x={300} y={168 + 3 * 96 + 20 + 44} u={u} />
 
         {/* Kvitto */}
-        {frame >= DONE ? (
-          <div style={{ position: "absolute", left: 0, right: 0, top: px(170), display: "flex", flexDirection: "column", alignItems: "center", opacity: interpolate(doneP, [0, 0.5], [0, 1], clamp) }}>
+        {frame >= SHOP.done ? (
+          <div style={{ position: "absolute", left: 0, right: 0, top: px(190), display: "flex", flexDirection: "column", alignItems: "center", opacity: interpolate(doneP, [0, 0.5], [0, 1], clamp) }}>
             <Check size={px(124)} p={doneP} />
             <div style={{ marginTop: px(32), fontSize: px(46), fontWeight: 500, letterSpacing: "-0.02em" }}>Tack för ditt köp!</div>
-            <div style={{ marginTop: px(12), fontSize: px(30), color: C.muted }}>Betalt med Swish · 449 kr</div>
+            <div style={{ marginTop: px(12), fontSize: px(30), color: C.muted }}>Betalt med Swish · 388 kr</div>
           </div>
         ) : null}
       </div>
@@ -265,12 +216,24 @@ export const ShopScene: React.FC<{ readonly bg?: string }> = ({ bg = C.bg }) => 
   const fmt = useFmt();
   const s = SPEC[fmt].safe;
   const h1 = SPEC[fmt].h1;
+  // Underraden får plats på en rad i alla format (reel ca 660 px av 800).
+  const sub = fmt === "feed" ? 46 : 44;
+  const subGap = Math.round(sub * 0.6);
 
   const headlines = (
     <>
-      <Headline text="Skaffa er *egen* webbshop." size={h1} enterAt={null} exitAt={56} />
-      <div style={{ position: "absolute", inset: 0 }}>
-        <Headline text="Kunden betalar *direkt* på sidan." size={h1} enterAt={70} />
+      <Headline text="Så skaffa er *egen* webbshop." size={h1} enterAt={null} exitAt={SHOP.h1Exit} />
+      <div style={{ height: subGap }} />
+      <Headline
+        text="Som Artera UF. Vi byggde deras sida."
+        size={sub}
+        enterAt={SHOP.subIn}
+        exitAt={SHOP.h1Exit}
+        color="#3f3b36"
+        style={{ letterSpacing: "-0.015em", lineHeight: 1.25, whiteSpace: "nowrap" }}
+      />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 0 }}>
+        <Headline text="Kunden betalar *direkt* på sidan." size={h1} enterAt={SHOP.h2In} />
       </div>
     </>
   );
@@ -284,23 +247,23 @@ export const ShopScene: React.FC<{ readonly bg?: string }> = ({ bg = C.bg }) => 
           <div style={{ position: "relative", width: colW }}>{headlines}</div>
         </div>
         <Phone width={phoneW} style={{ left: width - s.r - phoneW - 60, top: 110 }}>
-          {(u, screenH) => <ShopScreen u={u} screenH={screenH} />}
+          {(u, screenH) => <ArteraScreen u={u} screenH={screenH} />}
         </Phone>
       </AbsoluteFill>
     );
   }
 
   const contentW = width - s.l - s.r;
-  const headBlock = Math.round(h1 * 1.06 * 2);
-  const phoneW = fmt === "reel" ? 680 : 560;
-  const phoneTop = s.t + headBlock + (fmt === "reel" ? 66 : 56);
-  // Mobilen fortsätter ut under bildkanten: viktigt innehåll ligger högt upp.
+  const headBlock = Math.round(h1 * 1.06 * 2) + subGap + Math.round(sub * 1.25);
+  const phoneW = fmt === "reel" ? 640 : 560;
+  const phoneTop = s.t + headBlock + (fmt === "reel" ? 50 : 40);
 
   return (
     <AbsoluteFill style={{ background: bg }}>
       <div style={{ position: "absolute", left: s.l, top: s.t, width: contentW, height: headBlock }}>{headlines}</div>
+      {/* Mobilen fortsätter ut under bildkanten: viktigt innehåll ligger högt upp. */}
       <Phone width={phoneW} style={{ left: s.l + contentW / 2 - phoneW / 2, top: phoneTop }}>
-        {(u, screenH) => <ShopScreen u={u} screenH={screenH} />}
+        {(u, screenH) => <ArteraScreen u={u} screenH={screenH} />}
       </Phone>
     </AbsoluteFill>
   );

@@ -1,0 +1,50 @@
+{
+  "01-krok": {
+    "text": "Säljer ni fortfarande i DM?",
+    "seconds": 2.078
+  },
+  "02-samma": {
+    "text": "Samma frågor. Varje dag.",
+    "seconds": 1.984
+  },
+  "03-skaffa": {
+    "text": "Så skaffa er egen webbshop.",
+    "seconds": 1.762
+  },
+  "04-artera": {
+    "text": "Som Artera UF. Vi byggde deras sida.",
+    "seconds": 2.825
+  },
+  "05-betalar": {
+    "text": "Kunden betalar direkt på sidan.",
+    "seconds": 2.094
+  },
+  "06-klart": {
+    "text": "Klart på 1–2 veckor.",
+    "seconds": 2.115
+  },
+  "07a-uf": {
+    "text": "Fasta UF-priser",
+    "seconds": 1.834
+  },
+  "07b-webbshop": {
+    "text": "Webbshop 600 kr",
+    "seconds": 1.967
+  },
+  "07c-hemsida": {
+    "text": "Hemsida 300 kr",
+    "seconds": 2.03
+  },
+  "08-avgift": {
+    "text": "Inga månadsavgifter till oss.",
+    "seconds": 1.985
+  },
+  "09-skiss": {
+    "text": "Vi skissar er startsida gratis.",
+    "seconds": 2.174
+  },
+  "10-adress": {
+    "text": "elevorauf.se",
+    "seconds": 2.446
+  }
+}

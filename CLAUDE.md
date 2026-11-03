@@ -52,6 +52,9 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
 - `video/` och `skills-lock.json` står i `.assetsignore` så att de inte publiceras på elevorauf.se. Renderade MP4-filer (`video/out/`) committas inte.
 - Molnsession: Remotion kan inte ladda ner sin egen webbläsare. Rendera med `REMOTION_BROWSER=/opt/pw-browsers/chromium-1243/chrome-linux64/chrome` (Chrome for Testing, som också kan hämta Google Fonts via proxyn).
 - Motion blur (`HtmlInCanvasMotionBlur`) bara på svepet DM → webbshop, med 15 samples och bakgrunden utanför oskärpan. Fler samples ger färgförskjutning (8-bitars avrundning).
+- **Röst:** svensk talsyntes (Piper sv_SE-nst-medium, CC0-data) via sherpa-onnx, 8 tagningar per replik där Whisper väljer bästa. Rösten styr tidslinjen (`src/timeline.ts` + `src/voice.json`). Egen inspelning kan ersätta filerna i `public/voice/`, se `video/scripts/rost/README.md`. ElevenLabs, Hugging Face och bildsajter är blockerade i molnmiljön; GitHub-releaser (sherpa-onnx) fungerar.
+- **Kundexempel i videon:** Arteras riktiga sida (repo `2w5gpvjy65-prog/arterauf`, keramikfat, fyra tjejer från Mora) i mobilen: scroll till Vika → "Lägg i kundvagnen" → kassa (Swish/kort/Klarna, 349 + 39 kr frakt) → "Tack för ditt köp!". Kassan i videon är en förenklad bild, inte Stripes riktiga. Skärmdumpar via `video/scripts/artera-skarmdump.js`.
+- Prisfrågan: arterauf-repots CLAUDE.md säger webbshop UF 1 200 kr / hemsida 600 kr, men elevorauf.se och videon säger 600 / 300 kr. Bekräfta vilket som gäller.
 
 ## Design (bestämt efter många iterationer)
 - Varm beige/off-white bakgrund (`--bg: #f2ede6`), inte för vit. Svart text och knappar. **Mörk marinblå** accent (`#1b2a40`, `--navy: #18212d`) används sparsamt. Inget lila, rosa eller orange.

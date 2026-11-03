@@ -2,8 +2,9 @@ import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { Headline } from "../components/Headline";
 import { C, EASE, F, SPEC, clamp, useFmt } from "../theme";
+import { OFFER } from "../timeline";
 
-export const OFFER_DURATION = 165;
+export const OFFER_DURATION = OFFER.duration;
 
 const Rise: React.FC<{
   readonly at: number;
@@ -71,7 +72,7 @@ export const OfferScene: React.FC = () => {
   const rowSize = fmt === "feed" ? 56 : 62;
 
   const label = (
-    <Rise at={14}>
+    <Rise at={OFFER.label}>
       <span
         style={{
           display: "inline-block",
@@ -86,13 +87,13 @@ export const OfferScene: React.FC = () => {
       </span>
     </Rise>
   );
-  const headline = <Headline text="Klart på *1–2* veckor." size={h1} enterAt={4} />;
+  const headline = <Headline text="Klart på *1–2* veckor." size={h1} enterAt={OFFER.hIn} />;
   const list = (
     <>
       {label}
-      <PriceRow at={18} name="Webbshop" price="600 kr" size={rowSize} />
-      <PriceRow at={26} name="Hemsida" price="300 kr" size={rowSize} last />
-      <Rise at={36} style={{ marginTop: sup * 1.1 }}>
+      <PriceRow at={OFFER.row1} name="Webbshop" price="600 kr" size={rowSize} />
+      <PriceRow at={OFFER.row2} name="Hemsida" price="300 kr" size={rowSize} last />
+      <Rise at={OFFER.foot} style={{ marginTop: sup * 1.1 }}>
         <span style={{ fontFamily: F.sans, fontSize: sup, color: C.muted, letterSpacing: "-0.01em" }}>
           Inga månadsavgifter till oss.
         </span>

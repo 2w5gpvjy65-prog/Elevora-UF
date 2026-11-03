@@ -1,6 +1,7 @@
 import React from "react";
 import { Composition, Folder } from "remotion";
-import { ElevoraAd, TOTAL_DURATION } from "./ElevoraAd";
+import { ElevoraAd } from "./ElevoraAd";
+import { TOTAL } from "./timeline";
 
 // Samma video i tre format. Layouten anpassar sig efter bildformatet.
 export const RemotionRoot: React.FC = () => {
@@ -10,7 +11,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Reel"
         component={ElevoraAd}
-        durationInFrames={TOTAL_DURATION}
+        durationInFrames={TOTAL}
         fps={30}
         width={1080}
         height={1920}
@@ -19,7 +20,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Feed"
         component={ElevoraAd}
-        durationInFrames={TOTAL_DURATION}
+        durationInFrames={TOTAL}
         fps={30}
         width={1080}
         height={1350}
@@ -28,7 +29,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Wide"
         component={ElevoraAd}
-        durationInFrames={TOTAL_DURATION}
+        durationInFrames={TOTAL}
         fps={30}
         width={1920}
         height={1080}

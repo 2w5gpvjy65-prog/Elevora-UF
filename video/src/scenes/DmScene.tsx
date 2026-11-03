@@ -9,8 +9,9 @@ import {
 } from "remotion";
 import { Headline } from "../components/Headline";
 import { C, EASE, F, SPEC, clamp, useFmt } from "../theme";
+import { DM } from "../timeline";
 
-export const DM_DURATION = 180;
+export const DM_DURATION = DM.duration;
 
 // Påhittade kunder som frågar samma saker om och om igen.
 // "at" = bildrutan när meddelandet kommer in. Negativa finns redan vid start.
@@ -20,19 +21,20 @@ const MESSAGES = [
   { at: -56, user: "linnea.k", text: "Vad kostar frakten?" },
   { at: -40, user: "majastil", text: "Kan jag swisha dig?" },
   { at: -12, user: "theo.w", text: "Finns den kvar?" },
-  { at: 10, user: "noah.b", text: "Finns den i silver?" },
-  { at: 24, user: "saga.lund", text: "Finns den kvar?" },
-  { at: 38, user: "wilma.e", text: "Hallå? Svarar ni?" },
-  { at: 52, user: "alva.uf", text: "Vad kostar frakten?" },
-  { at: 66, user: "tilde.b", text: "Kan jag betala med kort?" },
-  { at: 98, user: "hugo.n", text: "Finns den kvar?" },
-  { at: 108, user: "elsa.m", text: "Har ni Klarna?" },
-  { at: 117, user: "olivia.s", text: "Vad kostar frakten?" },
-  { at: 125, user: "leo.a", text: "Är den såld?" },
-  { at: 132, user: "ines.v", text: "Finns den kvar?" },
-  { at: 139, user: "vera.h", text: "Kan jag swisha?" },
-  { at: 145, user: "nora.l", text: "Hallå??" },
-  { at: 151, user: "juni.p", text: "Finns den kvar?" },
+  { at: 8, user: "noah.b", text: "Finns den i silver?" },
+  { at: 20, user: "saga.lund", text: "Finns den kvar?" },
+  { at: 32, user: "wilma.e", text: "Hallå? Svarar ni?" },
+  { at: 44, user: "alva.uf", text: "Vad kostar frakten?" },
+  { at: 56, user: "tilde.b", text: "Kan jag betala med kort?" },
+  // Andra rubriken: allt fler, allt tätare
+  { at: 80, user: "hugo.n", text: "Finns den kvar?" },
+  { at: 88, user: "elsa.m", text: "Har ni Klarna?" },
+  { at: 95, user: "olivia.s", text: "Vad kostar frakten?" },
+  { at: 102, user: "leo.a", text: "Är den såld?" },
+  { at: 108, user: "ines.v", text: "Finns den kvar?" },
+  { at: 114, user: "vera.h", text: "Kan jag swisha?" },
+  { at: 120, user: "nora.l", text: "Hallå??" },
+  { at: 126, user: "juni.p", text: "Finns den kvar?" },
 ];
 
 const AVATARS = ["#d9cfc2", "#cfd5dc", "#d4cdc2", "#c8c1b6", "#dcd4c9", "#c5ccd6"];
@@ -208,9 +210,9 @@ export const DmScene: React.FC<{ readonly bg?: string }> = ({ bg = C.bg }) => {
 
   const headlines = (
     <>
-      <Headline text="Säljer ni fortfarande i *DM*?" size={h1} enterAt={null} exitAt={84} />
+      <Headline text="Säljer ni fortfarande i *DM*?" size={h1} enterAt={null} exitAt={DM.h1Exit} />
       <div style={{ position: "absolute", inset: 0 }}>
-        <Headline text="Samma frågor. *Varje* dag." size={h1} enterAt={98} />
+        <Headline text="Samma frågor. *Varje* dag." size={h1} enterAt={DM.h2In} />
       </div>
     </>
   );
