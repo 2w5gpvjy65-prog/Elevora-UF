@@ -21,20 +21,25 @@ const MESSAGES = [
   { at: -56, user: "linnea.k", text: "Vad kostar frakten?" },
   { at: -40, user: "majastil", text: "Kan jag swisha dig?" },
   { at: -12, user: "theo.w", text: "Finns den kvar?" },
-  { at: 8, user: "noah.b", text: "Finns den i silver?" },
-  { at: 20, user: "saga.lund", text: "Finns den kvar?" },
-  { at: 32, user: "wilma.e", text: "Hallå? Svarar ni?" },
-  { at: 44, user: "alva.uf", text: "Vad kostar frakten?" },
-  { at: 56, user: "tilde.b", text: "Kan jag betala med kort?" },
+  { at: 6, user: "noah.b", text: "Finns den i silver?" },
+  { at: 14, user: "saga.lund", text: "Finns den kvar?" },
+  { at: 22, user: "wilma.e", text: "Hallå? Svarar ni?" },
+  { at: 30, user: "alva.uf", text: "Vad kostar frakten?" },
+  { at: 38, user: "tilde.b", text: "Kan jag betala med kort?" },
+  { at: 46, user: "elin.k", text: "Skickar ni till Umeå?" },
+  { at: 54, user: "siri.m", text: "Finns den kvar?" },
   // Andra rubriken: allt fler, allt tätare
-  { at: 80, user: "hugo.n", text: "Finns den kvar?" },
-  { at: 88, user: "elsa.m", text: "Har ni Klarna?" },
-  { at: 95, user: "olivia.s", text: "Vad kostar frakten?" },
-  { at: 102, user: "leo.a", text: "Är den såld?" },
-  { at: 108, user: "ines.v", text: "Finns den kvar?" },
-  { at: 114, user: "vera.h", text: "Kan jag swisha?" },
-  { at: 120, user: "nora.l", text: "Hallå??" },
-  { at: 126, user: "juni.p", text: "Finns den kvar?" },
+  { at: 70, user: "hugo.n", text: "Finns den kvar?" },
+  { at: 76, user: "elsa.m", text: "Har ni Klarna?" },
+  { at: 81, user: "olivia.s", text: "Vad kostar frakten?" },
+  { at: 86, user: "leo.a", text: "Är den såld?" },
+  { at: 91, user: "ines.v", text: "Finns den kvar?" },
+  { at: 96, user: "vera.h", text: "Kan jag swisha?" },
+  { at: 101, user: "nora.l", text: "Hallå??" },
+  { at: 106, user: "juni.p", text: "Finns den kvar?" },
+  { at: 111, user: "ebba.r", text: "Svara snälla" },
+  { at: 116, user: "liam.j", text: "Vad kostar frakten?" },
+  { at: 121, user: "stella.f", text: "Finns den kvar?" },
 ];
 
 const AVATARS = ["#d9cfc2", "#cfd5dc", "#d4cdc2", "#c8c1b6", "#dcd4c9", "#c5ccd6"];
@@ -245,7 +250,7 @@ export const DmScene: React.FC<{ readonly bg?: string }> = ({ bg = C.bg }) => {
             top: s.t,
             width: inboxW,
             height: height - s.t - s.b,
-            scale: push,
+            transform: `perspective(1600px) rotateX(${interpolate(frame, [0, DM_DURATION], [8, 3], { ...clamp, easing: EASE.soft })}deg) rotateY(${interpolate(frame, [0, DM_DURATION], [-12, -5], { ...clamp, easing: EASE.soft })}deg) scale(${push})`,
           }}
         >
           <Inbox width={inboxW} height={height - s.t - s.b} />
@@ -271,7 +276,8 @@ export const DmScene: React.FC<{ readonly bg?: string }> = ({ bg = C.bg }) => {
           top: inboxTop,
           width: contentW,
           height: inboxH,
-          scale: push,
+          // Inkorgen lutar lite i 3D och rätar upp sig medan stressen ökar
+          transform: `perspective(1600px) rotateX(${interpolate(frame, [0, DM_DURATION], [9, 3], { ...clamp, easing: EASE.soft })}deg) rotateY(${interpolate(frame, [0, DM_DURATION], [-7, -2], { ...clamp, easing: EASE.soft })}deg) scale(${push})`,
           transformOrigin: "50% 0%",
         }}
       >

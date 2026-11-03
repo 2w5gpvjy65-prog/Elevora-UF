@@ -8,7 +8,13 @@ Reklamvideo för Elevora UF i tre format, byggd med [Remotion](https://www.remot
 | `Feed` | 1080 × 1350 (4:5) | Instagram-flödet |
 | `Wide` | 1920 × 1080 (16:9) | Hemsidan, YouTube, LinkedIn |
 
-30 fps, cirka 31 sekunder, med svensk röst som läser texten. Scener: krok "Säljer ni fortfarande i DM?" → full inkorg → svep med motion blur till **Arteras riktiga webbshop** (som vi byggt) i en mobil → köp med Swish/kort/Klarna → priser → avslutning med elevorauf.se.
+30 fps, cirka 37 sekunder, med svensk röst som läser all text. Scener:
+1. Krok "Säljer ni fortfarande i DM?" med en inkorg i 3D som fylls på
+2. Svep med motion blur till bygget: kolumnrutnät → wireframe som ritas med markeringsruta och mått → kod som skrivs → **Arteras riktiga sida** framkallas med en skanningslinje, "Publicerad"
+3. Artera i 3D: dator och mobil, kamera som glider (iris-övergång)
+4. Köpet: scroll till Vika, kassa där Swish, kort och Klarna lyser upp i takt med rösten, kvitto och "Ny beställning" (ränder-övergång)
+5. Priser med siffror som rullar fram
+6. Avslutning: loggan vrids fram, adressen skrivs bokstav för bokstav
 
 ## Kom igång (på din dator)
 

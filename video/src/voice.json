@@ -1,50 +1,68 @@
 {
   "01-krok": {
     "text": "Säljer ni fortfarande i DM?",
-    "seconds": 2.078
+    "seconds": 1.881
   },
   "02-samma": {
     "text": "Samma frågor. Varje dag.",
-    "seconds": 1.984
+    "seconds": 2.009
   },
   "03-skaffa": {
     "text": "Så skaffa er egen webbshop.",
-    "seconds": 1.762
+    "seconds": 1.8
   },
-  "04-artera": {
-    "text": "Som Artera UF. Vi byggde deras sida.",
-    "seconds": 2.825
+  "04-designar": {
+    "text": "Vi designar den.",
+    "seconds": 1.184
   },
-  "05-betalar": {
-    "text": "Kunden betalar direkt på sidan.",
-    "seconds": 2.094
+  "05-bygger": {
+    "text": "Vi bygger den.",
+    "seconds": 1.045
   },
   "06-klart": {
     "text": "Klart på 1–2 veckor.",
-    "seconds": 2.115
+    "seconds": 2.229
   },
-  "07a-uf": {
-    "text": "Fasta UF-priser",
-    "seconds": 1.834
+  "07-artera": {
+    "text": "Som Artera UF. Vi byggde deras sida.",
+    "seconds": 2.775
   },
-  "07b-webbshop": {
+  "08-betalar": {
+    "text": "Kunden betalar direkt på sidan.",
+    "seconds": 2.183
+  },
+  "09-betalsatt": {
+    "text": "Swish, kort eller Klarna.",
+    "seconds": 1.614,
+    "words": [
+      0.02,
+      0.73,
+      0.81,
+      1.14
+    ]
+  },
+  "10-uf": {
+    "text": "Fasta UF-priser.",
+    "seconds": 1.707
+  },
+  "11-webbshop": {
     "text": "Webbshop 600 kr",
-    "seconds": 1.967
+    "seconds": 2.067
   },
-  "07c-hemsida": {
+  "12-hemsida": {
     "text": "Hemsida 300 kr",
-    "seconds": 2.03
+    "seconds": 2.078
   },
-  "08-avgift": {
+  "13-avgift": {
     "text": "Inga månadsavgifter till oss.",
-    "seconds": 1.985
+    "seconds": 1.846
   },
-  "09-skiss": {
+  "14-skiss": {
     "text": "Vi skissar er startsida gratis.",
-    "seconds": 2.174
+    "seconds": 2.368
   },
-  "10-adress": {
+  "15-adress": {
     "text": "elevorauf.se",
-    "seconds": 2.446
+    "seconds": 2.659
   }
 }

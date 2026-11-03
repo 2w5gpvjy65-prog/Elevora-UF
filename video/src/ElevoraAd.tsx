@@ -2,20 +2,22 @@ import React, { useEffect, useState } from "react";
 import { AbsoluteFill, Sequence, cancelRender, continueRender, delayRender, staticFile } from "remotion";
 import { Audio } from "@remotion/media";
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
-import { C, EASE, geist, newsreader, serif } from "./theme";
-import { CUES, FADE, VOICE, WIPE, len } from "./timeline";
-import { fadeThrough, wipeUp } from "./transitions";
-import { DM_DURATION, DmScene } from "./scenes/DmScene";
-import { SWIPE_DURATION, SwipeToShop } from "./scenes/SwipeToShop";
-import { SHOP_DURATION, ShopScene } from "./scenes/ShopScene";
-import { OFFER_DURATION, OfferScene } from "./scenes/OfferScene";
-import { CTA_DURATION, CtaScene } from "./scenes/CtaScene";
+import { C, EASE, geist, mono, newsreader, serif } from "./theme";
+import { BUILD, CTA, CUES, DM, IRIS, OFFER, SHOP, SHOW, STRIPES, SWIPE, VOICE, WIPE, len } from "./timeline";
+import { iris, stripes, wipeUp } from "./transitions";
+import { DmScene } from "./scenes/DmScene";
+import { SwipeToShop } from "./scenes/SwipeToShop";
+import { BuildScene } from "./scenes/BuildScene";
+import { ShowcaseScene } from "./scenes/ShowcaseScene";
+import { ShopScene } from "./scenes/ShopScene";
+import { OfferScene } from "./scenes/OfferScene";
+import { CtaScene } from "./scenes/CtaScene";
 
 // Ingen bildruta renderas innan alla typsnitt är laddade.
 const useFontsReady = () => {
   const [handle] = useState(() => delayRender("Väntar på typsnitt"));
   useEffect(() => {
-    Promise.all([geist.waitUntilDone(), serif.waitUntilDone(), newsreader.waitUntilDone()])
+    Promise.all([geist.waitUntilDone(), serif.waitUntilDone(), newsreader.waitUntilDone(), mono.waitUntilDone()])
       .then(() => continueRender(handle))
       .catch((err) => cancelRender(err));
   }, [handle]);
@@ -37,27 +39,29 @@ export const ElevoraAd: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <TransitionSeries>
-        <TransitionSeries.Sequence name="Krok: DM" durationInFrames={DM_DURATION}>
+        <TransitionSeries.Sequence name="Krok: DM" durationInFrames={DM.duration}>
           <DmScene />
         </TransitionSeries.Sequence>
-        <TransitionSeries.Sequence name="Svep till webbshop" durationInFrames={SWIPE_DURATION}>
+        <TransitionSeries.Sequence name="Svep (motion blur)" durationInFrames={SWIPE}>
           <SwipeToShop />
         </TransitionSeries.Sequence>
-        <TransitionSeries.Sequence name="Webbshop (Artera UF)" durationInFrames={SHOP_DURATION}>
+        <TransitionSeries.Sequence name="Design, kod, klar" durationInFrames={BUILD.duration}>
+          <BuildScene />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={iris()} timing={linearTiming({ durationInFrames: IRIS, easing: EASE.inOut })} />
+        <TransitionSeries.Sequence name="Artera i 3D" durationInFrames={SHOW.duration}>
+          <ShowcaseScene />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={stripes()} timing={linearTiming({ durationInFrames: STRIPES, easing: EASE.inOut })} />
+        <TransitionSeries.Sequence name="Köpet" durationInFrames={SHOP.duration}>
           <ShopScene />
         </TransitionSeries.Sequence>
-        <TransitionSeries.Transition
-          presentation={fadeThrough()}
-          timing={linearTiming({ durationInFrames: FADE, easing: EASE.soft })}
-        />
-        <TransitionSeries.Sequence name="Priser" durationInFrames={OFFER_DURATION}>
+        <TransitionSeries.Transition presentation={stripes()} timing={linearTiming({ durationInFrames: STRIPES, easing: EASE.inOut })} />
+        <TransitionSeries.Sequence name="Priser" durationInFrames={OFFER.duration}>
           <OfferScene />
         </TransitionSeries.Sequence>
-        <TransitionSeries.Transition
-          presentation={wipeUp()}
-          timing={linearTiming({ durationInFrames: WIPE, easing: EASE.inOut })}
-        />
-        <TransitionSeries.Sequence name="Avslutning" durationInFrames={CTA_DURATION}>
+        <TransitionSeries.Transition presentation={wipeUp()} timing={linearTiming({ durationInFrames: WIPE, easing: EASE.inOut })} />
+        <TransitionSeries.Sequence name="Avslutning" durationInFrames={CTA.duration}>
           <CtaScene />
         </TransitionSeries.Sequence>
       </TransitionSeries>

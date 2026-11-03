@@ -47,7 +47,7 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
   (Create pull request ×2 → Merge pull request → Confirm merge).
 
 ## Reklamvideo (Remotion)
-- Ligger i `video/` (Remotion, React). Tre kompositioner: `Reel` 9:16, `Feed` 4:5, `Wide` 16:9, 30 fps, cirka 20 s. Se `video/README.md`.
+- Ligger i `video/` (Remotion, React). Tre kompositioner: `Reel` 9:16, `Feed` 4:5, `Wide` 16:9, 30 fps, cirka 37 s (v3: snabbare, fler tekniska effekter som användaren bad om). Se `video/README.md`.
 - Remotion-skills är installerade i `.claude/skills/` (`npx skills add remotion-dev/skills`). Gratis licens för upp till 3 anställda.
 - `video/` och `skills-lock.json` står i `.assetsignore` så att de inte publiceras på elevorauf.se. Renderade MP4-filer (`video/out/`) committas inte.
 - Molnsession: Remotion kan inte ladda ner sin egen webbläsare. Rendera med `REMOTION_BROWSER=/opt/pw-browsers/chromium-1243/chrome-linux64/chrome` (Chrome for Testing, som också kan hämta Google Fonts via proxyn).

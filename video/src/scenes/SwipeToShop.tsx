@@ -4,7 +4,7 @@ import { HtmlInCanvasMotionBlur } from "@remotion/motion-blur";
 import { C, EASE, clamp } from "../theme";
 import { SWIPE } from "../timeline";
 import { DM_DURATION, DmScene } from "./DmScene";
-import { ShopScene } from "./ShopScene";
+import { BuildScene } from "./BuildScene";
 
 export const SWIPE_DURATION = SWIPE;
 
@@ -23,7 +23,7 @@ const Swipe: React.FC = () => {
       </AbsoluteFill>
       <AbsoluteFill style={{ translate: `0 ${(1 - p) * height}px` }}>
         <Freeze frame={0}>
-          <ShopScene bg="transparent" />
+          <BuildScene bg="transparent" />
         </Freeze>
       </AbsoluteFill>
     </AbsoluteFill>

@@ -1,14 +1,77 @@
 [
-  {"id": "01-krok", "say": "Säljer ni fortfarande i D M?", "expect": "Säljer ni fortfarande i DM?", "tempo": 1.0},
-  {"id": "02-samma", "say": "Samma frågor. Varje dag.", "expect": "Samma frågor. Varje dag.", "tempo": 1.1},
-  {"id": "03-skaffa", "say": "Så skaffa er egen webbshop.", "expect": "Så skaffa er egen webbshop.", "tempo": 1.1},
-  {"id": "04-artera", "say": "Som Ar-tera U F. Vi byggde deras sida.", "expect": "Som Artera UF. Vi byggde deras sida.", "tempo": 1.1},
-  {"id": "05-betalar", "say": "Kunden betalar direkt på sidan.", "expect": "Kunden betalar direkt på sidan.", "tempo": 1.1},
-  {"id": "06-klart", "say": "Klart på ett, till två veckor.", "expect": "Klart på ett till två veckor.", "tempo": 1.1},
-  {"id": "07a-uf", "say": "Fasta U F-priser.", "expect": "Fasta UF-priser.", "tempo": 1.0},
-  {"id": "07b-webbshop", "say": "Webbshop sexhundra kronor.", "expect": "Webbshop 600 kronor.", "tempo": 1.1},
-  {"id": "07c-hemsida", "say": "Hemsida trehundra kronor.", "expect": "Hemsida 300 kronor.", "tempo": 1.1},
-  {"id": "08-avgift", "say": "Inga månads-avgifter till oss.", "expect": "Inga månadsavgifter till oss.", "tempo": 1.0},
-  {"id": "09-skiss", "say": "Vi skissar er startsida, gratis.", "expect": "Vi skissar er startsida gratis.", "tempo": 1.1},
-  {"id": "10-adress", "say": "E-levora U F punkt S E.", "expect": "elevorauf.se", "tempo": 1.1}
+  {
+    "id": "01-krok",
+    "say": "Säljer ni fortfarande i D M?",
+    "expect": "Säljer ni fortfarande i DM?"
+  },
+  {
+    "id": "02-samma",
+    "say": "Samma frågor. Varje dag.",
+    "expect": "Samma frågor. Varje dag."
+  },
+  {
+    "id": "03-skaffa",
+    "say": "Så skaffa er egen webbshop.",
+    "expect": "Så skaffa er egen webbshop."
+  },
+  {
+    "id": "04-designar",
+    "say": "Vi designar den.",
+    "expect": "Vi designar den."
+  },
+  {
+    "id": "05-bygger",
+    "say": "Vi bygger den.",
+    "expect": "Vi bygger den."
+  },
+  {
+    "id": "06-klart",
+    "say": "Klart på ett, till två veckor.",
+    "expect": "Klart på ett till två veckor."
+  },
+  {
+    "id": "07-artera",
+    "say": "Som Ar-tera U F. Vi byggde deras sida.",
+    "expect": "Som Artera UF. Vi byggde deras sida."
+  },
+  {
+    "id": "08-betalar",
+    "say": "Kunden betalar direkt på sidan.",
+    "expect": "Kunden betalar direkt på sidan."
+  },
+  {
+    "id": "09-betalsatt",
+    "say": "Svisj, kort eller Klarna.",
+    "expect": "Swish, kort eller Klarna."
+  },
+  {
+    "id": "10-uf",
+    "say": "Fasta U F-priser.",
+    "expect": "Fasta UF-priser."
+  },
+  {
+    "id": "11-webbshop",
+    "say": "Webbshop sexhundra kronor.",
+    "expect": "Webbshop 600 kronor."
+  },
+  {
+    "id": "12-hemsida",
+    "say": "Hemsida trehundra kronor.",
+    "expect": "Hemsida 300 kronor."
+  },
+  {
+    "id": "13-avgift",
+    "say": "Inga månads-avgifter till oss.",
+    "expect": "Inga månadsavgifter till oss."
+  },
+  {
+    "id": "14-skiss",
+    "say": "Vi skissar er startsida, gratis.",
+    "expect": "Vi skissar er startsida gratis."
+  },
+  {
+    "id": "15-adress",
+    "say": "E-levora U F punkt S E.",
+    "expect": "elevorauf.se"
+  }
 ]

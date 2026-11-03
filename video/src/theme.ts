@@ -2,6 +2,7 @@ import { Easing, useVideoConfig } from "remotion";
 import { loadFont as loadGeist } from "@remotion/google-fonts/Geist";
 import { loadFont as loadSerif } from "@remotion/google-fonts/SourceSerif4";
 import { loadFont as loadNewsreader } from "@remotion/google-fonts/Newsreader";
+import { loadFont as loadMono } from "@remotion/google-fonts/GeistMono";
 
 // Samma färger som elevorauf.se
 export const C = {
@@ -30,11 +31,16 @@ export const newsreader = loadNewsreader("normal", {
   weights: ["400"],
   subsets: ["latin"],
 });
+export const mono = loadMono("normal", {
+  weights: ["400", "500"],
+  subsets: ["latin"],
+});
 
 export const F = {
   sans: geist.fontFamily,
   serif: serif.fontFamily,
   shop: newsreader.fontFamily,
+  mono: mono.fontFamily,
 };
 
 // Egna kurvor: inget rör sig linjärt.
