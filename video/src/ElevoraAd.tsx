@@ -12,6 +12,7 @@ import { ShowcaseScene } from "./scenes/ShowcaseScene";
 import { ShopScene } from "./scenes/ShopScene";
 import { OfferScene } from "./scenes/OfferScene";
 import { CtaScene } from "./scenes/CtaScene";
+import { SoundTrack } from "./sound";
 
 // Ingen bildruta renderas innan alla typsnitt är laddade.
 const useFontsReady = () => {
@@ -65,6 +66,7 @@ export const ElevoraAd: React.FC = () => {
           <CtaScene />
         </TransitionSeries.Sequence>
       </TransitionSeries>
+      <SoundTrack />
       <VoiceTrack />
     </AbsoluteFill>
   );

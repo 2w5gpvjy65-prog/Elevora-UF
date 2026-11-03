@@ -1,68 +1,82 @@
 {
   "01-krok": {
     "text": "Säljer ni fortfarande i DM?",
-    "seconds": 1.881
+    "seconds": 1.988,
+    "take": "A3"
   },
   "02-samma": {
     "text": "Samma frågor. Varje dag.",
-    "seconds": 2.009
+    "seconds": 2.282,
+    "take": "A4"
   },
   "03-skaffa": {
     "text": "Så skaffa er egen webbshop.",
-    "seconds": 1.8
+    "seconds": 1.75,
+    "take": "A2"
   },
   "04-designar": {
     "text": "Vi designar den.",
-    "seconds": 1.184
+    "seconds": 1.311,
+    "take": "A4"
   },
   "05-bygger": {
     "text": "Vi bygger den.",
-    "seconds": 1.045
+    "seconds": 1.004,
+    "take": "A4"
   },
   "06-klart": {
     "text": "Klart på 1–2 veckor.",
-    "seconds": 2.229
+    "seconds": 1.637,
+    "take": "A"
   },
   "07-artera": {
     "text": "Som Artera UF. Vi byggde deras sida.",
-    "seconds": 2.775
+    "seconds": 3.301,
+    "take": "A4"
   },
   "08-betalar": {
     "text": "Kunden betalar direkt på sidan.",
-    "seconds": 2.183
+    "seconds": 2.199,
+    "take": "A4"
   },
   "09-betalsatt": {
     "text": "Swish, kort eller Klarna.",
-    "seconds": 1.614,
+    "seconds": 1.865,
+    "take": "A",
     "words": [
-      0.02,
-      0.73,
-      0.81,
-      1.14
+      0.06,
+      0.68,
+      1.37
     ]
   },
   "10-uf": {
     "text": "Fasta UF-priser.",
-    "seconds": 1.707
+    "seconds": 2.046,
+    "take": "A4"
   },
   "11-webbshop": {
     "text": "Webbshop 600 kr",
-    "seconds": 2.067
+    "seconds": 1.851,
+    "take": "A"
   },
   "12-hemsida": {
     "text": "Hemsida 300 kr",
-    "seconds": 2.078
+    "seconds": 1.941,
+    "take": "A"
   },
   "13-avgift": {
     "text": "Inga månadsavgifter till oss.",
-    "seconds": 1.846
+    "seconds": 1.709,
+    "take": "A3"
   },
   "14-skiss": {
     "text": "Vi skissar er startsida gratis.",
-    "seconds": 2.368
+    "seconds": 2.624,
+    "take": "A4"
   },
   "15-adress": {
     "text": "elevorauf.se",
-    "seconds": 2.659
+    "seconds": 2.858,
+    "take": "A2"
   }
 }

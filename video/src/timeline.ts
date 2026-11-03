@@ -58,8 +58,8 @@ export const SHOW = {
 // 4. Köpet i mobilen
 const sV8 = 6;
 const sV9 = sV8 + len("08-betalar") + 2;
-// Ordstarter i "Swish, kort eller Klarna" (sekunder in i repliken)
-const WORDS = [0.02, 0.73, 1.3];
+// Ordstarter i "Swish, kort eller Klarna" (sekunder in i repliken), från röstens tidsstämplar
+const WORDS: number[] = (voice["09-betalsatt"] as { words?: number[] }).words ?? [0.02, 0.73, 1.3];
 const sSelect = sV9 + len("09-betalsatt") + 2;
 export const SHOP = {
   v8: sV8,
