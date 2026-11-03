@@ -46,6 +46,13 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
   https://github.com/2w5gpvjy65-prog/Elevora-UF/compare/main...claude/elevora-uf-business-jy1hwa
   (Create pull request ×2 → Merge pull request → Confirm merge).
 
+## Reklamvideo (Remotion)
+- Ligger i `video/` (Remotion, React). Tre kompositioner: `Reel` 9:16, `Feed` 4:5, `Wide` 16:9, 30 fps, cirka 20 s. Se `video/README.md`.
+- Remotion-skills är installerade i `.claude/skills/` (`npx skills add remotion-dev/skills`). Gratis licens för upp till 3 anställda.
+- `video/` och `skills-lock.json` står i `.assetsignore` så att de inte publiceras på elevorauf.se. Renderade MP4-filer (`video/out/`) committas inte.
+- Molnsession: Remotion kan inte ladda ner sin egen webbläsare. Rendera med `REMOTION_BROWSER=/opt/pw-browsers/chromium-1243/chrome-linux64/chrome` (Chrome for Testing, som också kan hämta Google Fonts via proxyn).
+- Motion blur (`HtmlInCanvasMotionBlur`) bara på svepet DM → webbshop, med 15 samples och bakgrunden utanför oskärpan. Fler samples ger färgförskjutning (8-bitars avrundning).
+
 ## Design (bestämt efter många iterationer)
 - Varm beige/off-white bakgrund (`--bg: #f2ede6`), inte för vit. Svart text och knappar. **Mörk marinblå** accent (`#1b2a40`, `--navy: #18212d`) används sparsamt. Inget lila, rosa eller orange.
 - Typsnitt: Geist (brödtext/rubriker), Source Serif 4 för ett blått accentord per rubrik (inte kursiv), Newsreader bara i demobutiken.
