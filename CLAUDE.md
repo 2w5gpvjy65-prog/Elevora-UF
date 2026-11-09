@@ -12,12 +12,12 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
 ## Priser
 | Tjänst | UF-pris | Ordinarie |
 |---|---|---|
-| Webbshop | 600 kr | 800 kr |
-| Hemsida, en sida | 300 kr | 400 kr |
+| Webbshop | 800 kr | 2 500 kr |
+| Hemsida, en sida | 400 kr | 1 800 kr |
 | Google-profil | 400 kr | – |
 | Löpande uppdateringar | 200 kr/mån | – |
 
-- Ordinarie pris 800 / 400 kr bestämdes i november 2026 (används i videon). elevorauf.se visar fortfarande "från 2 000 kr" / 1 200 kr och behöver uppdateras.
+- Priserna ändrades i november 2026 (förut UF 600 / 300 kr, ordinarie "från 2 000 kr" / 1 200 kr). Samma priser på elevorauf.se och i videon.
 - Kunden äger domänen själv (cirka 200 kr/år). Betaltjänsten tar egen avgift per köp.
 - Vid snabb affär får priset diskuteras ("ni skulle bli en av våra första kunder"). Bestäm lägsta pris innan förhandling.
 - Säg "inga månadsavgifter till oss, bara en liten avgift per köp till betaltjänsten", aldrig "gratis att ta betalt".
@@ -54,10 +54,10 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
 - Molnsession: Remotion kan inte ladda ner sin egen webbläsare. Rendera med `REMOTION_BROWSER=/opt/pw-browsers/chromium-1243/chrome-linux64/chrome` (Chrome for Testing, som också kan hämta Google Fonts via proxyn).
 - Motion blur (`HtmlInCanvasMotionBlur`) bara på svepet DM → webbshop, med 15 samples och bakgrunden utanför oskärpan. Fler samples ger färgförskjutning (8-bitars avrundning).
 - **Röst (sedan v4):** ElevenLabs, rösten Liam med eleven_v3, stabilitet 0.5 utan taggar: lugn och naturlig ton rakt igenom (`[excited]` lät AI-aktigt). Rösten säger en kort pitch, mer än texten på skärmen. Uttal: "DM" som ett ord, "Elevora" = "elev-ora" utan paus (stavas Elevora, inte Elevorra). En tagning, bästa raden per tagning vald med Whisper. Användaren tyckte att den gamla talsyntesen (Piper) lät robotaktig. Musik från Eleven Music och ljudeffekter från Sound Effects, mixade i `src/sound.tsx` (musiken sänks under rösten), slutfilen normaliserad till -14 LUFS. Se `video/scripts/elevenlabs/README.md`.
-- **Priser i videon:** de ordinarie priserna syns (webbshop 800 kr, hemsida 400 kr). Rösten viskar sedan UF-priserna ("Men för UF-företag… sexhundra och trehundra", taggen `[whispers]`, enda taggen i manuset) och en mörkblå etikett "UF-pris 600 kr / 300 kr" dyker upp under varje pris när det sägs.
+- **Priser i videon:** de ordinarie priserna syns och sägs (webbshop 2 500 kr, hemsida 1 800 kr). Sedan viskar rösten UF-priserna som en liten hemlis ("Men för UF-företag… åttahundra och fyrahundra", taggen `[whispers]`, enda taggen i manuset) och en mindre mörkblå etikett "UF-pris 800 kr / 400 kr" dyker upp under varje pris när det sägs.
 - **ElevenLabs-nyckeln** ligger som *Network secret* i molnmiljön (header `xi-api-key`, domän `api.elevenlabs.io`), aldrig i koden. Planen är Starter: mp3 128 kbit/s (192 kräver Creator). Nyckeln saknar Voices Read och User Read.
 - **Kundexempel i videon:** Arteras riktiga sida (repo `2w5gpvjy65-prog/arterauf`, keramikfat, fyra tjejer från Mora) i mobilen: scroll till Vika → "Lägg i kundvagnen" → kassa (Swish/kort/Klarna, 349 + 39 kr frakt) → "Tack för ditt köp!". Kassan i videon är en förenklad bild, inte Stripes riktiga. Skärmdumpar via `video/scripts/artera-skarmdump.js`.
-- Prisfrågan: arterauf-repots CLAUDE.md säger webbshop UF 1 200 kr / hemsida 600 kr, men elevorauf.se och videon säger UF-pris 600 / 300 kr (ordinarie 800 / 400 kr i videon). Bekräfta vilket som gäller.
+- Prisfrågan: arterauf-repots CLAUDE.md säger webbshop UF 1 200 kr / hemsida 600 kr, men elevorauf.se och videon säger UF-pris 800 / 400 kr (ordinarie 2 500 / 1 800 kr). Det som står på elevorauf.se gäller.
 
 ## Design (bestämt efter många iterationer)
 - Varm beige/off-white bakgrund (`--bg: #f2ede6`), inte för vit. Svart text och knappar. **Mörk marinblå** accent (`#1b2a40`, `--navy: #18212d`) används sparsamt. Inget lila, rosa eller orange.
@@ -71,7 +71,7 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
 ## Att göra / kvar
 - Foto på teamet (`img/team.jpg` visas automatiskt under Om oss).
 - Riktigt kundexempel i stället för, eller bredvid, demobutiken.
-- Instagram-länk när användarnamnet är bestämt. Bio-förslag: "Sluta sälja i DMs och på Plick. Skaffa er egen sida. ✨ UF-pris från 300 kr ↓"
+- Instagram-länk när användarnamnet är bestämt. Bio-förslag: "Sluta sälja i DMs och på Plick. Skaffa er egen sida. ✨ UF-pris från 400 kr ↓"
 - Kontrollera rättigheter för demobilderna om de inte är egna foton (en bild visar en Rolex-logga).
 
 ## Hur användaren vill ha svar

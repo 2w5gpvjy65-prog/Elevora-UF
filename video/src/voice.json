@@ -382,8 +382,8 @@
  "10-priser": {
   "text": "Fasta priser.",
   "say": "Och priset? Vi har fasta priser.",
-  "seconds": 2.653,
-  "take": "P4",
+  "seconds": 2.54,
+  "take": "Q4",
   "words": [
    [
     "Och",
@@ -391,31 +391,31 @@
    ],
    [
     "priset",
-    0.213
+    0.133
    ],
    [
     "Vi",
-    1.093
+    1.067
    ],
    [
     "har",
-    1.34
+    1.32
    ],
    [
     "fasta",
-    1.587
+    1.507
    ],
    [
     "priser",
-    1.973
+    1.893
    ]
   ]
  },
  "11-webbshop": {
-  "text": "Webbshop 800 kr",
-  "say": "En webbshop kostar åttahundra kronor,",
-  "seconds": 2.488,
-  "take": "P4",
+  "text": "Webbshop 2 500 kr",
+  "say": "En webbshop kostar tvåtusenfemhundra kronor,",
+  "seconds": 3.181,
+  "take": "Q4",
   "words": [
    [
     "En",
@@ -423,27 +423,27 @@
    ],
    [
     "webbshop",
-    0.527
+    0.58
    ],
    [
     "kostar",
-    0.951
+    1.068
    ],
    [
-    "åttahundra",
-    1.407
+    "tvåtusenfemhundra",
+    1.553
    ],
    [
     "kronor",
-    1.895
+    2.524
    ]
   ]
  },
  "12-hemsida": {
-  "text": "Hemsida 400 kr",
-  "say": "en hemsida fyrahundra.",
-  "seconds": 1.634,
-  "take": "P4",
+  "text": "Hemsida 1 800 kr",
+  "say": "en hemsida artonhundra.",
+  "seconds": 1.849,
+  "take": "Q4",
   "words": [
    [
     "en",
@@ -454,16 +454,16 @@
     0.153
    ],
    [
-    "fyrahundra",
-    0.78
+    "artonhundra",
+    0.886
    ]
   ]
  },
  "12-viska": {
-  "text": "UF-pris 600 kr och 300 kr",
-  "say": "Men för U F-företag... sexhundra och trehundra.",
-  "seconds": 4.196,
-  "take": "P4",
+  "text": "UF-pris 800 kr och 400 kr",
+  "say": "Men för U F-företag... åttahundra och fyrahundra.",
+  "seconds": 4.454,
+  "take": "Q4",
   "words": [
    [
     "Men",
@@ -471,27 +471,27 @@
    ],
    [
     "för",
-    0.135
+    0.26
    ],
    [
     "U",
-    0.475
+    0.62
    ],
    [
     "F-företag",
-    0.795
+    0.9
    ],
    [
-    "sexhundra",
-    2.329
+    "åttahundra",
+    2.16
    ],
    [
     "och",
-    2.949
+    3.089
    ],
    [
-    "trehundra",
-    3.309
+    "fyrahundra",
+    3.556
    ]
   ]
  },

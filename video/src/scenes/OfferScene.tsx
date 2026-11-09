@@ -28,6 +28,8 @@ const Odometer: React.FC<{ readonly value: string; readonly at: number; readonly
   return (
     <span style={{ display: "inline-flex", height: h, overflow: "hidden", verticalAlign: "bottom" }}>
       {value.split("").map((ch, i) => {
+        // Mellanslag i "2 500" står still, smalare än en siffra
+        if (ch === " ") return <span key={i} style={{ display: "inline-block", width: "0.26em" }} />;
         const d = Number(ch);
         const spins = 10 + d; // ett varv plus målsiffran
         const p = interpolate(frame, [at + i * 3, at + i * 3 + 22], [0, 1], { ...clamp, easing: EASE.out });
@@ -153,8 +155,8 @@ export const OfferScene: React.FC = () => {
   const headline = <Headline text="Fasta *priser*." size={h1} enterAt={OFFER.hIn} />;
   const list = (
     <>
-      <PriceRow at={OFFER.row1} name="Webbshop" price="800" size={rowSize} uf={{ price: "600", at: OFFER.uf1 }} />
-      <PriceRow at={OFFER.row2} name="Hemsida" price="400" size={rowSize} uf={{ price: "300", at: OFFER.uf2 }} last />
+      <PriceRow at={OFFER.row1} name="Webbshop" price="2 500" size={rowSize} uf={{ price: "800", at: OFFER.uf1 }} />
+      <PriceRow at={OFFER.row2} name="Hemsida" price="1 800" size={rowSize} uf={{ price: "400", at: OFFER.uf2 }} last />
       <Rise at={OFFER.foot} style={{ marginTop: sup * 1.1 }}>
         <span style={{ fontFamily: F.sans, fontSize: sup, color: C.muted, letterSpacing: "-0.01em" }}>
           Inga månadsavgifter till oss.

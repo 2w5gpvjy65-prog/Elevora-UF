@@ -15,10 +15,10 @@ L = [
  ("08-betalar", "Kunden hittar fatet, lägger det i kundvagnen och betalar direkt på sidan."),
  ("09-betalsatt", "Med Swish, kort eller Klarna."),
  ("10-priser", "Och priset? Vi har fasta priser."),
- ("11-webbshop", "En webbshop kostar åttahundra kronor,"),
- ("12-hemsida", "en hemsida fyrahundra."),
- # Viskat, som en hemlighet: UF-priserna
- ("12-viska", "[whispers] Men för U F-företag... sexhundra och trehundra."),
+ ("11-webbshop", "En webbshop kostar tvåtusenfemhundra kronor,"),
+ ("12-hemsida", "en hemsida artonhundra."),
+ # Viskat, som en liten hemlis: UF-priserna
+ ("12-viska", "[whispers] Men för U F-företag... åttahundra och fyrahundra."),
  ("13-avgift", "och inga månadsavgifter till oss."),
  ("14-skiss", "Nyfikna? Vi skissar er startsida, helt gratis."),
  ("15-adress", f"Hör av er på {ELV} U F punkt S E."),

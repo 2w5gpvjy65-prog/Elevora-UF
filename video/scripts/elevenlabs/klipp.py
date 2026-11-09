@@ -8,7 +8,7 @@ rec = sherpa_onnx.OfflineRecognizer.from_whisper(encoder=os.path.join(d, 'small-
     tokens=os.path.join(d, 'small-tokens.txt'), language='sv', task='transcribe', num_threads=4)
 def norm(t):
     t = t.lower()
-    for a, b in [("u f", "uf"), ("sexhundra", "600"), ("trehundra", "300"), ("åttahundra", "800"), ("fyrahundra", "400"), ("elevorra", "elevora"), ("ele-vorra", "elevora"), ("ellevorra", "elevora"),
+    for a, b in [("u f", "uf"), ("sexhundra", "600"), ("trehundra", "300"), ("åttahundra", "800"), ("fyrahundra", "400"), ("tvåtusenfemhundra", "2500"), ("två tusen fem hundra", "2500"), ("2 500", "2500"), ("artonhundra", "1800"), ("1 800", "1800"), ("elevorra", "elevora"), ("ele-vorra", "elevora"), ("ellevorra", "elevora"),
                  ("punkt s e", ".se"), ("1-2", "en till två"), ("1–2", "en till två"), ("webshop", "webbshop"), ("klana", "klarna")]:
         t = t.replace(a, b)
     return ' '.join(re.sub(r'[^a-zåäö0-9 ]', ' ', t).split())

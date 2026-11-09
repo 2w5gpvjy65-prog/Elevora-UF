@@ -13,7 +13,7 @@ Reklamvideo för Elevora UF i tre format, byggd med [Remotion](https://www.remot
 2. Svep med motion blur till bygget: kolumnrutnät → wireframe som ritas med markeringsruta och mått → kod som skrivs → **Arteras riktiga sida** framkallas med en skanningslinje, "Publicerad"
 3. Artera i 3D: dator och mobil, kamera som glider (iris-övergång)
 4. Köpet: scroll till Vika, kassa där Swish, kort och Klarna lyser upp i takt med rösten, kvitto och "Ny beställning" (ränder-övergång)
-5. Priser: ordinarie pris (webbshop 800 kr, hemsida 400 kr) med siffror som rullar fram, sedan viskar rösten UF-priserna och en etikett "UF-pris 600 kr / 300 kr" dyker upp under varje pris
+5. Priser: ordinarie pris (webbshop 2 500 kr, hemsida 1 800 kr) med siffror som rullar fram, sedan viskar rösten UF-priserna och en etikett "UF-pris 800 kr / 400 kr" dyker upp under varje pris
 6. Avslutning: loggan vrids fram, adressen skrivs bokstav för bokstav
 
 ## Kom igång (på din dator)
