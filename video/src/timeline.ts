@@ -88,13 +88,15 @@ export const SHOP = {
   duration: sSelect + 14 + 40 + STRIPES,
 };
 
-// 5. Priser
+// 5. Priser: de vanliga priserna i bild, sedan viskar rösten UF-priserna
+// och en liten UF-etikett dyker upp under varje pris när det sägs.
 const oV10 = 6;
-const oRow1 = oV10 + len("10-uf") + 1;
+const oRow1 = oV10 + len("10-priser") + 1;
 const oV11 = oRow1 + 1;
 const oRow2 = oV11 + len("11-webbshop") + 1;
 const oV12 = oRow2 + 1;
-const oFoot = oV12 + len("12-hemsida") + 1;
+const oVW = oV12 + len("12-hemsida") + 3;
+const oFoot = oVW + len("12-viska") + 1;
 const oV13 = oFoot + 1;
 export const OFFER = {
   hIn: 4,
@@ -103,6 +105,9 @@ export const OFFER = {
   v11: oV11,
   row2: oRow2,
   v12: oV12,
+  vWhisper: oVW,
+  uf1: oVW + word("12-viska", "sexhundra", 70) - 2,
+  uf2: oVW + word("12-viska", "trehundra", 100) - 2,
   foot: oFoot,
   v13: oV13,
   duration: oV13 + len("13-avgift") + 8 + WIPE,
@@ -140,9 +145,10 @@ export const CUES: { id: VoiceId; at: number }[] = [
   { id: "07-artera", at: sShow + SHOW.v7 },
   { id: "08-betalar", at: sShop + SHOP.v8 },
   { id: "09-betalsatt", at: sShop + SHOP.v9 },
-  { id: "10-uf", at: sOffer + OFFER.v10 },
+  { id: "10-priser", at: sOffer + OFFER.v10 },
   { id: "11-webbshop", at: sOffer + OFFER.v11 },
   { id: "12-hemsida", at: sOffer + OFFER.v12 },
+  { id: "12-viska", at: sOffer + OFFER.vWhisper },
   { id: "13-avgift", at: sOffer + OFFER.v13 },
   { id: "14-skiss", at: sCta + CTA.v14 },
   { id: "15-adress", at: sCta + CTA.v15 },

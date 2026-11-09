@@ -5,20 +5,22 @@ import { EASE } from "./theme";
 import { BUILD, CTA, CUES, OFFER, SHOP, START, TOTAL, len } from "./timeline";
 
 // Musik (Eleven Music, instrumental) som sänks när rösten pratar och tonas ut i slutet.
-const SPEECH = CUES.map((c) => [c.at, c.at + len(c.id)] as const);
 const BED = 0.3; // när ingen pratar
 const UNDER = 0.1; // under rösten (cirka 9 dB lägre), så att rösten alltid hörs tydligt
+const UNDER_WHISPER = 0.06; // ännu lägre under viskningen, så att den hörs
 const RAMP = 6; // bildrutor för att glida mellan nivåerna
+const SPEECH = CUES.map((c) => [c.at, c.at + len(c.id), c.id === "12-viska" ? UNDER_WHISPER : UNDER] as const);
 
 const musicVolume = (f: number) => {
-  // Hur nära närmaste replik vi är: 1 = mitt i tal, 0 = långt från tal
-  let talk = 0;
-  for (const [a, b] of SPEECH) {
+  // För varje replik: 1 = mitt i tal, 0 = långt från tal. Lägsta nivån vinner.
+  let level = BED;
+  for (const [a, b, under] of SPEECH) {
+    let talk = 0;
     if (f >= a && f <= b) talk = 1;
-    else if (f < a) talk = Math.max(talk, interpolate(f, [a - RAMP, a], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
-    else talk = Math.max(talk, interpolate(f, [b, b + RAMP], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
+    else if (f < a) talk = interpolate(f, [a - RAMP, a], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    else talk = interpolate(f, [b, b + RAMP], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    level = Math.min(level, BED + (under - BED) * talk);
   }
-  const level = BED + (UNDER - BED) * talk;
   const fadeOut = interpolate(f, [TOTAL - 40, TOTAL - 1], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: EASE.soft });
   return level * fadeOut;
 };

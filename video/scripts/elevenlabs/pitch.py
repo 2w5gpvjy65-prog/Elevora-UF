@@ -1,7 +1,9 @@
 # Pitch-manus: rösten säger mer än texten på skärmen, men varje rad hör ihop med en text.
-# En hel tagning med tidsstämplar. Användning: python pitch.py <ut> <stabilitet> <elevora-stavning>
+# En hel tagning med tidsstämplar. Användning: python pitch.py <ut> <stabilitet> <elevora-stavning> [första-id sista-id]
+# Med första/sista id läses bara den delen (till exempel 10-priser 12-viska när bara priserna ändras).
 import json, sys, base64, urllib.request
 out, stability, ELV = sys.argv[1], float(sys.argv[2]), sys.argv[3]
+first, last = (sys.argv[4], sys.argv[5]) if len(sys.argv) > 5 else (None, None)
 L = [
  ("01-krok", "Säljer ni fortfarande i DM?"),
  ("02-samma", "Samma frågor, varje dag. Finns den kvar? Vad kostar frakten? Kan jag swisha?"),
@@ -12,13 +14,18 @@ L = [
  ("07-artera", "Som för Artera U F. Vi byggde deras webbshop för handgjorda keramikfat."),
  ("08-betalar", "Kunden hittar fatet, lägger det i kundvagnen och betalar direkt på sidan."),
  ("09-betalsatt", "Med Swish, kort eller Klarna."),
- ("10-uf", "Och priset? Vi har fasta U F-priser."),
- ("11-webbshop", "En webbshop kostar sexhundra kronor,"),
- ("12-hemsida", "en hemsida trehundra,"),
+ ("10-priser", "Och priset? Vi har fasta priser."),
+ ("11-webbshop", "En webbshop kostar åttahundra kronor,"),
+ ("12-hemsida", "en hemsida fyrahundra."),
+ # Viskat, som en hemlighet: UF-priserna
+ ("12-viska", "[whispers] Men för U F-företag... sexhundra och trehundra."),
  ("13-avgift", "och inga månadsavgifter till oss."),
  ("14-skiss", "Nyfikna? Vi skissar er startsida, helt gratis."),
  ("15-adress", f"Hör av er på {ELV} U F punkt S E."),
 ]
+if first:
+    keys = [k for k, _ in L]
+    L = L[keys.index(first): keys.index(last) + 1]
 text, spans = "", []
 for k, s in L:
     tag = ""

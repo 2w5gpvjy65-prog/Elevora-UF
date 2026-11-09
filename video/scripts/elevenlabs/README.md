@@ -1,13 +1,13 @@
 # Röst, musik och ljudeffekter från ElevenLabs
 
-Rösten är **Liam** (voice id `TX3LPaxmHKxFdv7VOQHJ`) med modellen **eleven_v3** och stabilitet 0.5 ("Natural"), **utan taggar**: lugn och naturlig ton rakt igenom. Användaren tyckte att `[excited]` lät AI-aktigt och valde den lugna varianten.
+Rösten är **Liam** (voice id `TX3LPaxmHKxFdv7VOQHJ`) med modellen **eleven_v3** och stabilitet 0.5 ("Natural"), **utan taggar**: lugn och naturlig ton rakt igenom. Användaren tyckte att `[excited]` lät AI-aktigt och valde den lugna varianten. Enda undantaget är `[whispers]` på raden där UF-priserna viskas (`12-viska`).
 
 Rösten håller en **kort pitch** som säger mer än texten på skärmen (manuset står i `pitch.py`). Varje replik hör till en text i videon. Uttal: skriv `DM` (inte "D M") och `Elevora` (uttalas "elev-ora" utan paus, testat).
 
 Hela manuset läses i **en tagning** så att tonfall och tempo hänger ihop.
 
 ## Så gjordes den
-1. `pitch.py <ut> 0.5 Elevora` gör en hel tagning med tidsstämplar per tecken (`/with-timestamps`). Ta bort taggarna `[excited]` i manuset för den lugna tonen (så gjordes N1–N3).
+1. `pitch.py <ut> 0.5 Elevora` gör en hel tagning med tidsstämplar per tecken (`/with-timestamps`). Ta bort taggarna `[excited]` i manuset för den lugna tonen (så gjordes N1–N3). Bara en del av manuset kan läsas om med första och sista id, till exempel `pitch.py P1 0.5 Elevora 10-priser 12-viska` (så gjordes prisdelen P1–P4 när priserna ändrades; P4 valdes, pausen efter "UF-företag" kortades till 0,45 s och viskningen ligger 2 dB lägre).
 2. `klipp.py` klipper ut varje rad ur tagningarna och låter Whisper jämföra med det som ska sägas. Den bästa versionen av varje rad valdes (`take` i `src/voice.json`). Ordens starttider sparas (`words`), så att mobilen kan scrolla på "hittar fatet", trycka på "kundvagnen" och öppna kassan på "betalar".
 3. Raderna nivåanpassades (RMS -19 dBFS) och ligger i `public/voice/`.
 4. Musiken (`public/musik.mp3`) är gjord med Eleven Music (instrumental, ca 120 BPM, utan slut så att den kan tonas ut). Ljudeffekterna (`public/sfx/`) är gjorda med Sound Effects.

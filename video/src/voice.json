@@ -379,47 +379,43 @@
    ]
   ]
  },
- "10-uf": {
-  "text": "Fasta UF-priser.",
-  "say": "Och priset? Vi har fasta U F-priser.",
-  "seconds": 3.274,
-  "take": "N2",
+ "10-priser": {
+  "text": "Fasta priser.",
+  "say": "Och priset? Vi har fasta priser.",
+  "seconds": 2.653,
+  "take": "P4",
   "words": [
    [
     "Och",
-    0.06
+    0.0
    ],
    [
     "priset",
-    0.327
+    0.213
    ],
    [
     "Vi",
-    1.02
+    1.093
    ],
    [
     "har",
-    1.38
+    1.34
    ],
    [
     "fasta",
-    1.58
+    1.587
    ],
    [
-    "U",
-    2.14
-   ],
-   [
-    "F-priser",
-    2.42
+    "priser",
+    1.973
    ]
   ]
  },
  "11-webbshop": {
-  "text": "Webbshop 600 kr",
-  "say": "En webbshop kostar sexhundra kronor,",
-  "seconds": 2.404,
-  "take": "N2",
+  "text": "Webbshop 800 kr",
+  "say": "En webbshop kostar åttahundra kronor,",
+  "seconds": 2.488,
+  "take": "P4",
   "words": [
    [
     "En",
@@ -427,27 +423,27 @@
    ],
    [
     "webbshop",
-    0.367
+    0.527
    ],
    [
     "kostar",
-    0.791
+    0.951
    ],
    [
-    "sexhundra",
-    1.307
+    "åttahundra",
+    1.407
    ],
    [
     "kronor",
-    1.815
+    1.895
    ]
   ]
  },
  "12-hemsida": {
-  "text": "Hemsida 300 kr",
-  "say": "en hemsida trehundra,",
-  "seconds": 1.709,
-  "take": "N2",
+  "text": "Hemsida 400 kr",
+  "say": "en hemsida fyrahundra.",
+  "seconds": 1.634,
+  "take": "P4",
   "words": [
    [
     "en",
@@ -455,11 +451,47 @@
    ],
    [
     "hemsida",
-    0.193
+    0.153
+   ],
+   [
+    "fyrahundra",
+    0.78
+   ]
+  ]
+ },
+ "12-viska": {
+  "text": "UF-pris 600 kr och 300 kr",
+  "say": "Men för U F-företag... sexhundra och trehundra.",
+  "seconds": 4.196,
+  "take": "P4",
+  "words": [
+   [
+    "Men",
+    0.06
+   ],
+   [
+    "för",
+    0.135
+   ],
+   [
+    "U",
+    0.475
+   ],
+   [
+    "F-företag",
+    0.795
+   ],
+   [
+    "sexhundra",
+    2.329
+   ],
+   [
+    "och",
+    2.949
    ],
    [
     "trehundra",
-    0.793
+    3.309
    ]
   ]
  },
