@@ -1,39 +1,35 @@
 # Elevora UF
 
-Hemsida för vårt UF-företag Elevora. Ren HTML, CSS och JavaScript, inget byggsteg. Publiceras gratis via Netlify.
+Hemsida för vårt UF-företag Elevora. Ren HTML, CSS och JavaScript, inget byggsteg. Publiceras på Cloudflare Workers (statiska filer) när `main` uppdateras.
 
 ## Filer
 
 | Fil | Vad |
 |---|---|
-| `index.html` | Hela startsidan: hero, demobutik, priser, så funkar det, om oss, offertformulär |
+| `index.html` | Hela startsidan: hero med 3D-mobil, DM eller egen sida, arbete, priser, ni äger allt, så går det till, om oss, frågor, gratis skiss |
+| `js/priser.js` | **Alla priser.** Ändra siffrorna här så byts de överallt på sidan |
 | `css/style.css` | All styling. Färger och typsnitt ligger överst under `:root` |
-| `js/main.js` | Meny, mobilknappar och demobutiken (produkterna ligger i listan `products`) |
-| `tack.html` | Sidan man hamnar på efter att ha skickat offertformuläret |
-| `netlify.toml` | Inställningar för Netlify |
+| `js/hero3d.js` | 3D-mobilen i heron (three.js). Skärmen visar `img/arbete/artera-mobil.jpg` |
+| `js/main.js` | Fyller i priser, ger sidhuvudet bakgrund vid skroll, sätter årtal |
+| `js/vendor/` | three.js 0.170.0 och GSAP 3.13.0 (egna kopior, inga externa CDN) |
+| `fonts/` | Geist och Source Serif 4 (egna kopior, inget Google Fonts) |
+| `tack.html`, `404.html` | Tack-sidan efter formuläret och sidan som visas när en länk inte finns |
+| `_headers` | Säkerhetsrubriker (CSP) och cache. Nya externa adresser måste läggas till här |
 
-## Publicera på Cloudflare Pages
+## Publicera
 
-1. dash.cloudflare.com → Workers & Pages → Create → Pages → Connect to Git → välj repot, gren `main`.
-2. Framework preset: None. Build command: tomt. Output directory: `/`.
-3. Custom domains → lägg till `elevorauf.se` och `www.elevorauf.se`, följ instruktionerna för Loopia.
-4. `_headers` innehåller cache-inställningar. `404.html` används automatiskt.
+Cloudflare publicerar automatiskt när `main` uppdateras (`wrangler.jsonc`, statiska filer). Domänen elevorauf.se ligger hos Loopia med Cloudflares namnservrar.
 
-Offertformuläret skickas via [Web3Forms](https://web3forms.com). Nyckeln (`access_key`) står i `index.html`.
+Offertformuläret skickas via [Web3Forms](https://web3forms.com). Nyckeln (`access_key`) står i `index.html` och är publik med flit.
 
 ## Bilder
 
-Hero-bilden kommer från [Pexels](https://www.pexels.com) och får användas fritt, även kommersiellt.
-
-- `img/hero.jpg` – laptop på skrivbord ([foto 6177610](https://www.pexels.com/photo/6177610/)). På skärmen har vi lagt in en skärmdump av vår egen demobutik.
-- `img/produkter/` – bilderna i demobutiken Norrsken, en påhittad butik med fotoprints: kvallsbris.jpg, tidlos.jpg, riggen.jpg och regnkvall.jpg. De är uppladdade av oss. Om de inte är våra egna foton behöver vi ha tillstånd att använda dem.
-
-När ni har ett riktigt kundexempel kan ni byta ut bilderna. Behåll samma filnamn eller ändra sökvägarna i `js/main.js`.
+- `img/arbete/`: skärmdumpar av Artera UF (förhandsversion) och vårt förslag till Upptäck UF, tagna från deras sidor. Byt ut dem när sidorna ändras.
+- `img/og.jpg`: bilden som visas när länken delas.
+- De gamla bilderna (`hero.jpg`, `bygge.jpg`, `produkter/`) används inte längre men ligger kvar.
 
 ## Att göra
 
-- [ ] Köp en domän (t.ex. elevora.se) och koppla den i Netlify under Domain management
-
-- [ ] Lägg ett foto på er som `img/team.jpg`. Det dyker upp automatiskt under "Om oss"
-- [ ] Lägg till telefonnummer och Instagram när ni vill ha med dem
-- [ ] När första kundsidan är klar: lägg den bredvid eller i stället för demobutiken
+- [ ] Lägg ett foto på er som `img/team.jpg` och klistra in raden som står i kommentaren under "Om oss" i `index.html`
+- [ ] Lägg till Instagram när användarnamnet är bestämt
+- [ ] Byt "Förhandsversion" på Artera när deras sida är live på egen domän

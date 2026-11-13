@@ -3,341 +3,364 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Elevora UF – Hemsidor och webbshoppar för UF-företag</title>
-  <meta name="description" content="Vi bygger hemsidor och webbshoppar med Swish, kort och Klarna åt UF-företag och små varumärken. Klart på 1–2 veckor. Hemsida för UF-företag: 300 kr.">
-  <meta property="og:title" content="Elevora UF – Sälj direkt från er egen sida">
-  <meta property="og:description" content="Webbshop med Swish, kort och Klarna. UF-pris från 300 kr. Klart på 1–2 veckor.">
+  <title>Elevora UF · Webbshoppar och hemsidor för UF-företag</title>
+  <meta name="description" content="Vi bygger webbshoppar och hemsidor åt UF-företag och små företag. Kunderna betalar med Swish, kort eller Klarna. Klart på 1–2 veckor, och ni äger allt själva.">
+  <meta property="og:title" content="Sluta sälja i DM. Elevora UF bygger er webbshop.">
+  <meta property="og:description" content="Webbshop med Swish, kort och Klarna. Klar på 1–2 veckor. Ni äger domän, kod och konton själva.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://elevorauf.se/img/hero.jpg">
+  <meta property="og:image" content="https://elevorauf.se/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://elevorauf.se/">
   <meta property="og:locale" content="sv_SE">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://elevorauf.se/">
   <meta name="theme-color" content="#f2ede6">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=23">
+  <link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css?v=30">
 </head>
 <body>
-  <script>document.documentElement.classList.add('js');</script>
+  <a class="skip" href="#innehall">Hoppa till innehållet</a>
 
   <header class="header" id="top">
     <div class="wrap header__inner">
-      <a href="./" class="logo" aria-label="Elevora UF, till startsidan"><img src="img/logo.svg" alt="" width="44" height="44">Elevora</a>
-      <nav class="nav" id="nav" aria-label="Huvudmeny">
-        <a href="#tjanster">Tjänster</a>
-        <a href="#demo">Demobutik</a>
-        <a href="#priser">Priser</a>
-        <a href="#sa-funkar-det">Så funkar det</a>
-        <a href="#om-oss">Om oss</a>
-        <a href="#offert" class="btn btn--small">Begär offert</a>
+      <a href="./" class="logo" aria-label="Elevora UF, till startsidan">
+        <img src="img/logo.svg" alt="" width="30" height="30">
+        <span>Elevora</span>
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="#arbete" class="nav__link nav__link--wide">Arbete</a>
+        <a href="#priser" class="nav__link">Priser</a>
+        <a href="#sa-gar-det-till" class="nav__link nav__link--wide">Så går det till</a>
+        <a href="#skiss" class="btn btn--small">Gratis skiss</a>
       </nav>
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Öppna meny">
-        <span></span><span></span>
-      </button>
     </div>
   </header>
 
-  <main>
+  <main id="innehall">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__content">
-          <p class="label">Hemsidor och webbshoppar för UF-företag</p>
-          <h1>Sälj direkt från er <em class="accent">egen</em> sida.</h1>
-          <p class="hero__lead">Sluta ta beställningar i DM. Klart på 1–2&nbsp;veckor.</p>
-          <ul class="paychips" aria-label="Betalsätt">
-            <li class="paychip paychip--swish">Swish</li>
-            <li class="paychip paychip--card">Kort</li>
-            <li class="paychip paychip--klarna">Klarna</li>
-          </ul>
+    <!-- HERO: telefonen ritas i 3D av js/hero3d.js -->
+    <section class="hero" aria-labelledby="hero-rubrik">
+      <div class="hero__stage" data-phone-stage role="img" aria-label="En mobil som visar Artera UF:s webbshop, som vi bygger">
+        <canvas class="hero__canvas"></canvas>
+        <div class="hero__fallback">
+          <img src="img/arbete/artera-mobil-topp.jpg" alt="" width="600" height="1298">
+        </div>
+        <span class="hero__shadow"></span>
+      </div>
+
+      <div class="wrap hero__inner">
+        <h1 id="hero-rubrik" class="hero__title">
+          <span class="hero__line"><span>Sluta sälja</span></span>
+          <span class="hero__line"><span>i DM.</span></span>
+        </h1>
+        <div class="hero__body">
+          <p class="hero__lead">Vi bygger en egen webbshop åt ert UF-företag, där kunderna betalar med Swish, kort eller Klarna. Klar på <span class="nw">1–2 veckor</span>.</p>
           <div class="hero__cta">
-            <a href="#offert" class="btn">Begär offert</a>
-            <a href="#tjanster" class="btn btn--line">Se vad vi gör</a>
+            <a href="#skiss" class="btn btn--big">
+              Få en gratis skiss
+              <svg class="btn__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#priser" class="link">Se priser</a>
           </div>
-          <dl class="hero__prices">
-            <div><dt>Hemsida, UF-pris</dt><dd>300 kr</dd></div>
-            <div><dt>Webbshop, UF-pris</dt><dd>600 kr</dd></div>
+          <p class="hero__note">UF-pris från <span data-pris="hemsidaUF">600</span>&nbsp;kr. Ni äger sidan själva.</p>
+        </div>
+      </div>
+      <p class="hero__caption">På skärmen: Arteras webbshop, som vi bygger just nu.</p>
+    </section>
+
+    <!-- DM ELLER EGEN SIDA -->
+    <section class="section compare" aria-labelledby="compare-rubrik">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="compare-rubrik">Från DM till <em class="accent">kassa</em>.</h2>
+          <p class="section__lede">När pris, färger och frakt redan står på sidan behöver ingen skriva och fråga. Kunden lägger fatet i varukorgen och betalar direkt.</p>
+        </div>
+
+        <div class="compare__grid">
+          <figure class="panel panel--dm">
+            <figcaption class="panel__label">I DM</figcaption>
+            <div class="chat" aria-label="Exempel på en DM-tråd">
+              <p class="chat__msg">Hej! Vad kostar det rosa fatet?<time>21:14</time></p>
+              <p class="chat__msg">Finns det kvar?<time>21:15</time></p>
+              <p class="chat__msg">Vilket nummer ska jag swisha till?<time>21:32</time></p>
+              <p class="chat__msg chat__msg--late">Hallå?<time>22:47</time></p>
+            </div>
+            <p class="panel__foot">Varje köp blir en konversation ni måste hinna svara på.</p>
+          </figure>
+
+          <figure class="panel panel--shop">
+            <figcaption class="panel__label">På er egen sida</figcaption>
+            <div class="checkout" aria-label="Exempel på en kassa">
+              <div class="checkout__item">
+                <img src="img/arbete/vika.jpg" alt="Keramikfatet Vika från Artera UF" width="360" height="216" loading="lazy" decoding="async">
+                <div>
+                  <p class="checkout__name">Vika</p>
+                  <p class="checkout__meta">Stort vågigt fat, rosa marmor</p>
+                </div>
+                <p class="checkout__price">349 kr</p>
+              </div>
+              <div class="checkout__pay" role="presentation">
+                <span class="is-on">Swish</span>
+                <span>Kort</span>
+                <span>Klarna</span>
+              </div>
+              <span class="checkout__btn">Betala 349 kr</span>
+            </div>
+            <p class="panel__foot">Kunden betalar direkt. Ni får ordern på mejlen och skickar paketet.</p>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARBETE -->
+    <section class="section work" id="arbete" aria-labelledby="work-rubrik">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="work-rubrik">Vårt <em class="accent">arbete</em>.</h2>
+          <p class="section__lede">Två sidor vi har byggt i höst. Båda går att öppna och klicka runt i.</p>
+        </div>
+
+        <article class="project">
+          <a class="project__media" href="https://arterauf.2w5gpvjy65.workers.dev" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img class="project__shot" src="img/arbete/artera.jpg" alt="" width="1800" height="1125" loading="lazy" decoding="async">
+            <span class="project__phone"><img src="img/arbete/artera-mobil-topp.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span>
+          </a>
+          <div class="project__text">
+            <p class="project__tag">Webbshop · Förhandsversion</p>
+            <h3>Artera UF</h3>
+            <p>Fyra tjejer i Mora som gör keramikfat för hand. Faten är 3D-modeller som man kan snurra på, och kassan tar kort, Klarna och Swish via Stripe.</p>
+            <a class="link link--out" href="https://arterauf.2w5gpvjy65.workers.dev" target="_blank" rel="noopener">Öppna Arteras sida<span class="visually-hidden"> (öppnas i ny flik)</span></a>
+          </div>
+        </article>
+
+        <article class="project project--flip">
+          <a class="project__media" href="https://upptackuf.elevora-uf.workers.dev" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img class="project__shot" src="img/arbete/upptack.jpg" alt="" width="1800" height="1125" loading="lazy" decoding="async">
+            <span class="project__phone"><img src="img/arbete/upptack-mobil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span>
+          </a>
+          <div class="project__text">
+            <p class="project__tag">Förslag, inte deras riktiga sida</p>
+            <h3>Upptäck UF</h3>
+            <p>Ett förslag vi gjorde åt Upptäck UF, som samlar produkter från UF-företag i hela Sverige. Vi byggde ett förstoringsglas i 3D som rör sig över grön filt.</p>
+            <a class="link link--out" href="https://upptackuf.elevora-uf.workers.dev" target="_blank" rel="noopener">Öppna förslaget<span class="visually-hidden"> (öppnas i ny flik)</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRISER: siffrorna fylls i från js/priser.js -->
+    <section class="section pricing" id="priser" aria-labelledby="pris-rubrik">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="pris-rubrik">Vad det <em class="accent">kostar</em>.</h2>
+          <p class="section__lede">Fast pris som ni får skriftligt innan vi börjar. UF-pris gäller registrerade UF-företag, andra företag betalar ordinarie pris.</p>
+        </div>
+
+        <div class="prices">
+          <article class="price">
+            <h3 class="price__name">Webbshop</h3>
+            <p class="price__desc">Produktsidor, varukorg och kassa med Swish, kort och Klarna. Byggd för mobilen och kopplad till er egen domän.</p>
+            <div class="price__amount">
+              <p class="price__label">UF-pris</p>
+              <p class="price__value"><span data-pris="webbshopUF">1 200</span>&nbsp;kr</p>
+              <p class="price__ord">Ordinarie från <span data-pris="webbshop">2 000</span>&nbsp;kr</p>
+            </div>
+          </article>
+          <article class="price">
+            <h3 class="price__name">Hemsida, en sida</h3>
+            <p class="price__desc">Visar vad ni gör och hur man når er, med kontaktformulär och länkar till Instagram och TikTok.</p>
+            <div class="price__amount">
+              <p class="price__label">UF-pris</p>
+              <p class="price__value"><span data-pris="hemsidaUF">600</span>&nbsp;kr</p>
+              <p class="price__ord">Ordinarie <span data-pris="hemsida">1 200</span>&nbsp;kr</p>
+            </div>
+          </article>
+          <article class="price">
+            <h3 class="price__name">Google-profil</h3>
+            <p class="price__desc">Vi skapar och fyller i er profil på Google, så att ni syns på kartan och när någon söker på er.</p>
+            <div class="price__amount">
+              <p class="price__value"><span data-pris="google">400</span>&nbsp;kr</p>
+            </div>
+          </article>
+          <article class="price">
+            <h3 class="price__name">Löpande uppdateringar</h3>
+            <p class="price__desc">Vi lägger in nya produkter, bilder och priser åt er när ni behöver.</p>
+            <div class="price__amount">
+              <p class="price__value"><span data-pris="uppdateringar">200</span>&nbsp;kr<small>/mån</small></p>
+            </div>
+          </article>
+        </div>
+
+        <div class="pricing__foot">
+          <p>Domänen köper ni själva, runt 200&nbsp;kr om året. Stripe tar en liten avgift per köp. Någon månadsavgift till oss blir det bara om ni väljer uppdateringar.</p>
+          <a href="#skiss" class="btn">Få en gratis skiss</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NI ÄGER ALLT -->
+    <section class="section own" aria-labelledby="own-rubrik">
+      <div class="wrap own__grid">
+        <h2 id="own-rubrik">Sidan är <em class="accent">er</em>.</h2>
+        <div class="own__body">
+          <p class="own__lead">Domänen, betalkontot och koden ligger på era egna konton. Pengarna från varje köp går direkt till er, och sidan fortsätter fungera även om ni slutar anlita oss.</p>
+          <dl class="own__list">
+            <div><dt>Domän</dt><dd>Köps i ert namn, till exempel hos Loopia.</dd></div>
+            <div><dt>Betalningar</dt><dd>Stripe-kontot står på er, så pengarna går aldrig via oss.</dd></div>
+            <div><dt>Koden</dt><dd>Flyttas till ert eget GitHub-konto när sidan är klar.</dd></div>
           </dl>
         </div>
-        <figure class="hero__media">
-          <img src="img/hero.jpg" alt="Laptop på ett skrivbord som visar vår demobutik Norrsken" width="1200" height="1320">
-          <div class="hero__card" aria-hidden="true">
-            <p class="hero__card-title"><img src="img/logo.svg" alt="" width="18" height="18">Er webbshop</p>
-            <ul>
-              <li>Design efter er stil</li>
-              <li>Swish, kort och Klarna</li>
-              <li>Anpassad för mobilen</li>
-              <li>Egen domän</li>
-            </ul>
-            <p class="hero__card-foot">Klar på <strong>1–2 veckor</strong></p>
-          </div>
-          <figcaption>Exempel: en webbshop vi har byggt</figcaption>
-        </figure>
       </div>
     </section>
 
-    <!-- VAD VI GÖR -->
-    <section class="section services" id="tjanster">
+    <!-- SÅ GÅR DET TILL -->
+    <section class="section steps" id="sa-gar-det-till" aria-labelledby="steps-rubrik">
       <div class="wrap">
-        <h2 class="services__title">Vi bygger sidan. Ni <em class="accent">säljer</em>.</h2>
-        <ul class="tiles">
-          <li class="tile tile--navy">
-            <svg class="tile__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10h6l5 20h20l5-14H15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="37" r="3" fill="currentColor"/><circle cx="34" cy="37" r="3" fill="currentColor"/></svg>
-            <h3>Webbshop</h3>
-            <p class="tile__price">600 kr</p>
-          </li>
-          <li class="tile tile--sand">
-            <svg class="tile__icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M6 17h36" stroke="currentColor" stroke-width="2.5"/><circle cx="11" cy="13" r="1.4" fill="currentColor"/><circle cx="15.5" cy="13" r="1.4" fill="currentColor"/><path d="M12 24h14M12 30h22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-            <h3>Hemsida</h3>
-            <p class="tile__price">300 kr</p>
-          </li>
-          <li class="tile tile--mist">
-            <svg class="tile__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 43s13-12.2 13-23a13 13 0 1 0-26 0c0 10.8 13 23 13 23z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="24" cy="20" r="4.5" fill="currentColor"/></svg>
-            <h3>Google-profil</h3>
-            <p class="tile__price">400 kr</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- FRÅN IDÉ TILL FÄRDIG SIDA (scroll-effekt) -->
-    <section class="build" id="bygget">
-      <div class="build__track">
-        <div class="build__sticky">
-          <div class="wrap build__grid">
-            <div class="build__text">
-                            <h2>Från idé till <em class="accent">färdig</em> sida.</h2>
-              <ol class="build__steps">
-                <li class="is-active"><span class="build__no">01</span><div><h3>Skiss</h3></div></li>
-                <li><span class="build__no">02</span><div><h3>Design och kod</h3></div></li>
-                <li><span class="build__no">03</span><div><h3>Klar att sälja</h3></div></li>
-              </ol>
-            </div>
-            <div class="build__visual">
-              <div class="build__frame" role="img" aria-label="En webbshop som sätts ihop av två halvor medan man scrollar">
-                <div class="build__half build__half--l"></div>
-                <div class="build__half build__half--r"></div>
-              </div>
-              <div class="build__bar"><span></span></div>
-            </div>
-          </div>
+        <div class="section__head">
+          <h2 id="steps-rubrik">Så går det <em class="accent">till</em>.</h2>
+          <p class="section__lede">Räkna med 1–2 veckor från första samtalet till att er första kund kan betala.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- DEMOBUTIK -->
-    <section class="section demo" id="demo">
-      <div class="wrap">
-        <div class="head">
-                    <h2>Testa hur det känns att <em class="accent">handla</em>.</h2>
-          <p>Tryck på en bild och gå till kassan.</p>
-        </div>
-
-        <p class="notice"><strong>OBS!</strong> Bara en demo. Inget säljs på riktigt.</p>
-
-        <div class="browser">
-          <div class="browser__bar">
-            <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="browser__url">norrskenprints.se<span id="demoPath"></span></span>
-            <span class="browser__badge">Demo</span>
-          </div>
-          <div class="shop" id="shop" aria-live="polite">
-            <noscript><p class="shop__noscript">Slå på JavaScript för att testa demobutiken.</p></noscript>
-          </div>
-        </div>
-
-        
-      </div>
-    </section>
-
-    <!-- DM VS BUTIK -->
-    <section class="section compare">
-      <div class="wrap">
-        <div class="flow flow--old">
-          <p class="flow__name">I DM</p>
-          <ol class="flow__steps">
-            <li>Ser produkten</li><li>Skriver DM</li><li>Väntar på svar</li><li>Swishar och hoppas</li>
-          </ol>
-        </div>
-        <div class="flow flow--new">
-          <p class="flow__name">Egen butik</p>
-          <ol class="flow__steps">
-            <li>Ser produkten</li><li>Köp nu</li><li>Betalt</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ER STIL -->
-    <section class="section style section--dark" id="er-stil">
-      <div class="wrap">
-        <h2>Byggd efter <em class="accent">ert</em> varumärke.</h2>
-        <ul class="looks">
-          <li class="look">
-            <span class="look__swatches" aria-hidden="true"><i style="background:#e8d5c4"></i><i style="background:#8a5a44"></i><i style="background:#2f3a2e"></i><i style="background:#f4c542"></i></span>
-            <h3>Era färger</h3>
-          </li>
-          <li class="look">
-            <span class="look__type" aria-hidden="true">Aa</span>
-            <h3>Era typsnitt</h3>
-          </li>
-          <li class="look">
-            <span class="look__photos" aria-hidden="true"><img src="img/produkter/kvallsbris.jpg" alt=""><img src="img/produkter/riggen.jpg" alt=""><img src="img/produkter/regnkvall.jpg" alt=""></span>
-            <h3>Era bilder</h3>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PRISER -->
-    <section class="section prices" id="priser">
-      <div class="wrap">
-        <div class="head">
-                    <h2>Fasta priser. UF-företag betalar <em class="accent">mindre</em>.</h2>
-                  </div>
-
-        <div class="price-table" role="table" aria-label="Prislista">
-          <div class="price-row price-row--head" role="row">
-            <span role="columnheader">Tjänst</span>
-            <span role="columnheader" class="price-col">UF-företag</span>
-            <span role="columnheader" class="price-col">Ordinarie</span>
-          </div>
-          <div class="price-row" role="row">
-            <div role="cell"><h3>Webbshop</h3><p>Upp till 15 produkter.</p></div>
-            <span role="cell" class="price-col price-uf" data-label="UF-företag">600 kr</span>
-            <span role="cell" class="price-col price-normal" data-label="Ordinarie">från 2 000 kr</span>
-          </div>
-          <div class="price-row" role="row">
-            <div role="cell"><h3>Hemsida, en sida</h3><p>Kan byggas ut senare.</p></div>
-            <span role="cell" class="price-col price-uf" data-label="UF-företag">300 kr</span>
-            <span role="cell" class="price-col price-normal" data-label="Ordinarie">1 200 kr</span>
-          </div>
-          <div class="price-row" role="row">
-            <div role="cell"><h3>Google-profil</h3><p>Syns på kartan.</p></div>
-            <span role="cell" class="price-col price-uf" data-label="Pris">400 kr</span>
-            <span role="cell" class="price-col price-normal" aria-hidden="true"></span>
-          </div>
-          <div class="price-row" role="row">
-            <div role="cell"><h3>Löpande uppdateringar</h3><p>Nya produkter och bilder.</p></div>
-            <span role="cell" class="price-col price-uf" data-label="Pris">200 kr/mån</span>
-            <span role="cell" class="price-col price-normal" aria-hidden="true"></span>
-          </div>
-        </div>
-        <p class="prices__note">Domän ca 200 kr/år, ni äger den själva.</p>
-      </div>
-    </section>
-
-    <!-- SÅ FUNKAR DET -->
-    <section class="section steps" id="sa-funkar-det">
-      <div class="wrap">
-        <div class="head">
-                    <h2>Från första samtal till första <em class="accent">köp</em>.</h2>
-        </div>
-        <ol class="step-list">
+        <ol class="steps__list">
           <li>
-            <span class="step-list__no">01</span>
+            <span class="steps__no">01</span>
             <h3>Kort samtal</h3>
-            <p>Gratis, 15 min.</p>
+            <p>En kvart om vad ni säljer och vilken stil ni gillar. Det kostar ingenting.</p>
           </li>
           <li>
-            <span class="step-list__no">02</span>
-            <h3>Offert</h3>
-            <p>Fast pris.</p>
+            <span class="steps__no">02</span>
+            <h3>Skiss och fast pris</h3>
+            <p>Samma vecka får ni en skiss på startsidan och en offert med fast pris.</p>
           </li>
           <li>
-            <span class="step-list__no">03</span>
-            <h3>Första förslaget</h3>
-            <p>Inom en vecka.</p>
+            <span class="steps__no">03</span>
+            <h3>Första versionen</h3>
+            <p>Klar inom en vecka. Säg vad som ska ändras, så ändrar vi tills ni är nöjda.</p>
           </li>
           <li>
-            <span class="step-list__no">04</span>
-            <h3>Publicering</h3>
-            <p>Testköp tillsammans.</p>
+            <span class="steps__no">04</span>
+            <h3>Live</h3>
+            <p>Vi kopplar domän och betalning och gör ett testköp tillsammans med er.</p>
           </li>
         </ol>
       </div>
     </section>
 
     <!-- OM OSS -->
-    <section class="section about" id="om-oss">
+    <section class="section about" id="om-oss" aria-labelledby="about-rubrik">
       <div class="wrap about__grid">
-        <div class="head">
-                    <h2>Vi är elever. Det är därför det är <em class="accent">billigt</em>.</h2>
+        <h2 id="about-rubrik">Tre killar från <em class="accent">Mora</em>.</h2>
+        <div class="about__body">
+          <!-- Teamfoto: lägg bilden i img/team.jpg och klistra in den här raden:
+               <figure class="about__photo"><img src="img/team.jpg" alt="Teamet bakom Elevora UF" width="1200" height="800" loading="lazy"></figure> -->
+          <p>Vi går gymnasiet och driver Elevora som UF-företag. Vi bygger med hjälp av AI och går igenom varje sida själva innan ni får se den. Därför blir det klart på 1–2 veckor, till ett pris som ett UF-företag har råd med.</p>
+          <p>Vi jobbar på distans med företag i hela Sverige och svarar efter skoldagen.</p>
         </div>
-        <div class="about__text">
-          <p>Tre killar från Mora. Vi bygger med AI och granskar allt själva.</p>
-          <!-- Foto på er: lägg bilden i img/team.jpg så visas den här -->
-          <figure class="about__photo">
-            <img src="img/team.jpg" alt="Teamet bakom Elevora UF" onerror="this.parentNode.remove()">
-          </figure>
-        </div>
-        <dl class="facts">
-          <div><dt>1–2 v</dt><dd>till färdig sida</dd></div>
-          <div><dt>0 kr/mån</dt><dd>i hosting</dd></div>
-          <div><dt>Samma kväll</dt><dd>svarar vi</dd></div>
-        </dl>
       </div>
     </section>
 
-    <!-- OFFERT -->
-    <section class="section contact" id="offert">
+    <!-- FRÅGOR -->
+    <section class="section faq" aria-labelledby="faq-rubrik">
+      <div class="wrap faq__grid">
+        <h2 id="faq-rubrik">Vanliga <em class="accent">frågor</em>.</h2>
+        <div class="faq__list">
+          <details>
+            <summary>Vad behöver vi ha klart innan?</summary>
+            <p>Bilder på det ni säljer, priser och gärna en logga. Saknar ni något hjälper vi er att lösa det.</p>
+          </details>
+          <details>
+            <summary>Vad kostar det att ta betalt?</summary>
+            <p>Stripe tar en liten avgift på varje köp. Det finns ingen månadsavgift hos Stripe, och till oss betalar ni bara varje månad om ni väljer löpande uppdateringar.</p>
+          </details>
+          <details>
+            <summary>Kan vi ändra på sidan själva efteråt?</summary>
+            <p>Koden är er, så ni kan ändra själva eller låta någon annan göra det. Vill ni slippa sköter vi ändringarna för <span data-pris="uppdateringar">200</span>&nbsp;kr i månaden.</p>
+          </details>
+          <details>
+            <summary>Vi är inte ett UF-företag. Kan ni bygga åt oss ändå?</summary>
+            <p>Ja, då gäller ordinarie pris. Vi gör också Google-profiler åt lokala företag, så att ni syns när någon i närheten söker.</p>
+          </details>
+          <details>
+            <summary>Hur snabbt kan vi vara igång?</summary>
+            <p>Första versionen kommer inom en vecka efter samtalet. Räkna med 1–2 veckor för hela sidan, beroende på hur snabbt vi får bilder och texter.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRATIS SKISS / OFFERT -->
+    <section class="section contact" id="skiss" aria-labelledby="contact-rubrik">
       <div class="wrap contact__grid">
         <div class="contact__text">
-                    <h2>Berätta vad ni <em class="accent">säljer</em>.</h2>
-          <p>Svar inom ett dygn.</p>
-          <p class="contact__mail">Eller mejla direkt:<br><a href="mailto:elevora.uf@gmail.com">elevora.uf@gmail.com</a></p>
-          <img class="contact__mark" src="img/logo-ljus.svg" alt="" width="220" height="220">
+          <h2 id="contact-rubrik">Få en gratis <em class="accent">skiss</em>.</h2>
+          <p class="contact__lead">Berätta kort om ert företag. Ni får en skiss på er startsida och ett fast pris, och ni bestämmer er först när ni har sett den.</p>
+          <p class="contact__mail">Hellre mejl? <a href="mailto:elevora.uf@gmail.com">elevora.uf@gmail.com</a></p>
         </div>
 
         <!-- Formuläret skickas via Web3Forms till elevora.uf@gmail.com.
-             Nyckeln kommer från web3forms.com. -->
+             Nyckeln kommer från web3forms.com och är publik med flit. -->
         <form class="form" name="offert" method="POST" action="https://api.web3forms.com/submit">
           <input type="hidden" name="access_key" value="a02d0420-daa6-4130-990a-a1edc6d3fc6f">
-          <input type="hidden" name="subject" value="Ny offertförfrågan från elevorauf.se">
-          <input type="hidden" name="from_name" value="Elevora UF – hemsidan">
+          <input type="hidden" name="subject" value="Ny förfrågan om gratis skiss från elevorauf.se">
+          <input type="hidden" name="from_name" value="Elevora UF, hemsidan">
           <input type="hidden" name="redirect" value="https://elevorauf.se/tack.html">
-          <input type="checkbox" name="botcheck" class="form__hidden" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="checkbox" name="botcheck" class="form__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="form__row">
-            <label>Namn<input type="text" name="namn" autocomplete="name" required></label>
-            <label>Företag<input type="text" name="foretag" autocomplete="organization"></label>
+            <div class="field">
+              <label for="f-namn">Namn</label>
+              <input id="f-namn" type="text" name="namn" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-mejl">Mejl</label>
+              <input id="f-mejl" type="email" name="email" autocomplete="email" required>
+            </div>
           </div>
-          <label>Mejl<input type="email" name="email" autocomplete="email" required></label>
-          <label>Vad behöver ni?
-            <select name="tjanst" id="serviceSelect">
-              <option>Webbshop</option>
-              <option>Hemsida</option>
-              <option>Google-profil</option>
-              <option>Vet inte än</option>
-            </select>
-          </label>
-          <label class="check"><input type="checkbox" name="uf-foretag" value="ja" checked> Vi är ett UF-företag</label>
-          <label>Vad säljer ni? (länk till Instagram funkar)
-            <textarea name="meddelande" rows="4"></textarea>
-          </label>
-          <button type="submit" class="btn btn--light btn--block">Skicka förfrågan</button>
-          <p class="form__small">Vi använder bara uppgifterna för att svara er.</p>
+          <div class="field">
+            <label for="f-foretag">Företag eller Instagram</label>
+            <input id="f-foretag" type="text" name="foretag" autocomplete="organization" autocapitalize="off" spellcheck="false" placeholder="@ertforetag.uf">
+          </div>
+          <fieldset class="field choices">
+            <legend>Vad behöver ni?</legend>
+            <label><input type="radio" name="tjanst" value="Webbshop" checked><span>Webbshop</span></label>
+            <label><input type="radio" name="tjanst" value="Hemsida"><span>Hemsida</span></label>
+            <label><input type="radio" name="tjanst" value="Google-profil"><span>Google-profil</span></label>
+            <label><input type="radio" name="tjanst" value="Vet inte än"><span>Vet inte än</span></label>
+          </fieldset>
+          <div class="field">
+            <label for="f-meddelande">Vad säljer ni? <span class="field__opt">Frivilligt</span></label>
+            <textarea id="f-meddelande" name="meddelande" rows="3" placeholder="Till exempel: handgjorda smycken, vi säljer via Instagram i dag."></textarea>
+          </div>
+          <label class="check"><input type="checkbox" name="uf-foretag" value="ja" checked><span>Vi är ett UF-företag</span></label>
+          <button type="submit" class="btn btn--big btn--block">
+            Få min gratis skiss
+            <svg class="btn__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form__small">Vi svarar inom ett dygn. Uppgifterna används bara för att svara er och skickas via Web3Forms.</p>
         </form>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer__inner">
-      <a href="./" class="logo"><img src="img/logo-ljus.svg" alt="" width="36" height="36">Elevora</a>
-      <p>UF-företag i Mora, Dalarna. Vi jobbar på distans i hela Sverige.</p>
+    <div class="wrap footer__top">
+      <p>Elevora UF. Ett UF-företag i Mora, Dalarna.</p>
       <a href="mailto:elevora.uf@gmail.com">elevora.uf@gmail.com</a>
-      <p class="footer__small">© <span id="year">2026</span> Elevora UF · Drivs inom Ung Företagsamhet</p>
+      <nav class="footer__nav" aria-label="Sidfot">
+        <a href="#arbete">Arbete</a>
+        <a href="#priser">Priser</a>
+        <a href="#skiss">Gratis skiss</a>
+      </nav>
     </div>
+    <p class="footer__mark" aria-hidden="true">Elevora</p>
+    <p class="wrap footer__small">© <span data-year>2026</span> Elevora UF · Drivs inom Ung Företagsamhet</p>
   </footer>
 
-  <div class="mobile-cta">
-    <a href="#offert" class="btn btn--block">Begär offert</a>
-  </div>
-
-  <script src="js/main.js?v=23"></script>
+  <script src="js/vendor/gsap.min.js?v=3.13.0" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js?v=3.13.0" defer></script>
+  <script src="js/priser.js?v=30" defer></script>
+  <script src="js/main.js?v=30" defer></script>
+  <script type="module" src="js/hero3d.js?v=30"></script>
 </body>
 </html>
