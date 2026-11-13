@@ -1,0 +1,122 @@
+/* Skisser: påhittade butiker som vi visar som exempel. Publiceras inte (står i .assetsignore). */
+@font-face { font-family: "Geist"; src: url("../fonts/geist.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Geist Mono"; src: url("geist-mono.woff2") format("woff2"); font-weight: 100 900; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font-family: "Geist", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+.k-mono { font-family: "Geist Mono", ui-monospace, monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+
+.k-wrap { max-width: 1360px; margin: 0 auto; padding: 0 22px; }
+@media (min-width: 900px) { .k-wrap { padding: 0 48px; } }
+
+.k-nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.k-logo { font-size: 15px; font-weight: 600; letter-spacing: .32em; }
+.k-nav nav { display: none; gap: 30px; font-size: 13px; }
+.k-cart { font-size: 13px; display: inline-flex; gap: 8px; align-items: center; }
+.k-cart b { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font-size: 11px; font-weight: 500; }
+@media (min-width: 900px) { .k-nav { height: 76px; } .k-nav nav { display: flex; } }
+
+.k-btn { display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 26px; border-radius: 999px; font-size: 14px; font-weight: 500; }
+.k-link { font-size: 14px; text-decoration: underline; text-underline-offset: 5px; }
+
+.k-stage { position: relative; }
+.k-stage canvas { display: block; width: 100%; height: 100%; }
+.k-tag { position: absolute; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.k-tag i { display: block; height: 1px; width: 56px; }
+.k-tag--left { flex-direction: row-reverse; }
+
+/* ================= LJUSÅR (smycken, mörk) ================= */
+.ljusar { background: #08090b; color: #eceae5; }
+.ljusar .k-mono { color: rgba(236, 234, 229, .55); }
+.ljusar .k-nav nav a { color: rgba(236, 234, 229, .7); }
+.ljusar .k-cart b { background: #eceae5; color: #08090b; }
+.ljusar .k-btn { background: #eceae5; color: #08090b; }
+.ljusar .k-tag { color: rgba(236, 234, 229, .7); }
+.ljusar .k-tag i { background: rgba(236, 234, 229, .35); }
+
+.lj-hero { position: relative; display: grid; }
+.lj-hero .k-stage { height: 430px; margin: 0 -22px; }
+.lj-hero__copy { position: relative; z-index: 2; margin-top: -24px; }
+.lj-hero h1 { font-size: 46px; line-height: 1; letter-spacing: -.045em; font-weight: 300; margin: 14px 0 16px; }
+.lj-hero h1 em { font-style: normal; color: rgba(236, 234, 229, .45); }
+.lj-lead { font-size: 15px; line-height: 1.55; color: rgba(236, 234, 229, .65); max-width: 30em; }
+.lj-cta { display: flex; align-items: center; gap: 22px; margin-top: 24px; }
+.lj-tag-a { display: none; } .lj-tag-b { top: 12%; right: 6%; } .lj-tag-c { bottom: 16%; right: 8%; }
+.lj-specs { display: grid; grid-template-columns: 1fr 1fr; margin-top: 40px; border-top: 1px solid rgba(236, 234, 229, .12); }
+.lj-specs div { padding: 14px 0; border-bottom: 1px solid rgba(236, 234, 229, .12); }
+.lj-specs p:last-child { font-size: 14px; margin-top: 4px; }
+@media (min-width: 900px) {
+  .lj-hero { grid-template-columns: 5fr 7fr; align-items: center; min-height: 760px; }
+  .lj-tag-a { display: flex; top: 22%; left: 6%; }
+  .lj-hero .k-stage { grid-column: 2; grid-row: 1; height: 720px; margin: 0 -48px 0 0; }
+  .lj-hero__copy { grid-column: 1; grid-row: 1; }
+  .lj-hero__copy { margin: 0; }
+  .lj-hero h1 { font-size: 84px; }
+  .lj-lead { font-size: 17px; }
+  .lj-specs { grid-template-columns: repeat(4, 1fr); grid-column: 1 / -1; grid-row: 2; margin-top: 0; }
+}
+
+.lj-shop { padding: 72px 0 24px; }
+.lj-shop__head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+.lj-shop h2 { font-size: 28px; font-weight: 400; letter-spacing: -.03em; }
+.lj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (min-width: 900px) { .lj-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; } .lj-shop h2 { font-size: 40px; } }
+.lj-card img { aspect-ratio: 1; width: 100%; border-radius: 14px; background: radial-gradient(120% 90% at 50% 30%, #1a1d22, #0d0e11); }
+.lj-card__row { display: flex; justify-content: space-between; margin-top: 12px; font-size: 14px; }
+.lj-card .k-mono { margin-top: 4px; font-size: 10px; }
+
+.lj-product { display: grid; gap: 22px; padding: 56px 0 80px; }
+.lj-product img { border-radius: 18px; aspect-ratio: 1; width: 100%; background: radial-gradient(120% 90% at 50% 30%, #1a1d22, #0d0e11); }
+.lj-product h3 { font-size: 34px; font-weight: 300; letter-spacing: -.04em; }
+.lj-price { font-size: 18px; margin-top: 6px; }
+.lj-opt { margin-top: 22px; }
+.lj-opt .k-mono { margin-bottom: 10px; }
+.lj-swatches { display: flex; gap: 10px; }
+.lj-swatches span { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(236, 234, 229, .25); }
+.lj-swatches span:first-child { background: linear-gradient(135deg, #f1f1f1, #8d9097); outline: 1px solid #eceae5; outline-offset: 3px; }
+.lj-swatches span:last-child { background: linear-gradient(135deg, #f3dcab, #a7864b); }
+.lj-sizes { display: flex; gap: 8px; }
+.lj-sizes span { display: grid; place-items: center; width: 44px; height: 40px; border-radius: 10px; border: 1px solid rgba(236, 234, 229, .18); font-size: 13px; }
+.lj-sizes .on { background: #eceae5; color: #08090b; border-color: #eceae5; }
+.lj-buy { width: 100%; margin-top: 26px; }
+.lj-pay { display: flex; justify-content: center; gap: 18px; margin-top: 14px; }
+@media (min-width: 900px) { .lj-product { grid-template-columns: 7fr 5fr; gap: 56px; align-items: center; } }
+
+/* ================= TIDVATTEN (klockor, ljus) ================= */
+.tidvatten { background: #e6e7e9; color: #0e1114; }
+.tidvatten .k-mono { color: rgba(14, 17, 20, .55); }
+.tidvatten .k-nav nav a { color: rgba(14, 17, 20, .7); }
+.tidvatten .k-cart b { background: #0e1114; color: #e6e7e9; }
+.tidvatten .k-btn { background: #0e1114; color: #f2f3f4; }
+.tidvatten .k-tag { color: rgba(14, 17, 20, .7); }
+.tidvatten .k-tag i { background: rgba(14, 17, 20, .3); }
+
+.tv-hero { position: relative; display: grid; }
+.tv-hero .k-stage { height: 460px; margin: 0 -22px; }
+.tv-hero__copy { position: relative; z-index: 2; }
+.tv-hero h1 { font-size: 50px; line-height: .95; letter-spacing: -.055em; font-weight: 600; margin: 14px 0 16px; }
+.tv-lead { font-size: 15px; line-height: 1.55; color: rgba(14, 17, 20, .65); max-width: 30em; }
+.tv-cta { display: flex; align-items: center; gap: 22px; margin-top: 24px; }
+.tv-dials { display: flex; gap: 10px; align-items: center; margin-top: 26px; }
+.tv-dials span { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(14, 17, 20, .2); }
+.tv-dials .d1 { background: radial-gradient(circle at 40% 35%, #3f6db0, #142a4f); outline: 1px solid #0e1114; outline-offset: 3px; }
+.tv-dials .d2 { background: radial-gradient(circle at 40% 35%, #5a5e64, #1e2023); }
+.tv-dials .d3 { background: radial-gradient(circle at 40% 35%, #efe6d6, #c9b89a); }
+.tv-dials .k-mono { margin-left: 8px; }
+.tv-tag-a, .tv-tag-b { display: none; } .tv-tag-c { bottom: 12%; left: 6%; }
+.tv-specs { display: grid; grid-template-columns: 1fr 1fr; margin-top: 36px; border-top: 1px solid rgba(14, 17, 20, .14); }
+.tv-specs div { padding: 14px 0; border-bottom: 1px solid rgba(14, 17, 20, .14); }
+.tv-specs p:last-child { font-size: 14px; margin-top: 4px; }
+@media (min-width: 900px) {
+  .tv-hero { grid-template-columns: 5fr 7fr; align-items: center; min-height: 760px; }
+  .tv-tag-a, .tv-tag-b { display: flex; } .tv-tag-a { top: 16%; left: 4%; } .tv-tag-b { top: 46%; right: 8%; } .tv-tag-c { bottom: 14%; left: 8%; }
+  .tv-hero .k-stage { grid-column: 2; grid-row: 1; height: 740px; margin: 0 -48px 0 0; }
+  .tv-hero__copy { grid-column: 1; grid-row: 1; }
+  .tv-hero h1 { font-size: 92px; }
+  .tv-lead { font-size: 17px; }
+  .tv-specs { grid-template-columns: repeat(4, 1fr); grid-column: 1 / -1; grid-row: 2; margin-top: 0; }
+}

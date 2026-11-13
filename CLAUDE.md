@@ -12,8 +12,8 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
 ## Priser
 | Tjänst | UF-pris | Ordinarie |
 |---|---|---|
-| Webbshop | 600 kr | från 2 000 kr |
-| Hemsida, en sida | 300 kr | 1 200 kr |
+| Webbshop | 1 200 kr | från 2 000 kr |
+| Hemsida, en sida | 600 kr | 1 200 kr |
 | Google-profil | 400 kr | – |
 | Löpande uppdateringar | 200 kr/mån | – |
 
@@ -46,20 +46,21 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
   https://github.com/2w5gpvjy65-prog/Elevora-UF/compare/main...claude/elevora-uf-business-jy1hwa
   (Create pull request ×2 → Merge pull request → Confirm merge).
 
-## Design (bestämt efter många iterationer)
-- Varm beige/off-white bakgrund (`--bg: #f2ede6`), inte för vit. Svart text och knappar. **Mörk marinblå** accent (`#1b2a40`, `--navy: #18212d`) används sparsamt. Inget lila, rosa eller orange.
-- Typsnitt: Geist (brödtext/rubriker), Source Serif 4 för ett blått accentord per rubrik (inte kursiv), Newsreader bara i demobutiken.
-- Egen logga: ett "e" i penseldragsstil med svans och prick (`img/logo.svg`, `logo-ljus.svg`, `favicon.svg`). Stor ljus logga bredvid offertformuläret.
-- Ordning: Hero (laptop-foto som visar demobutiken + kort "Er webbshop") → 01 Vad vi gör → Scroll-effekt "Från idé till färdig sida" (två halvor som sätts ihop, sticky, fungerar även med "Minska rörelse") → 02 Demobutik → DM vs egen butik → Er sida, er stil (mörkblått avsnitt) → 03 Priser → 04 Så funkar det → 05 Om oss → Offert.
-- **Demobutiken "Norrsken"** säljer påhittade **fotoprints** (Kvällsbris, Tidlös, Riggen, Regnkväll) med bilder användaren laddat upp. Tydligt märkt som DEMO: OBS-notis, "Genomför demoköp", "Ej betald". Inget går att köpa. Demofönstret är mörkare beige än resten av sidan. Produktbilder i vita ramar med skugga.
-- Mobil: fast meny med helt täckande bakgrund (Safari iOS 26 färgar annars inte ytan ovanför), papperskorn bara på dator, inget `viewport-fit=cover`.
+## Design (ny version på gren `ny-sida`, 2026-11-14)
+- "CodeVibes"-looken: ett 3D-objekt i heron, en stor tung rubrik på två rader, liten meny, en knapp. Heron är en 3D-mobil (three.js, `js/hero3d.js`) som visar skissen Ljusår (mörk smyckesbutik); mobilen vrider sig lugnt och skärmen skrollar med när man skrollar (GSAP ScrollTrigger, ingen låsning). Står still med "Minska rörelse".
+- Varm beige bakgrund (`--bg: #f2ede6`), svart text och knappar, mörk marinblå (`--navy: #18212d`, accent `#1b2a40`) sparsamt. Inget lila, rosa eller orange.
+- Typsnitt: Geist (självhostad) för allt, Source Serif 4 för ett blått accentord per H2 (inte kursiv). Inget Google Fonts.
+- Ordning: Hero "Sluta sälja i DM." → Från DM till kassa (chatt mot kassa) → Så kan er sida se ut (skisserna Ljusår och Tidvatten) → Priser (lista) → Sidan är er (mörkblått) → Så går det till → Tre killar från Mora → Vanliga frågor → Få en gratis skiss (formulär) → sidfot med stort "Elevora".
+- Inga intoningar när man skrollar (borttaget på användarens begäran). Bara mobilen i heron rör sig.
+- Inga kundsidor visas (användaren tyckte att Artera syntes för mycket, 2026-11-14). I stället två påhittade butiker i 3D som vi har skissat: **Ljusår** (smycken, mörk, silverringar) och **Tidvatten** (klockor, ljus, dykarklocka). Källsidorna ligger i `skisser/` (publiceras inte, står i `.assetsignore`); skärmdumparna ligger i `img/skisser/`. Märk dem alltid som påhittade.
+- Mobil: menyn har helt täckande bakgrund (Safari iOS 26 färgar annars inte ytan ovanför), papperskorn bara på dator, inget `viewport-fit=cover`.
 - Användaren vill att sidan ser professionell och lite chic ut, inte "AI-gjord" eller kladdig. Gärna personlighet, men sparsamt.
 
 ## Att göra / kvar
-- Foto på teamet (`img/team.jpg` visas automatiskt under Om oss).
+- Foto på teamet: lägg `img/team.jpg` och klistra in raden i kommentaren under "Om oss".
 - Riktigt kundexempel i stället för, eller bredvid, demobutiken.
 - Instagram-länk när användarnamnet är bestämt. Bio-förslag: "Sluta sälja i DMs och på Plick. Skaffa er egen sida. ✨ UF-pris från 300 kr ↓"
-- Kontrollera rättigheter för demobilderna om de inte är egna foton (en bild visar en Rolex-logga).
+- När en kund säger ja till att visas: lägg deras sida bredvid skisserna.
 
 ## Hur användaren vill ha svar
 - Svara på **svenska**, kort och med **enkla steg-för-steg-instruktioner** om var man ska trycka. Användaren sitter ofta på mobilen och skickar skärmdumpar.
