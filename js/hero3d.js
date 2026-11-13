@@ -1,5 +1,5 @@
 // 3D-mobilen i heron.
-// Skärmen visar Arteras riktiga webbshop (img/arbete/artera-mobil.jpg).
+// Skärmen visar skissen Ljusår (img/skisser/ljusar-mobil.jpg), en påhittad smyckesbutik.
 // När man skrollar vrider sig mobilen lite och skärmen skrollar med.
 // Med "Minska rörelse" står den still. Utan WebGL 2 visas en vanlig bild i stället.
 import * as THREE from './vendor/three.module.min.js';
@@ -8,7 +8,7 @@ import { RoomEnvironment } from './vendor/RoomEnvironment.js';
 const stage = document.querySelector('[data-phone-stage]');
 const canvas = stage && stage.querySelector('canvas');
 
-const SCREEN_IMAGE = 'img/arbete/artera-mobil.jpg';
+const SCREEN_IMAGE = 'img/skisser/ljusar-mobil.jpg';
 
 // Mått (godtyckliga enheter, ungefär som en iPhone)
 const W = 1.0, H = 2.06, D = 0.105, R = 0.17, B = 0.028;
@@ -87,8 +87,10 @@ function sampleColor(img, x, y) {
   const g = c.getContext('2d');
   g.drawImage(img, x, y, 1, 1, 0, 0, 1, 1);
   const d = g.getImageData(0, 0, 1, 1).data;
-  return `rgb(${d[0]},${d[1]},${d[2]})`;
+  return [d[0], d[1], d[2]];
 }
+
+const isDark = ([r, g, b]) => (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255 < 0.45;
 
 function rr(g, x, y, w, h, r) {
   g.beginPath();
@@ -101,14 +103,14 @@ function rr(g, x, y, w, h, r) {
 }
 
 // Statusraden (klockan, mottagning, batteri) ritas på en canvas
-function statusBarCanvas(bg) {
+function statusBarCanvas(rgb) {
   const cw = 1024, ch = Math.round(cw * SB / SW);
   const c = document.createElement('canvas');
   c.width = cw; c.height = ch;
   const g = c.getContext('2d');
-  g.fillStyle = bg;
+  g.fillStyle = `rgb(${rgb.join(",")})`;
   g.fillRect(0, 0, cw, ch);
-  const ink = '#1b1814';
+  const ink = isDark(rgb) ? '#f2f0eb' : '#1b1814';
   const cy = ch * 0.56;
   const fs = Math.round(cw * 0.044);
   g.fillStyle = ink;
@@ -225,7 +227,8 @@ async function init() {
   phone.add(screen);
 
   try { await document.fonts.load('600 40px Geist'); } catch (e) { /* systemtypsnitt duger */ }
-  const sbTex = new THREE.CanvasTexture(statusBarCanvas(sampleColor(img, 12, 12)));
+  const screenBg = sampleColor(img, 12, 12);
+  const sbTex = new THREE.CanvasTexture(statusBarCanvas(screenBg));
   sbTex.colorSpace = THREE.SRGBColorSpace;
   sbTex.anisotropy = tex.anisotropy;
   const statusBar = new THREE.Mesh(
@@ -244,7 +247,7 @@ async function init() {
 
   const homeBar = new THREE.Mesh(
     new THREE.ShapeGeometry(roundedRect(0.3, 0.011, 0.0055), 8),
-    new THREE.MeshBasicMaterial({ color: 0x1c1a17, toneMapped: false })
+    new THREE.MeshBasicMaterial({ color: isDark(screenBg) ? 0xe9e7e2 : 0x1c1a17, toneMapped: false })
   );
   homeBar.position.set(0, -SH / 2 + 0.03, z0 + 0.0016);
   phone.add(homeBar);

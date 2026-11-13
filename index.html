@@ -18,7 +18,7 @@
   <meta name="theme-color" content="#f2ede6">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=30">
+  <link rel="stylesheet" href="css/style.css?v=31">
 </head>
 <body>
   <a class="skip" href="#innehall">Hoppa till innehållet</a>
@@ -30,7 +30,7 @@
         <span>Elevora</span>
       </a>
       <nav class="nav" aria-label="Huvudmeny">
-        <a href="#arbete" class="nav__link nav__link--wide">Arbete</a>
+        <a href="#skisser" class="nav__link nav__link--wide">Skisser</a>
         <a href="#priser" class="nav__link">Priser</a>
         <a href="#sa-gar-det-till" class="nav__link nav__link--wide">Så går det till</a>
         <a href="#skiss" class="btn btn--small">Gratis skiss</a>
@@ -42,10 +42,10 @@
 
     <!-- HERO: telefonen ritas i 3D av js/hero3d.js -->
     <section class="hero" aria-labelledby="hero-rubrik">
-      <div class="hero__stage" data-phone-stage role="img" aria-label="En mobil som visar Artera UF:s webbshop, som vi bygger">
+      <div class="hero__stage" data-phone-stage role="img" aria-label="En mobil som visar Ljusår, en påhittad smyckesbutik som vi har skissat">
         <canvas class="hero__canvas"></canvas>
         <div class="hero__fallback">
-          <img src="img/arbete/artera-mobil-topp.jpg" alt="" width="600" height="1298">
+          <img src="img/skisser/ljusar-mobil-topp.jpg" alt="" width="600" height="1298">
         </div>
         <span class="hero__shadow"></span>
       </div>
@@ -67,7 +67,7 @@
           <p class="hero__note">UF-pris från <span data-pris="hemsidaUF">600</span>&nbsp;kr. Ni äger sidan själva.</p>
         </div>
       </div>
-      <p class="hero__caption">På skärmen: Arteras webbshop, som vi bygger just nu.</p>
+      <p class="hero__caption">På skärmen: Ljusår, en smyckesbutik vi har hittat på och skissat.</p>
     </section>
 
     <!-- DM ELLER EGEN SIDA -->
@@ -75,15 +75,15 @@
       <div class="wrap">
         <div class="section__head">
           <h2 id="compare-rubrik">Från DM till <em class="accent">kassa</em>.</h2>
-          <p class="section__lede">När pris, färger och frakt redan står på sidan behöver ingen skriva och fråga. Kunden lägger fatet i varukorgen och betalar direkt.</p>
+          <p class="section__lede">När pris, storlekar och frakt redan står på sidan behöver ingen skriva och fråga. Kunden lägger ringen i varukorgen och betalar direkt.</p>
         </div>
 
         <div class="compare__grid">
           <figure class="panel panel--dm">
             <figcaption class="panel__label">I DM</figcaption>
             <div class="chat" aria-label="Exempel på en DM-tråd">
-              <p class="chat__msg">Hej! Vad kostar det rosa fatet?<time>21:14</time></p>
-              <p class="chat__msg">Finns det kvar?<time>21:15</time></p>
+              <p class="chat__msg">Hej! Vad kostar silverringen?<time>21:14</time></p>
+              <p class="chat__msg">Finns den i storlek 17?<time>21:15</time></p>
               <p class="chat__msg">Vilket nummer ska jag swisha till?<time>21:32</time></p>
               <p class="chat__msg chat__msg--late">Hallå?<time>22:47</time></p>
             </div>
@@ -94,19 +94,19 @@
             <figcaption class="panel__label">På er egen sida</figcaption>
             <div class="checkout" aria-label="Exempel på en kassa">
               <div class="checkout__item">
-                <img src="img/arbete/vika.jpg" alt="Keramikfatet Vika från Artera UF" width="360" height="216" loading="lazy" decoding="async">
+                <img src="img/skisser/ring.jpg" alt="Silverringen Orbit från den påhittade butiken Ljusår" width="288" height="288" loading="lazy" decoding="async">
                 <div>
-                  <p class="checkout__name">Vika</p>
-                  <p class="checkout__meta">Stort vågigt fat, rosa marmor</p>
+                  <p class="checkout__name">Orbit</p>
+                  <p class="checkout__meta">Silver, storlek 17</p>
                 </div>
-                <p class="checkout__price">349 kr</p>
+                <p class="checkout__price">690 kr</p>
               </div>
               <div class="checkout__pay" role="presentation">
                 <span class="is-on">Swish</span>
                 <span>Kort</span>
                 <span>Klarna</span>
               </div>
-              <span class="checkout__btn">Betala 349 kr</span>
+              <span class="checkout__btn">Betala 690 kr</span>
             </div>
             <p class="panel__foot">Kunden betalar direkt. Ni får ordern på mejlen och skickar paketet.</p>
           </figure>
@@ -114,37 +114,36 @@
       </div>
     </section>
 
-    <!-- ARBETE -->
-    <section class="section work" id="arbete" aria-labelledby="work-rubrik">
+    <!-- SKISSER: påhittade butiker, källfilerna ligger i skisser/ -->
+    <section class="section work" id="skisser" aria-labelledby="work-rubrik">
       <div class="wrap">
         <div class="section__head">
-          <h2 id="work-rubrik">Vårt <em class="accent">arbete</em>.</h2>
-          <p class="section__lede">Två sidor vi har byggt i höst. Båda går att öppna och klicka runt i.</p>
+          <h2 id="work-rubrik">Så kan er sida <em class="accent">se ut</em>.</h2>
+          <p class="section__lede">Två märken som vi har hittat på för att visa vad vi kan bygga. Er egen skiss gör vi gratis, med era produkter och er stil.</p>
         </div>
 
         <article class="project">
-          <a class="project__media" href="https://arterauf.2w5gpvjy65.workers.dev" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img class="project__shot" src="img/arbete/artera.jpg" alt="" width="1800" height="1125" loading="lazy" decoding="async">
-            <span class="project__phone"><img src="img/arbete/artera-mobil-topp.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span>
-          </a>
+          <div class="project__media" aria-hidden="true">
+            <img class="project__shot" src="img/skisser/ljusar.jpg" alt="" width="1800" height="1125" loading="lazy" decoding="async">
+            <span class="project__phone"><img src="img/skisser/ljusar-mobil-topp.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span>
+          </div>
           <div class="project__text">
-            <p class="project__tag">Webbshop · Förhandsversion</p>
-            <h3>Artera UF</h3>
-            <p>Fyra tjejer i Mora som gör keramikfat för hand. Faten är 3D-modeller som man kan snurra på, och kassan tar kort, Klarna och Swish via Stripe.</p>
-            <a class="link link--out" href="https://arterauf.2w5gpvjy65.workers.dev" target="_blank" rel="noopener">Öppna Arteras sida<span class="visually-hidden"> (öppnas i ny flik)</span></a>
+            <p class="project__tag">Smycken · Skiss</p>
+            <h3>Ljusår</h3>
+            <p>En mörk smyckesbutik där ringarna är 3D-modeller i silver. Varje ring har pris och storlekar, och kunden betalar med Swish, kort eller Klarna.</p>
           </div>
         </article>
 
         <article class="project project--flip">
-          <a class="project__media" href="https://upptackuf.elevora-uf.workers.dev" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img class="project__shot" src="img/arbete/upptack.jpg" alt="" width="1800" height="1125" loading="lazy" decoding="async">
-            <span class="project__phone"><img src="img/arbete/upptack-mobil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span>
-          </a>
+          <div class="project__media" aria-hidden="true">
+            <img class="project__shot" src="img/skisser/tidvatten.jpg" alt="" width="1800" height="1125" loading="lazy" decoding="async">
+            <span class="project__phone"><img src="img/skisser/tidvatten-mobil-topp.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span>
+          </div>
           <div class="project__text">
-            <p class="project__tag">Förslag, inte deras riktiga sida</p>
-            <h3>Upptäck UF</h3>
-            <p>Ett förslag vi gjorde åt Upptäck UF, som samlar produkter från UF-företag i hela Sverige. Vi byggde ett förstoringsglas i 3D som rör sig över grön filt.</p>
-            <a class="link link--out" href="https://upptackuf.elevora-uf.workers.dev" target="_blank" rel="noopener">Öppna förslaget<span class="visually-hidden"> (öppnas i ny flik)</span></a>
+            <p class="project__tag">Klockor · Skiss</p>
+            <h3>Tidvatten</h3>
+            <p>En ljus klockbutik med en dykarklocka i 3D. Måtten står bredvid klockan, och kunden väljer urtavla innan hen köper.</p>
+            <a class="link" href="#skiss">Få en skiss på er egen sida</a>
           </div>
         </article>
       </div>
@@ -348,7 +347,7 @@
       <p>Elevora UF. Ett UF-företag i Mora, Dalarna.</p>
       <a href="mailto:elevora.uf@gmail.com">elevora.uf@gmail.com</a>
       <nav class="footer__nav" aria-label="Sidfot">
-        <a href="#arbete">Arbete</a>
+        <a href="#skisser">Skisser</a>
         <a href="#priser">Priser</a>
         <a href="#skiss">Gratis skiss</a>
       </nav>
@@ -359,8 +358,8 @@
 
   <script src="js/vendor/gsap.min.js?v=3.13.0" defer></script>
   <script src="js/vendor/ScrollTrigger.min.js?v=3.13.0" defer></script>
-  <script src="js/priser.js?v=30" defer></script>
-  <script src="js/main.js?v=30" defer></script>
-  <script type="module" src="js/hero3d.js?v=30"></script>
+  <script src="js/priser.js?v=31" defer></script>
+  <script src="js/main.js?v=31" defer></script>
+  <script type="module" src="js/hero3d.js?v=31"></script>
 </body>
 </html>

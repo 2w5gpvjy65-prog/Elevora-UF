@@ -6,10 +6,10 @@ Hemsida för vårt UF-företag Elevora. Ren HTML, CSS och JavaScript, inget bygg
 
 | Fil | Vad |
 |---|---|
-| `index.html` | Hela startsidan: hero med 3D-mobil, DM eller egen sida, arbete, priser, ni äger allt, så går det till, om oss, frågor, gratis skiss |
+| `index.html` | Hela startsidan: hero med 3D-mobil, DM eller egen sida, skisser, priser, ni äger allt, så går det till, om oss, frågor, gratis skiss |
 | `js/priser.js` | **Alla priser.** Ändra siffrorna här så byts de överallt på sidan |
 | `css/style.css` | All styling. Färger och typsnitt ligger överst under `:root` |
-| `js/hero3d.js` | 3D-mobilen i heron (three.js). Skärmen visar `img/arbete/artera-mobil.jpg` |
+| `js/hero3d.js` | 3D-mobilen i heron (three.js). Skärmen visar `img/skisser/ljusar-mobil.jpg` |
 | `js/main.js` | Fyller i priser, ger sidhuvudet bakgrund vid skroll, sätter årtal |
 | `js/vendor/` | three.js 0.170.0 och GSAP 3.13.0 (egna kopior, inga externa CDN) |
 | `fonts/` | Geist och Source Serif 4 (egna kopior, inget Google Fonts) |
@@ -24,7 +24,7 @@ Offertformuläret skickas via [Web3Forms](https://web3forms.com). Nyckeln (`acce
 
 ## Bilder
 
-- `img/arbete/`: skärmdumpar av Artera UF (förhandsversion) och vårt förslag till Upptäck UF, tagna från deras sidor. Byt ut dem när sidorna ändras.
+- `img/skisser/`: skärmdumpar av två påhittade butiker, Ljusår (smycken) och Tidvatten (klockor). Källsidorna ligger i `skisser/` och publiceras inte (`.assetsignore`). Starta en lokal server i mappen, öppna `skisser/ljusar.html` eller `skisser/tidvatten.html` och ta nya skärmdumpar om något ändras.
 - `img/og.jpg`: bilden som visas när länken delas.
 - De gamla bilderna (`hero.jpg`, `bygge.jpg`, `produkter/`) används inte längre men ligger kvar.
 
@@ -32,4 +32,4 @@ Offertformuläret skickas via [Web3Forms](https://web3forms.com). Nyckeln (`acce
 
 - [ ] Lägg ett foto på er som `img/team.jpg` och klistra in raden som står i kommentaren under "Om oss" i `index.html`
 - [ ] Lägg till Instagram när användarnamnet är bestämt
-- [ ] Byt "Förhandsversion" på Artera när deras sida är live på egen domän
+- [ ] Visa en riktig kundsida bredvid skisserna när en kund har sagt ja till det
