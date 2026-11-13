@@ -46,7 +46,7 @@ Läs detta först i varje session. Det sammanfattar vad Elevora är, hur vi jobb
   https://github.com/2w5gpvjy65-prog/Elevora-UF/compare/main...claude/elevora-uf-business-jy1hwa
   (Create pull request ×2 → Merge pull request → Confirm merge).
 
-## Design (ny version på gren `ny-sida`, 2026-11-14)
+## Design (ny version, publicerad 2026-11-14 via PR #29 från grenen `ny-sida`)
 - "CodeVibes"-looken: ett 3D-objekt i heron, en stor tung rubrik på två rader, liten meny, en knapp. Heron är en 3D-mobil (three.js, `js/hero3d.js`) som visar skissen Ljusår (mörk smyckesbutik); mobilen vrider sig lugnt och skärmen skrollar med när man skrollar (GSAP ScrollTrigger, ingen låsning). Står still med "Minska rörelse".
 - Varm beige bakgrund (`--bg: #f2ede6`), svart text och knappar, mörk marinblå (`--navy: #18212d`, accent `#1b2a40`) sparsamt. Inget lila, rosa eller orange.
 - Typsnitt: Geist (självhostad) för allt, Source Serif 4 för ett blått accentord per H2 (inte kursiv). Inget Google Fonts.
