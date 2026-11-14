@@ -1,4 +1,4 @@
-/* Skisser: påhittade butiker som vi visar som exempel. Publiceras inte (står i .assetsignore). */
+/* Skissen Ljusår: en påhittad smyckesbutik som vi visar som exempel. Publiceras inte (står i .assetsignore). */
 @font-face { font-family: "Geist"; src: url("../fonts/geist.woff2") format("woff2"); font-weight: 100 900; }
 @font-face { font-family: "Geist Mono"; src: url("geist-mono.woff2") format("woff2"); font-weight: 100 900; }
 
@@ -85,38 +85,3 @@ h1, h2, h3, p { margin: 0; }
 .lj-buy { width: 100%; margin-top: 26px; }
 .lj-pay { display: flex; justify-content: center; gap: 18px; margin-top: 14px; }
 @media (min-width: 900px) { .lj-product { grid-template-columns: 7fr 5fr; gap: 56px; align-items: center; } }
-
-/* ================= TIDVATTEN (klockor, ljus) ================= */
-.tidvatten { background: #e6e7e9; color: #0e1114; }
-.tidvatten .k-mono { color: rgba(14, 17, 20, .55); }
-.tidvatten .k-nav nav a { color: rgba(14, 17, 20, .7); }
-.tidvatten .k-cart b { background: #0e1114; color: #e6e7e9; }
-.tidvatten .k-btn { background: #0e1114; color: #f2f3f4; }
-.tidvatten .k-tag { color: rgba(14, 17, 20, .7); }
-.tidvatten .k-tag i { background: rgba(14, 17, 20, .3); }
-
-.tv-hero { position: relative; display: grid; }
-.tv-hero .k-stage { height: 460px; margin: 0 -22px; }
-.tv-hero__copy { position: relative; z-index: 2; }
-.tv-hero h1 { font-size: 50px; line-height: .95; letter-spacing: -.055em; font-weight: 600; margin: 14px 0 16px; }
-.tv-lead { font-size: 15px; line-height: 1.55; color: rgba(14, 17, 20, .65); max-width: 30em; }
-.tv-cta { display: flex; align-items: center; gap: 22px; margin-top: 24px; }
-.tv-dials { display: flex; gap: 10px; align-items: center; margin-top: 26px; }
-.tv-dials span { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(14, 17, 20, .2); }
-.tv-dials .d1 { background: radial-gradient(circle at 40% 35%, #3f6db0, #142a4f); outline: 1px solid #0e1114; outline-offset: 3px; }
-.tv-dials .d2 { background: radial-gradient(circle at 40% 35%, #5a5e64, #1e2023); }
-.tv-dials .d3 { background: radial-gradient(circle at 40% 35%, #efe6d6, #c9b89a); }
-.tv-dials .k-mono { margin-left: 8px; }
-.tv-tag-a, .tv-tag-b { display: none; } .tv-tag-c { bottom: 12%; left: 6%; }
-.tv-specs { display: grid; grid-template-columns: 1fr 1fr; margin-top: 36px; border-top: 1px solid rgba(14, 17, 20, .14); }
-.tv-specs div { padding: 14px 0; border-bottom: 1px solid rgba(14, 17, 20, .14); }
-.tv-specs p:last-child { font-size: 14px; margin-top: 4px; }
-@media (min-width: 900px) {
-  .tv-hero { grid-template-columns: 5fr 7fr; align-items: center; min-height: 760px; }
-  .tv-tag-a, .tv-tag-b { display: flex; } .tv-tag-a { top: 16%; left: 4%; } .tv-tag-b { top: 46%; right: 8%; } .tv-tag-c { bottom: 14%; left: 8%; }
-  .tv-hero .k-stage { grid-column: 2; grid-row: 1; height: 740px; margin: 0 -48px 0 0; }
-  .tv-hero__copy { grid-column: 1; grid-row: 1; }
-  .tv-hero h1 { font-size: 92px; }
-  .tv-lead { font-size: 17px; }
-  .tv-specs { grid-template-columns: repeat(4, 1fr); grid-column: 1 / -1; grid-row: 2; margin-top: 0; }
-}

@@ -24,7 +24,7 @@ Offertformuläret skickas via [Web3Forms](https://web3forms.com). Nyckeln (`acce
 
 ## Bilder
 
-- `img/skisser/`: skärmdumpar av två påhittade butiker, Ljusår (smycken) och Tidvatten (klockor). Källsidorna ligger i `skisser/` och publiceras inte (`.assetsignore`). Starta en lokal server i mappen, öppna `skisser/ljusar.html` eller `skisser/tidvatten.html` och ta nya skärmdumpar om något ändras.
+- `img/skisser/`: skärmdumpar av två påhittade märken: Ljusår (smyckesbutik, hela sidan) och Dimma (parfym, bara första skärmen). Källsidorna ligger i `skisser/` och publiceras inte (`.assetsignore`). Starta en lokal server i mappen, öppna `skisser/ljusar.html` eller `skisser/dimma.html` och ta nya skärmdumpar om något ändras.
 - `img/og.jpg`: bilden som visas när länken delas.
 - De gamla bilderna (`hero.jpg`, `bygge.jpg`, `produkter/`) används inte längre men ligger kvar.
 
