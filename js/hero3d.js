@@ -178,10 +178,10 @@ async function init() {
 
   /* Material */
   const frameMat = new THREE.MeshPhysicalMaterial({
-    color: 0x2c2d30, metalness: 1, roughness: 0.32, clearcoat: 0.35, clearcoatRoughness: 0.18,
+    color: 0x2a3548, metalness: 1, roughness: 0.32, clearcoat: 0.35, clearcoatRoughness: 0.18,
   });
   const backMat = new THREE.MeshPhysicalMaterial({
-    color: 0x0a0a0b, metalness: 0.2, roughness: 0.3, clearcoat: 1, clearcoatRoughness: 0.06,
+    color: 0x0c1422, metalness: 0.2, roughness: 0.3, clearcoat: 1, clearcoatRoughness: 0.06,
   });
 
   /* Kropp: rundad låda med fasad metallkant */

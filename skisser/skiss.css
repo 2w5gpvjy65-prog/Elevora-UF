@@ -1,6 +1,6 @@
 /* Skissen Ljusår: en påhittad smyckesbutik som vi visar som exempel. Publiceras inte (står i .assetsignore). */
 @font-face { font-family: "Geist"; src: url("../fonts/geist.woff2") format("woff2"); font-weight: 100 900; }
-@font-face { font-family: "Geist Mono"; src: url("geist-mono.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Geist Mono"; src: url("../fonts/geist-mono.woff2") format("woff2"); font-weight: 100 900; }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; }
