@@ -33,8 +33,9 @@ h1, h2, h3, p { margin: 0; }
 .ljusar { background: #08090b; color: #eceae5; }
 .ljusar .k-mono { color: rgba(236, 234, 229, .55); }
 .ljusar .k-nav nav a { color: rgba(236, 234, 229, .7); }
-.ljusar .k-cart b { background: #eceae5; color: #08090b; }
-.ljusar .k-btn { background: #eceae5; color: #08090b; }
+/* Tredje accent: varmt gult, bara på köpknapparna och siffran vid varukorgen */
+.ljusar .k-cart b { background: #f2c14e; color: #08090b; }
+.ljusar .k-btn { background: #f2c14e; color: #08090b; }
 .ljusar .k-tag { color: rgba(236, 234, 229, .7); }
 .ljusar .k-tag i { background: rgba(236, 234, 229, .35); }
 
