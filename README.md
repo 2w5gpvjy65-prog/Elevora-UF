@@ -10,6 +10,8 @@ Hemsida för vårt UF-företag Elevora. Ren HTML, CSS och JavaScript, inget bygg
 | `js/priser.js` | **Alla priser.** Ändra siffrorna här så byts de överallt på sidan |
 | `css/style.css` | All styling. Färger och typsnitt ligger överst under `:root` |
 | `js/hero3d.js` | 3D-mobilen i heron (three.js). Skärmen visar `img/skisser/ljusar-mobil.jpg` |
+| `js/dimma3d.js` | Scenen till skissen Dimma (parfymflaskan). Används av `skisser/dimma.html` och av `js/skiss3d.js` |
+| `js/skiss3d.js` | Dimma-kortet på startsidan: flaskan i 3D som vrider sig när man skrollar |
 | `js/main.js` | Fyller i priser, ger sidhuvudet bakgrund vid skroll, sätter årtal |
 | `js/vendor/` | three.js 0.170.0 och GSAP 3.13.0 (egna kopior, inga externa CDN) |
 | `fonts/` | Geist och Source Serif 4 (egna kopior, inget Google Fonts) |
@@ -24,7 +26,7 @@ Offertformuläret skickas via [Web3Forms](https://web3forms.com). Nyckeln (`acce
 
 ## Bilder
 
-- `img/skisser/`: skärmdumpar av två påhittade märken: Ljusår (smyckesbutik, hela sidan) och Dimma (parfym, bara första skärmen). Källsidorna ligger i `skisser/` och publiceras inte (`.assetsignore`). Starta en lokal server i mappen, öppna `skisser/ljusar.html` eller `skisser/dimma.html` och ta nya skärmdumpar om något ändras.
+- `img/skisser/`: skärmdumpar av två påhittade märken: Ljusår (smyckesbutik, hela sidan) och Dimma (parfym, bara första skärmen). Källsidorna ligger i `skisser/` och publiceras inte (`.assetsignore`). Starta en lokal server i mappen, öppna `skisser/ljusar.html` eller `skisser/dimma.html` och ta nya skärmdumpar om något ändras. För Dimma behövs också `dimma-ui.png` och `dimma-mobil-ui.png`: samma sida utan canvas och med genomskinlig bakgrund (1440 × 900 i skala 1,25 och 390 × 844 i skala 600/390).
 - `img/og.jpg`: bilden som visas när länken delas.
 - De gamla bilderna (`hero.jpg`, `bygge.jpg`, `produkter/`) används inte längre men ligger kvar.
 

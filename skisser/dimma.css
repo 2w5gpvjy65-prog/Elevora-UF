@@ -1,6 +1,6 @@
 /* Skiss: Dimma, en påhittad parfym. Bara heron. Publiceras inte (står i .assetsignore). */
 @font-face { font-family: "Geist"; src: url("../fonts/geist.woff2") format("woff2"); font-weight: 100 900; }
-@font-face { font-family: "Geist Mono"; src: url("geist-mono.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Geist Mono"; src: url("../fonts/geist-mono.woff2") format("woff2"); font-weight: 100 900; }
 
 :root { --mist: #e3e5e0; --pine: #16241b; --pine-2: rgba(22, 36, 27, .66); }
 * { box-sizing: border-box; }
