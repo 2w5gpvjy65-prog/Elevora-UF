@@ -11,7 +11,7 @@ Hemsida för vårt UF-företag Elevora. Ren HTML, CSS och JavaScript, inget bygg
 | `css/style.css` | All styling. Färger och typsnitt ligger överst under `:root` |
 | `js/hero3d.js` | 3D-mobilen i heron (three.js). Skärmen visar `img/skisser/ljusar-mobil.jpg` |
 | `js/dimma3d.js` | Scenen till skissen Dimma (parfymflaskan). Används av `skisser/dimma.html` och av `js/skiss3d.js` |
-| `js/skiss3d.js` | Dimma-kortet på startsidan: flaskan i 3D som vrider sig när man skrollar |
+| `js/skiss3d.js` | Dimma-kortet på startsidan: flaskan i 3D, ljuset flyttas när man skrollar |
 | `js/main.js` | Fyller i priser, ger sidhuvudet bakgrund vid skroll, sätter årtal |
 | `js/vendor/` | three.js 0.170.0 och GSAP 3.13.0 (egna kopior, inga externa CDN) |
 | `fonts/` | Geist och Source Serif 4 (egna kopior, inget Google Fonts) |

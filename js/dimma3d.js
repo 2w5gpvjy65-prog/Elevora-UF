@@ -77,7 +77,7 @@ function bottle() {
   grp.add(collar);
 
   const cap = new THREE.Mesh(capGeo(), new THREE.MeshPhysicalMaterial({
-    color: 0x121412, roughness: 0.42, metalness: 0, clearcoat: 0.35, clearcoatRoughness: 0.35,
+    color: 0x121412, roughness: 0.42, metalness: 0, clearcoat: 0.35, clearcoatRoughness: 0.35, envMapIntensity: 0.22,
   }));
   cap.position.y = BODY + 0.155;
   grp.add(cap);
@@ -201,6 +201,26 @@ function backdropTexture(w, h, dpr, L) {
   return t;
 }
 
+/* ---------- Studion som glaset speglar ----------
+   Ett vanligt fotorum plus två höga smala ljuslådor, som i en parfymbild.
+   De ger glaset skarpa ljusa strimmor som glider över flaskan när ljuset flyttas. I viloläget står strimmorna på var sin sida om etiketten. */
+const STRIPS = [
+  { az: 1.15, r: 4.2, w: 1.5, h: 9, y: 1.4, power: 60 }, // huvudljuset snett från höger: bred strimma bredvid etiketten
+  { az: -1.75, r: 4.2, w: 0.45, h: 9, y: 1.4, power: 24 }, // smal kantlinje till vänster
+];
+function studio() {
+  const env = new RoomEnvironment();
+  for (const s of STRIPS) {
+    const mat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    mat.color.setScalar(s.power);
+    const strip = new THREE.Mesh(new THREE.PlaneGeometry(s.w, s.h), mat);
+    strip.position.set(Math.sin(s.az) * s.r, s.y, Math.cos(s.az) * s.r);
+    strip.lookAt(0, s.y, 0);
+    env.add(strip);
+  }
+  return env;
+}
+
 /* ---------- Typsnitt ---------- */
 async function fonts() {
   // Startsidan har inget Geist Mono i sin CSS, så det läggs till här när det behövs
@@ -231,7 +251,7 @@ export async function createDimma(canvas, w, h, scale) {
 
   const scene = new THREE.Scene();
   const pm = new THREE.PMREMGenerator(renderer);
-  scene.environment = pm.fromScene(new RoomEnvironment(), 0.03).texture;
+  scene.environment = pm.fromScene(studio(), 0.03).texture;
   pm.dispose();
   const key = new THREE.DirectionalLight(0xfff4e6, 2.2); key.position.set(-3, 5, -2); scene.add(key);
   const fill = new THREE.DirectionalLight(0xe8f0ff, 0.6); fill.position.set(3, 2, 4); scene.add(fill);
@@ -278,11 +298,24 @@ export async function createDimma(canvas, w, h, scale) {
     new THREE.MeshBasicMaterial({ map: floorTexture(), transparent: true, depthWrite: false, toneMapped: false }));
   floor.rotation.x = -Math.PI / 2;
   floor.position.y = 0.002;
-  scene.add(floor);
+  const floorRig = new THREE.Group();
+  floorRig.add(floor);
+  scene.add(floorRig);
+
+  // Ljuset: miljön (reflexerna i glaset), lamporna och skuggan med ljusfläcken på golvet vrids
+  // tillsammans runt flaskan, som när en studiolampa flyttas. Flaskan står still. 0 = som på skärmdumparna.
+  const Y = new THREE.Vector3(0, 1, 0);
+  const keyAt = key.position.clone(), fillAt = fill.position.clone();
+  function setLight(a) {
+    scene.environmentRotation.set(0, a, 0);
+    key.position.copy(keyAt).applyAxisAngle(Y, a);
+    fill.position.copy(fillAt).applyAxisAngle(Y, a);
+    floorRig.rotation.y = a;
+  }
 
   return {
     setScale,
-    setAngle(a) { obj.rotation.y = a; },
+    setLight,
     render() { renderer.render(scene, cam); },
   };
 }
